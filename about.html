@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trosyn AI - About</title>
+<meta name="description" content="Learn why Trosyn AI exists, what it is building, and how the company approaches private AI infrastructure for real operating environments."/>
+<meta name="theme-color" content="#006054"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green:#006054;--navy:#14283C;--coral:#DC503C;--gold:#F0B464;
+  --teal-lt:#DCF0F0;--teal-md:#3C6464;--white:#F0F0F0;--pure:#FFFFFF;
+  --soft-white:#f5f6f4;--soft-white-alt:#eef3f1;--cream:#f8f4ec;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--green);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.35;}
+.topo{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.05;background-image:repeating-radial-gradient(ellipse at 20% 50%,transparent 0,transparent 40px,#DCF0F0 41px,transparent 42px),repeating-radial-gradient(ellipse at 80% 20%,transparent 0,transparent 60px,#DCF0F0 61px,transparent 62px);}
+.container{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 28px;}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,240,240,0.08);padding:0 28px;}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--pure);white-space:nowrap;}
+.nav-logo-wordmark{display:inline-flex;align-items:baseline;gap:3px;font-family:'DM Sans',sans-serif;font-size:1.45rem;font-weight:600;letter-spacing:-0.055em;line-height:1;color:var(--pure);}
+.nav-logo-ai{font-weight:500;letter-spacing:-0.065em;opacity:0.94;}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none;}
+.nav-links a{color:var(--white);text-decoration:none;font-size:0.84rem;font-weight:500;padding:7px 16px;border-radius:4px;opacity:0.75;transition:opacity 0.2s,background 0.2s;}
+.nav-links a:hover{opacity:1;background:rgba(220,240,240,0.08);}
+.nav-links a.active{opacity:1;color:var(--pure);}
+.nav-cta{background:#e05a3a!important;color:#ffffff!important;opacity:1!important;font-weight:700!important;border-radius:6px!important;padding:10px 22px!important;}
+.nav-cta:hover{background:#c44030!important;}
+@media(max-width:860px){
+  nav{padding:0 16px;}
+  .nav-inner{height:auto;min-height:68px;padding:10px 0;align-items:flex-start;flex-direction:column;gap:10px;}
+  .nav-links{width:100%;overflow-x:auto;white-space:nowrap;gap:6px;padding-bottom:2px;}
+  .nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;font-size:0.82rem;}
+  .nav-cta{padding:10px 18px!important;}
+}
+
+.page{padding:56px 0 0;background:var(--soft-white-alt);color:var(--navy);border-top:1px solid rgba(220,240,240,0.1);}
+.page-header{background:linear-gradient(145deg,#00584f 0%,#003f3a 70%,#003536 100%);border:1px solid rgba(220,240,240,0.12);border-radius:18px;box-shadow:0 14px 28px rgba(7,35,36,0.22);padding:clamp(24px,3.8vw,36px);margin-bottom:44px;}
+.section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#c9eee7;margin-bottom:14px;display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;border:1px solid rgba(220,240,240,0.34);background:rgba(228,248,243,0.08);}
+.page-title{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.8rem,6vw,4.8rem);line-height:1.0;letter-spacing:-0.03em;color:var(--pure);margin-bottom:18px;max-width:11ch;}
+.page-sub{font-size:1rem;color:rgba(228,246,242,0.9);max-width:640px;line-height:1.7;font-weight:300;}
+
+.divider{display:none;}
+.about-hero{padding:0 0 24px;background:var(--soft-white-alt);}
+.about-band{padding:84px 0;}
+#about-what,#about-founder{background:var(--soft-white);}
+#about-why,#about-vision{background:var(--soft-white-alt);}
+.about-vision-wrap{padding-bottom:72px;}
+.content-label{font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:14px;}
+.content-title{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;line-height:1.12;letter-spacing:-0.02em;color:var(--navy);margin-bottom:18px;max-width:12ch;}
+.content-copy{font-size:0.96rem;color:#4c6073;line-height:1.82;max-width:680px;}
+.content-copy + .content-copy{margin-top:14px;}
+.two-col{display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:start;}
+.two-col-wide{display:grid;grid-template-columns:3fr 2fr;gap:48px;align-items:start;}
+.panel{background:#ffffff;border:1px solid rgba(0,96,84,0.16);border-radius:16px;padding:28px;box-shadow:0 14px 24px rgba(20,40,60,0.05);}
+.panel-soft{background:linear-gradient(160deg,#f8fbfa 0%,#f0f5f3 100%);}
+.summary-list{list-style:none;display:grid;gap:12px;}
+.summary-list li{padding-left:18px;position:relative;font-size:0.87rem;color:#4f6376;line-height:1.6;}
+.summary-list li::before{content:'•';position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1;top:0.1rem;}
+.constraints-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px;}
+.constraint-card{background:#f8fbfa;border:1px solid rgba(0,96,84,0.14);border-radius:12px;padding:20px 18px;}
+.constraint-icon{font-size:1.2rem;margin-bottom:12px;}
+.constraint-title{font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px;}
+.constraint-copy{font-size:0.83rem;color:#506375;line-height:1.65;}
+.founder-name{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.founder-role{font-size:0.74rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.founder-copy{font-size:0.9rem;color:#506375;line-height:1.78;}
+.founder-note{background:#fff9ee;border:1px solid rgba(240,180,100,0.24);border-radius:14px;padding:22px;}
+.founder-note-title{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#c88f46;margin-bottom:10px;}
+.founder-note-copy{font-size:0.84rem;color:#586c7a;line-height:1.68;}
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.vision-card,.stage-card{border-radius:16px;padding:28px 26px;}
+.vision-card{background:linear-gradient(145deg,#00584f 0%,#003f3a 70%,#003536 100%);border:1px solid rgba(220,240,240,0.12);color:var(--pure);box-shadow:0 14px 28px rgba(7,35,36,0.18);}
+.vision-card .content-label{color:#c9eee7;}
+.vision-card .content-title{color:var(--pure);max-width:9ch;}
+.vision-card .content-copy{color:rgba(228,246,242,0.9);}
+.stage-card{background:#fbf8f1;border:1px solid rgba(240,180,100,0.22);}
+.stage-card .content-title{max-width:10ch;}
+.stage-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,96,84,0.08);border:1px solid rgba(0,96,84,0.14);border-radius:999px;padding:8px 12px;font-size:0.72rem;color:var(--green);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:18px;}
+
+footer{background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);border-top:1px solid rgba(220,240,240,0.14);padding:56px 0 28px;position:relative;z-index:1;margin-top:72px;}
+.footer-wrap{display:grid;gap:30px;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;padding-bottom:30px;border-bottom:1px solid rgba(220,240,240,0.14);}
+.footer-brand-logo{height:32px;width:auto;display:block;}
+.footer-brand-copy{margin-top:14px;max-width:340px;color:rgba(220,240,240,0.74);font-size:0.94rem;line-height:1.75;}
+.footer-col-title{color:rgba(220,240,240,0.66);font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+.footer-col a{display:block;color:rgba(240,240,240,0.88);text-decoration:none;font-size:0.96rem;margin-bottom:9px;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:rgba(220,240,240,0.56);font-size:0.82rem;}
+.footer-bottom-links{display:flex;gap:12px;flex-wrap:wrap;}
+.footer-bottom-links a{color:rgba(220,240,240,0.58);text-decoration:none;}
+.footer-bottom-links a:hover{color:var(--gold);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.page-header,.panel,.vision-card,.stage-card,.constraint-card{animation:fadeUp 0.6s ease both;}
+
+@media(max-width:760px){
+  .two-col,.two-col-wide,.vision-grid,.constraints-grid{grid-template-columns:1fr;}
+  .panel,.vision-card,.stage-card,.founder-note{padding:24px 20px;}
+  .page-title{max-width:none;}
+  .footer-top{grid-template-columns:1fr;gap:24px;}
+  .footer-brand-copy{max-width:none;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .footer-bottom-links{gap:8px 12px;}
+}
+</style>
+
+<script defer src="lib/consent/consentManager.js"></script>
+<script defer src="lib/analytics/clarityLoader.js"></script>
+<script defer src="components/ConsentBanner.js"></script>
+</head>
+<body>
+<div class="topo"></div>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Trosyn AI home">
+      <span class="nav-logo-wordmark"><span>trosyn</span><span class="nav-logo-ai">AI</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Product</a></li>
+      <li><a href="investors.html">Investors</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="waitlist.html" class="nav-cta">Join the Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+  <section class="about-hero">
+    <div class="container">
+      <div class="page-header">
+        <p class="section-label">About Trosyn AI</p>
+        <h1 class="page-title">Building AI That Works Where Others Don't</h1>
+        <p class="page-sub">Trosyn AI is an offline-first system designed for businesses that need reliable, secure AI tools without depending on constant internet access.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="about-what" class="about-band">
+    <div class="container">
+      <div class="two-col-wide">
+        <div>
+          <p class="content-label">What Trosyn AI Is</p>
+          <h2 class="content-title">A locally deployed AI system for internal business work.</h2>
+          <p class="content-copy">Trosyn AI is a locally deployed AI system that helps businesses generate documents, automate workflows, and manage internal processes. It runs on company infrastructure, keeping data within the organization while remaining usable even in low-connectivity environments.</p>
+        </div>
+        <aside class="panel panel-soft">
+          <p class="content-label">At a Glance</p>
+          <ul class="summary-list">
+            <li>Runs on company-controlled infrastructure</li>
+            <li>Built for document processing and internal workflows</li>
+            <li>Designed for HR, finance, legal, and operational support</li>
+            <li>Currently in controlled testing with waitlist-based access</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="about-why" class="about-band">
+    <div class="container">
+      <p class="content-label">Why It Exists</p>
+      <h2 class="content-title">AI adoption breaks when the operating assumptions are wrong.</h2>
+      <p class="content-copy">Many AI tools assume constant internet access, cloud infrastructure, and external data processing. In many real-world environments, especially across Africa, those assumptions don't hold.</p>
+      <div class="constraints-grid">
+        <div class="constraint-card">
+          <div class="constraint-icon">📡</div>
+          <div class="constraint-title">Unreliable internet</div>
+          <div class="constraint-copy">If connectivity drops, cloud-dependent tools become unavailable at the exact moment teams still need to work.</div>
+        </div>
+        <div class="constraint-card">
+          <div class="constraint-icon">🔒</div>
+          <div class="constraint-title">Data privacy concerns</div>
+          <div class="constraint-copy">Sensitive business documents cannot always be sent outside the organization without increasing legal or operational risk.</div>
+        </div>
+        <div class="constraint-card">
+          <div class="constraint-icon">⚙️</div>
+          <div class="constraint-title">Dependency on external systems</div>
+          <div class="constraint-copy">When the core workflow depends on third-party infrastructure, the business loses control over reliability, access, and data boundaries.</div>
+        </div>
+      </div>
+      <p class="content-copy" style="margin-top:24px;">Trosyn AI was built to address these constraints by bringing AI directly into the organization, where it can operate reliably and securely.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="about-founder" class="about-band">
+    <div class="container">
+      <div class="two-col">
+        <div class="panel">
+          <p class="content-label">Founder</p>
+          <div class="founder-name">Ivan Santongo</div>
+          <div class="founder-role">Founder</div>
+          <p class="founder-copy">Founder and product builder with a background in UX/UI design, focused on creating practical systems that solve real business problems. Trosyn AI is being developed from direct experience with infrastructure limitations, data sensitivity, and the need for tools that work in real operating environments.</p>
+        </div>
+        <div class="founder-note">
+          <div class="founder-note-title">Founder Context</div>
+          <p class="founder-note-copy">The company is being built with an early-stage, product-first approach: controlled access, direct feedback from pilot users, and a focus on deployment quality before broader release.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="about-vision" class="about-band about-vision-wrap">
+    <div class="container">
+      <div class="vision-grid">
+        <div class="vision-card">
+          <p class="content-label">Vision</p>
+          <h2 class="content-title">AI should work where businesses actually operate.</h2>
+          <p class="content-copy">We are building AI systems that respect data ownership, operate locally, and remove dependence on external or unreliable infrastructure.</p>
+        </div>
+        <div class="stage-card">
+          <p class="content-label">Current Stage</p>
+          <h2 class="content-title">Controlled testing before broader release.</h2>
+          <p class="content-copy">Trosyn AI is currently in a controlled testing phase, working with early users to validate real-world use cases before broader release.</p>
+          <div class="stage-badge">Early users · Waitlist · Pilot testing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div class="footer-top">
+        <div>
+          <img class="footer-brand-logo" src="Artboard 25.svg" alt="trosynAI"/>
+          <p class="footer-brand-copy">The AI operating system for companies where data cannot leave the building.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a href="waitlist.html">Pricing</a>
+          <a href="index.html#features">Features</a>
+          <a href="waitlist.html">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a href="about.html">About Us</a>
+          <a href="blog/index.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Investors</div>
+          <a href="investors.html">Overview</a>
+          <a href="waitlist.html">Waitlist</a>
+          <a href="contact.html?type=investor">Request Demo</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trosyn AI. All rights reserved.</span>
+        <span class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms</a>
+          <a href="#" id="privacy-settings-link">Privacy Settings</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

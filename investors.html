@@ -4,12 +4,16 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Trosyn AI – Investor Overview</title>
-<meta name="description" content="Trosyn AI investor overview — offline-first B2B AI for African businesses. Raising $600K seed round."/>
+<meta name="description" content="Trosyn AI investor overview — private AI infrastructure for document-heavy businesses, starting in constrained markets and expanding globally."/>
+<meta name="theme-color" content="#006054"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --green:#006054;--navy:#14283C;--coral:#DC503C;--gold:#F0B464;
   --teal-lt:#DCF0F0;--teal-md:#3C6464;--white:#F0F0F0;--pure:#FFFFFF;
+  --soft-white:#f5f6f4;--soft-white-alt:#eef3f1;--cream:#f8f4ec;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -31,8 +35,15 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .nav-links a{color:var(--white);text-decoration:none;font-size:0.84rem;font-weight:500;padding:7px 16px;border-radius:4px;opacity:0.75;transition:opacity 0.2s,background 0.2s;}
 .nav-links a:hover{opacity:1;background:rgba(220,240,240,0.08);}
 .nav-links a.active{opacity:1;color:var(--pure);}
-.nav-cta{background:var(--coral)!important;color:var(--pure)!important;opacity:1!important;font-weight:600!important;}
+.nav-cta{background:#e05a3a!important;color:#ffffff!important;opacity:1!important;font-weight:700!important;border-radius:6px!important;padding:10px 22px!important;}
 .nav-cta:hover{background:#c44030!important;}
+@media(max-width:860px){
+  nav{padding:0 16px;}
+  .nav-inner{height:auto;min-height:68px;padding:10px 0;align-items:flex-start;flex-direction:column;gap:10px;}
+  .nav-links{width:100%;overflow-x:auto;white-space:nowrap;gap:6px;padding-bottom:2px;}
+  .nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;font-size:0.82rem;}
+  .nav-cta{padding:10px 18px!important;}
+}
 
 /* SHARED */
 .section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--coral);margin-bottom:14px;}
@@ -64,7 +75,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .card-body{font-size:0.83rem;color:var(--teal-lt);line-height:1.7;opacity:0.85;}
 
 /* STAT CALLOUTS */
-.stat-block{padding:28px 0;border-bottom:1px solid rgba(220,240,240,0.07);}
+.stat-block{padding:28px 0;border-bottom:1px solid rgba(220,240,240,0.07);transition:transform 0.45s cubic-bezier(0.22,1,0.36,1),border-color 0.45s ease,opacity 0.45s ease;transform-origin:left center;}
+.stat-block.is-active{transform:translateY(-2px);border-color:rgba(240,180,100,0.18);}
 .stat-block:last-child{border-bottom:none;padding-bottom:0;}
 .stat-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums lining-nums;}
 .stat-desc{font-size:0.83rem;color:var(--teal-lt);line-height:1.6;opacity:0.85;}
@@ -87,7 +99,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .market-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;}
 .market-card{background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.07);border-radius:8px;padding:24px;}
 .market-card-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-.market-row{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(220,240,240,0.06);}
+.market-row{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(220,240,240,0.06);transition:transform 0.45s cubic-bezier(0.22,1,0.36,1),border-color 0.45s ease,opacity 0.45s ease;}
+.market-row.is-active{transform:translateX(4px);border-color:rgba(240,180,100,0.18);}
 .market-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
 .market-num{font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem;color:var(--gold);line-height:1;flex-shrink:0;font-variant-numeric:tabular-nums lining-nums;}
 .market-desc{font-size:0.77rem;color:var(--teal-lt);opacity:0.8;line-height:1.4;}
@@ -99,6 +112,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .rm-item{display:flex;gap:24px;margin-bottom:36px;position:relative;opacity:0.3;transform:translateY(26px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
 .rm-item.is-visible{opacity:0.78;transform:translateY(0);}
 .rm-item.is-active{opacity:1;}
+.rm-item.is-past{opacity:0.62;}
 .rm-dot{width:40px;height:40px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:0.88rem;color:var(--gold);flex-shrink:0;z-index:1;transition:border-color 0.35s,box-shadow 0.35s,transform 0.35s,background 0.35s,color 0.35s;}
 .rm-dot.coral{border-color:var(--coral);color:var(--coral);}
 .rm-dot.teal{border-color:var(--teal-md);color:var(--teal-lt);}
@@ -109,6 +123,21 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .rm-item.is-active .rm-dot{transform:scale(1.04);box-shadow:0 0 0 7px rgba(240,180,100,0.08);}
 .rm-item.is-active .rm-dot.coral{box-shadow:0 0 0 7px rgba(220,80,60,0.1);}
 .rm-item.is-active .rm-dot.teal{box-shadow:0 0 0 7px rgba(220,240,240,0.05);}
+.rm-item.is-active .rm-dot{
+  animation:rmGlowPulse 1.6s ease-in-out infinite;
+}
+.rm-item.is-past .rm-dot{
+  transform:scale(0.96);
+  box-shadow:none;
+}
+.rm-item.is-past .rm-content{
+  opacity:0.78;
+}
+@keyframes rmGlowPulse{
+  0%{box-shadow:0 0 0 0 rgba(240,180,100,0.2);}
+  70%{box-shadow:0 0 0 12px rgba(240,180,100,0);}
+  100%{box-shadow:0 0 0 0 rgba(240,180,100,0);}
+}
 .rm-phase{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
 .rm-phase.coral{color:var(--coral);}
 .rm-phase.teal{color:var(--teal-lt);opacity:0.65;}
@@ -121,15 +150,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .rm-points.dim li{opacity:0.38;}
 
 /* PRICING TABLE */
-.pricing-table{margin-top:32px;border-radius:8px;overflow:hidden;border:1px solid rgba(220,240,240,0.07);}
-.pricing-header{display:grid;grid-template-columns:2fr 1.5fr 2fr;background:rgba(20,40,60,0.7);padding:12px 20px;font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-md);}
-.pricing-row{display:grid;grid-template-columns:2fr 1.5fr 2fr;padding:16px 20px;border-top:1px solid rgba(220,240,240,0.06);background:rgba(20,40,60,0.3);align-items:center;transition:background 0.2s;}
-.pricing-row:hover{background:rgba(20,40,60,0.6);}
-.pricing-row.highlight{background:rgba(240,180,100,0.07);border-color:rgba(240,180,100,0.12);}
-.pricing-tier{font-weight:600;font-size:0.88rem;color:var(--pure);}
-.pricing-tier-badge{display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(220,80,60,0.15);color:var(--coral);padding:2px 8px;border-radius:100px;margin-left:8px;}
-.pricing-price{font-family:'Fraunces',serif;font-weight:700;font-size:1rem;color:var(--gold);}
-.pricing-target{font-size:0.78rem;color:var(--teal-lt);opacity:0.75;}
+.pricing-table{margin-top:36px;border-radius:18px;overflow:hidden;border:1px solid rgba(220,240,240,0.08);background:rgba(20,40,60,0.18);box-shadow:0 16px 34px rgba(10,30,35,0.12);}
+.pricing-header{display:grid;grid-template-columns:2fr 1.5fr 2fr;align-items:center;background:rgba(20,40,60,0.78);padding:18px 26px;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-md);}
+.pricing-row{display:grid;grid-template-columns:2fr 1.5fr 2fr;padding:26px 26px;border-top:1px solid rgba(220,240,240,0.08);background:rgba(20,40,60,0.34);align-items:center;transition:background 0.2s,transform 0.2s;}
+.pricing-row:hover{background:rgba(20,40,60,0.52);}
+.pricing-row.highlight{background:linear-gradient(90deg,rgba(240,180,100,0.12) 0%,rgba(220,80,60,0.06) 100%);border-color:rgba(240,180,100,0.16);}
+.pricing-tier{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-weight:700;font-size:1rem;line-height:1.35;color:var(--pure);}
+.pricing-tier-text{display:block;}
+.pricing-tier-badge{display:inline-flex;align-items:center;justify-content:center;font-size:0.66rem;font-weight:800;letter-spacing:0.12em;line-height:1;text-transform:uppercase;background:rgba(220,80,60,0.12);color:var(--coral);padding:10px 16px;border-radius:999px;border:1px solid rgba(220,80,60,0.14);white-space:nowrap;box-shadow:0 6px 16px rgba(220,80,60,0.08);}
+.pricing-price{font-family:'Fraunces',serif;font-weight:700;font-size:1.18rem;line-height:1;color:var(--gold);}
+.pricing-target{font-size:0.92rem;line-height:1.55;color:var(--teal-lt);opacity:0.82;}
 
 /* PROJECTIONS TABLE */
 .proj-table{margin-top:28px;border-radius:8px;overflow:hidden;border:1px solid rgba(220,240,240,0.07);}
@@ -141,12 +171,14 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 /* TRACTION */
 .traction-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;}
-.traction-card{background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.07);border-radius:8px;padding:24px 20px;}
+.traction-card{background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.07);border-radius:8px;padding:24px 20px;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),background 0.5s ease,border-color 0.5s ease,box-shadow 0.5s ease;}
+.traction-card.is-active{background:rgba(20,40,60,0.58);border-color:rgba(220,80,60,0.18);transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,0,0,0.12);}
 .traction-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:var(--coral);line-height:1;margin-bottom:8px;font-variant-numeric:tabular-nums lining-nums;}
 .traction-label{font-size:0.82rem;color:var(--teal-lt);line-height:1.5;opacity:0.85;}
 
 /* FUNDING BLOCK */
-.funding-block{background:rgba(20,40,60,0.5);border:1px solid rgba(220,240,240,0.08);border-radius:12px;padding:48px;text-align:center;position:relative;overflow:hidden;}
+.funding-block{background:rgba(20,40,60,0.5);border:1px solid rgba(220,240,240,0.08);border-radius:12px;padding:48px;text-align:center;position:relative;overflow:hidden;transition:border-color 0.5s ease,box-shadow 0.5s ease,transform 0.5s cubic-bezier(0.22,1,0.36,1);}
+.funding-block.is-active{border-color:rgba(220,80,60,0.2);box-shadow:0 24px 48px rgba(0,0,0,0.12);transform:translateY(-2px);}
 .funding-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(220,80,60,0.07) 0%,transparent 70%);}
 .funding-amount{font-family:'Fraunces',serif;font-size:clamp(4rem,9vw,6.5rem);font-weight:900;color:var(--coral);line-height:1;letter-spacing:-0.04em;position:relative;font-variant-numeric:tabular-nums lining-nums;}
 .funding-label{font-size:0.83rem;color:var(--teal-lt);margin-top:6px;opacity:0.65;}
@@ -165,23 +197,415 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .risk-label{background:rgba(20,40,60,0.5);padding:18px 20px;font-size:0.82rem;font-weight:600;color:var(--coral);display:flex;align-items:flex-start;}
 .risk-mitigation{padding:18px 20px;font-size:0.82rem;color:var(--teal-lt);line-height:1.6;opacity:0.85;}
 
+/* HARD QUESTIONS */
+.faq-shell{padding-top:6px;}
+.faq-intro{max-width:720px;margin-bottom:42px;}
+.faq-intro .section-title{max-width:10ch;margin-bottom:18px;}
+.faq-intro .section-body{max-width:640px;font-size:1rem;}
+.faq-list{border-top:1px solid rgba(220,240,240,0.1);}
+.faq-item{border-bottom:1px solid rgba(220,240,240,0.1);transition:border-color 0.35s ease;}
+.faq-item.is-open{border-bottom-color:rgba(220,80,60,0.22);}
+.faq-question{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:transparent;border:none;color:inherit;padding:28px 0;text-align:left;cursor:pointer;font:inherit;}
+.faq-question-text{font-size:1.05rem;font-weight:700;line-height:1.4;color:var(--pure);padding-right:12px;}
+.faq-toggle{width:56px;height:56px;border-radius:50%;border:2px solid rgba(220,240,240,0.2);display:inline-flex;align-items:center;justify-content:center;position:relative;transition:background 0.35s ease,border-color 0.35s ease,transform 0.35s ease,box-shadow 0.35s ease;}
+.faq-toggle::before,.faq-toggle::after{content:'';position:absolute;width:18px;height:2px;border-radius:999px;background:var(--teal-lt);transition:transform 0.35s ease,background 0.35s ease,opacity 0.35s ease;}
+.faq-toggle::after{transform:rotate(90deg);}
+.faq-question:hover .faq-toggle{border-color:rgba(240,180,100,0.32);transform:translateY(-1px);}
+.faq-item.is-open .faq-toggle{background:var(--coral);border-color:rgba(240,180,100,0.42);box-shadow:0 12px 28px rgba(220,80,60,0.2);}
+.faq-item.is-open .faq-toggle::before,.faq-item.is-open .faq-toggle::after{background:var(--pure);}
+.faq-item.is-open .faq-toggle::before{transform:rotate(45deg);}
+.faq-item.is-open .faq-toggle::after{transform:rotate(-45deg);}
+.faq-answer-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.45s cubic-bezier(0.22,1,0.36,1);}
+.faq-item.is-open .faq-answer-wrap{grid-template-rows:1fr;}
+.faq-answer{overflow:hidden;}
+.faq-answer-inner{padding:0 92px 34px 0;max-width:1100px;}
+.faq-answer-inner p{font-size:0.95rem;color:var(--teal-lt);line-height:1.9;opacity:0.92;margin-bottom:18px;}
+.faq-answer-inner p:last-child{margin-bottom:0;}
+
 /* CTA */
-.inv-cta{background:rgba(20,40,60,0.45);border:1px solid rgba(220,240,240,0.07);border-radius:12px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;}
-.inv-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(240,180,100,0.05) 0%,transparent 70%);}
+.inv-cta{background:linear-gradient(150deg,#2f725d 0%,#245f4f 62%,#1d4f43 100%);border:1px solid rgba(220,240,240,0.16);border-radius:12px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;box-shadow:0 24px 46px rgba(7,35,36,0.26);}
+.inv-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(240,180,100,0.18) 0%,transparent 72%);}
 .inv-cta-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--pure);letter-spacing:-0.02em;margin-bottom:14px;position:relative;}
 .inv-cta-title em{color:var(--gold);font-style:italic;}
-.inv-cta-body{font-size:0.9rem;color:var(--teal-lt);opacity:0.75;margin-bottom:32px;max-width:420px;margin-left:auto;margin-right:auto;position:relative;}
+.inv-cta-body{font-size:0.9rem;color:rgba(255,255,255,0.82);opacity:1;margin-bottom:32px;max-width:420px;margin-left:auto;margin-right:auto;position:relative;}
 .inv-cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:14px 28px;border-radius:4px;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s,transform 0.2s;position:relative;}
 .inv-cta-button:hover{background:#c44030;transform:translateY(-2px);}
+.cta-signoff{margin-top:16px;font-size:0.8rem;color:rgba(220,240,240,0.66);}
+
+/* INVESTOR PAGE COLORWAY POLISH (MATCH HOME RHYTHM) */
+.divider{display:none;}
+
+#vision,#solution,#traction,#roadmap,#ask{
+  background:var(--soft-white);
+}
+
+#problem,#market,#model,#risks,#team{
+  background:var(--soft-white-alt);
+}
+
+#faq{
+  background:var(--cream);
+}
+
+#vision .section-title,
+#problem .section-title,
+#solution .section-title,
+#market .section-title,
+#traction .section-title,
+#model .section-title,
+#roadmap .section-title,
+#risks .section-title,
+#ask .section-title,
+#team .section-title,
+#faq .section-title{
+  color:var(--navy);
+}
+
+#vision .section-body,
+#problem .section-body,
+#solution .section-body,
+#market .section-body,
+#traction .section-body,
+#model .section-body,
+#roadmap .section-body,
+#risks .section-body,
+#ask .section-body,
+#team .section-body,
+#faq .section-body{
+  color:#4d6072;
+}
+
+#vision .section-label,
+#problem .section-label,
+#solution .section-label,
+#market .section-label,
+#traction .section-label,
+#model .section-label,
+#roadmap .section-label,
+#risks .section-label,
+#ask .section-label,
+#team .section-label,
+#faq .section-label{
+  color:var(--green);
+}
+
+#vision .card,
+#problem .card,
+#solution .card,
+#market .market-card,
+#traction .traction-card,
+#model .card,
+#model .pricing-table,
+#model .proj-table,
+#roadmap .card,
+#risks .card,
+#team .card,
+#ask .funding-block,
+#risks .risk-row{
+  background:#f8faf8;
+  border:1px solid rgba(0,96,84,0.18);
+}
+
+#vision .card-title,
+#problem .card-title,
+#solution .card-title,
+#model .card-title,
+#roadmap .card-title,
+#risks .card-title,
+#team .card-title{
+  color:var(--navy);
+}
+
+#vision .card-body,
+#problem .card-body,
+#solution .card-body,
+#model .card-body,
+#roadmap .card-body,
+#risks .card-body,
+#team .card-body,
+#vision .stat-desc,
+#vision .stat-source,
+#problem .stat-desc,
+#problem .stat-source,
+#problem .prob-text,
+#vision .check-list li,
+#solution .check-list li,
+#roadmap .check-list li,
+#team .check-list li,
+#problem .check-list li,
+#market .market-desc,
+#traction .traction-label,
+#model .pricing-target,
+#model .proj-row,
+#risks .risk-mitigation{
+  color:#516578;
+}
+
+#traction .card{
+  background:linear-gradient(155deg,#3a6d63 0%,#2e5e56 100%);
+  border:1px solid rgba(0,96,84,0.34);
+}
+
+#traction .card .card-title{
+  color:#f5fbfa;
+}
+
+#traction .card .card-body,
+#traction .card .check-list li{
+  color:#e6f2f0;
+  opacity:0.96;
+}
+
+#traction [style*="color:var(--teal-lt)"]{
+  color:#4f6275 !important;
+}
+
+#traction .bench-note{
+  margin-top:14px;
+  background:linear-gradient(155deg,#3a6d63 0%,#2e5e56 100%);
+  border:1px solid rgba(0,96,84,0.34);
+  border-radius:6px;
+  padding:16px 18px;
+  font-size:0.8rem;
+  color:#e6f2f0;
+  line-height:1.6;
+  opacity:0.98;
+}
+
+#market [style*="color:var(--white)"]{
+  color:#4f6275 !important;
+}
+
+#problem .prob-text strong{
+  color:var(--navy);
+}
+
+#model .pricing-header,
+#model .proj-header{
+  background:linear-gradient(180deg,#edf5f2 0%,#e4efeb 100%);
+  color:#486273;
+}
+
+#model .pricing-row,
+#model .proj-row{
+  background:#ffffff;
+  border-top:1px solid #d9e6e2;
+}
+
+#model .pricing-row:hover,
+#model .proj-row:hover{
+  background:#f2f8f6;
+}
+
+#model .pricing-row.highlight{
+  background:linear-gradient(90deg,#fff8f1 0%,#fffdfa 100%);
+  box-shadow:inset 4px 0 0 #e05a3a;
+}
+
+#model .pricing-tier{
+  color:var(--navy);
+}
+
+#model .pricing-tier-badge{
+  background:#f7dfd8;
+  border-color:#f1c6bc;
+  color:#d4583b;
+}
+
+#model .pricing-price{
+  color:#ecab4d;
+}
+
+#model .pricing-target{
+  color:#6f8396;
+  opacity:1;
+}
+
+#faq .faq-list{
+  border-top:1px solid rgba(20,40,60,0.14);
+}
+
+#faq .faq-item{
+  border-bottom:1px solid rgba(20,40,60,0.14);
+}
+
+#faq .faq-question-text{
+  color:var(--navy);
+}
+
+#faq .faq-toggle{
+  border-color:rgba(20,40,60,0.2);
+}
+
+#faq .faq-toggle::before,
+#faq .faq-toggle::after{
+  background:#496174;
+}
+
+#faq .faq-answer-inner p{
+  color:#4f6275;
+}
+
+#solution [style*="color:var(--teal-lt)"],
+#roadmap [style*="color:var(--teal-lt)"],
+#ask [style*="color:var(--teal-lt)"],
+#team [style*="color:var(--teal-lt)"]{
+  color:#516578 !important;
+}
+
+#team [style*="color:var(--pure)"]{
+  color:var(--navy) !important;
+}
+
+#roadmap .rm-phase.teal,
+#roadmap .rm-phase.dim{
+  color:#5f7386;
+  opacity:0.9;
+}
+
+#roadmap .rm-title{
+  color:var(--navy);
+}
+
+#roadmap .rm-title.dim{
+  opacity:0.88;
+}
+
+#roadmap .rm-points li{
+  color:#516578;
+  opacity:0.95;
+}
+
+#roadmap .rm-points.dim li{
+  opacity:0.88;
+}
+
+/* Keep final roadmap milestone readable before activation */
+#roadmap .rm-item:last-child{
+  opacity:0.82;
+}
+
+#roadmap .rm-item:last-child .rm-dot.dim{
+  border-color:#496174;
+  color:#496174;
+  opacity:1;
+}
+
+#roadmap .rm-item:last-child .rm-phase.dim{
+  color:#5a6e80;
+  opacity:1;
+}
+
+#roadmap .rm-item:last-child .rm-title.dim{
+  color:var(--navy);
+  opacity:1;
+}
+
+#roadmap .rm-item:last-child .rm-points.dim li{
+  color:#516578;
+  opacity:1;
+}
+
+#ask .funding-label,
+#ask .fund-cell-label,
+#ask .milestone-desc{
+  color:#5a6e80;
+  opacity:0.92;
+}
+
+#ask .funds-grid{
+  background:rgba(0,96,84,0.18);
+}
+
+#ask .fund-cell{
+  background:linear-gradient(155deg,#3a6d63 0%,#2e5e56 100%);
+}
+
+#ask .fund-cell-label{
+  color:#d7ebe7;
+  opacity:0.98;
+}
+
+#ask .fund-cell-value{
+  color:var(--gold);
+}
+
+/* Risks table: switch grey panels to green tones with better contrast */
+#risks .risk-row{
+  background:linear-gradient(145deg,#ecf4f1 0%,#e1eeea 100%);
+  border:1px solid rgba(0,96,84,0.24);
+}
+
+#risks .risk-label{
+  background:linear-gradient(145deg,#3d7268 0%,#315f57 100%);
+  color:#f1faf8;
+  border-right:1px solid rgba(220,240,240,0.22);
+}
+
+#risks .risk-mitigation{
+  color:#41586a;
+  opacity:0.98;
+}
 
 .reveal{opacity:0;transform:translate3d(0,var(--reveal-distance,22px),0);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform;}
 .reveal-left{transform:translate3d(calc(var(--reveal-distance,22px) * -1),0,0);}
 .reveal-right{transform:translate3d(var(--reveal-distance,22px),0,0);}
 .reveal.is-visible{opacity:1;transform:translate3d(0,0,0);}
 
-footer{border-top:1px solid rgba(220,240,240,0.07);padding:24px 28px;text-align:center;font-size:0.73rem;color:var(--teal-md);position:relative;z-index:1;}
-footer a{color:var(--teal-md);text-decoration:none;}
-footer a:hover{color:var(--gold);}
+footer{
+  background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);
+  border-top:1px solid rgba(220,240,240,0.14);
+  padding:56px 0 28px;
+  position:relative;
+  z-index:1;
+}
+.footer-wrap{display:grid;gap:30px;}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:34px;
+  padding-bottom:30px;
+  border-bottom:1px solid rgba(220,240,240,0.14);
+}
+.footer-brand-logo{height:32px;width:auto;display:block;}
+.footer-brand-copy{
+  margin-top:14px;
+  max-width:340px;
+  color:rgba(220,240,240,0.74);
+  font-size:0.94rem;
+  line-height:1.75;
+}
+.footer-col-title{
+  color:rgba(220,240,240,0.66);
+  font-size:0.68rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:14px;
+}
+.footer-col a{
+  display:block;
+  color:rgba(240,240,240,0.88);
+  text-decoration:none;
+  font-size:0.96rem;
+  margin-bottom:9px;
+}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  color:rgba(220,240,240,0.56);
+  font-size:0.82rem;
+}
+.footer-bottom-links{display:flex;gap:12px;flex-wrap:wrap;}
+.footer-bottom-links a{
+  color:rgba(220,240,240,0.58);
+  text-decoration:none;
+}
+.footer-bottom-links a:hover{color:var(--gold);}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 .inv-hero>div>*{animation:fadeUp 0.65s ease both;}
@@ -192,13 +616,22 @@ footer a:hover{color:var(--gold);}
 
 @media(max-width:680px){
   .two-col,.two-col-wide,.market-grid,.traction-grid,.milestones,.funds-grid{grid-template-columns:1fr;}
-  .inv-hero-stats{grid-template-columns:1fr 1fr;}
-  .pricing-header,.pricing-row{grid-template-columns:1fr 1fr;}
-  .pricing-target{display:none;}
-  .proj-header,.proj-row{grid-template-columns:1fr 1fr;}
+  .inv-hero-stats{grid-template-columns:1fr;}
+  .pricing-header,.pricing-row{grid-template-columns:1fr;}
+  .pricing-price,.pricing-target{margin-top:8px;}
+  .proj-header,.proj-row{grid-template-columns:1fr;}
   .risk-row{grid-template-columns:1fr;}
+  .faq-question{gap:18px;padding:22px 0;}
+  .faq-question-text{font-size:0.97rem;padding-right:0;}
+  .faq-toggle{width:46px;height:46px;}
+  .faq-toggle::before,.faq-toggle::after{width:14px;}
+  .faq-answer-inner{padding:0 0 26px 0;}
   .inv-cta,.funding-block{padding:36px 20px;}
-  nav .nav-links{gap:4px;}
+  .footer-top{grid-template-columns:1fr;gap:24px;}
+  .footer-brand-copy{max-width:none;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .footer-bottom-links{gap:8px 12px;}
+  .inv-hero .btn-primary,.inv-hero .btn-ghost{width:100%;justify-content:center;}
 }
 @media (prefers-reduced-motion: reduce){
   .reveal,.reveal-left,.reveal-right{opacity:1;transform:none;transition:none;}
@@ -206,6 +639,10 @@ footer a:hover{color:var(--gold);}
   .rm-dot,.rm-content{transition:none;}
 }
 </style>
+
+<script defer src="lib/consent/consentManager.js"></script>
+<script defer src="lib/analytics/clarityLoader.js"></script>
+<script defer src="components/ConsentBanner.js"></script>
 </head>
 <body>
 <div class="topo"></div>
@@ -214,15 +651,14 @@ footer a:hover{color:var(--gold);}
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html" aria-label="Trosyn AI home">
-      <svg class="nav-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="82 38 165 195" aria-hidden="true">
-        <g><path style="fill:#9ba2af" d="M110.48,84.82l65.17-28.75c13.45-5.94,29.32.22,35.25,13.67l28.75,65.17c1.3,2.94,2.02,5.99,2.21,9.03,4.18-7.17,5.01-16.17,1.42-24.29l-28.75-65.17c-5.94-13.45-21.8-19.6-35.25-13.67l-65.17,28.75c-10.51,4.64-16.57,15.34-15.88,26.22,2.74-4.7,6.92-8.61,12.24-10.96Z"/><path style="fill:#c0c6cf" d="M241.86,143.94c-.19-3.04-.91-6.09-2.21-9.03l-28.75-65.17c-5.94-13.45-21.8-19.6-35.25-13.67l-65.17,28.75c-5.33,2.35-9.5,6.26-12.24,10.96-2.56,4.39-3.86,9.46-3.66,14.6,2.74-4.4,6.77-8.06,11.85-10.3l65.17-28.75c13.45-5.94,29.32.22,35.25,13.67l28.75,65.17c1.39,3.15,2.11,6.44,2.23,9.69,2.93-4.72,4.38-10.29,4.03-15.92Z"/><path style="fill:#e1e4e9" d="M235.6,150.16l-28.75-65.17c-5.94-13.45-21.8-19.6-35.25-13.67l-65.17,28.75c-5.08,2.24-9.11,5.89-11.85,10.3-2.81,4.52-4.25,9.83-4.05,15.22,2.74-4.39,6.77-8.02,11.83-10.26l65.17-28.75c13.45-5.94,29.32.22,35.25,13.67l28.75,65.17c1.4,3.17,2.12,6.47,2.24,9.74,2.84-4.54,4.29-9.88,4.08-15.3-.13-3.26-.84-6.54-2.23-9.69Z"/><path style="fill:#f2f3f5" d="M231.52,165.42l-28.75-65.17c-5.94-13.45-21.8-19.6-35.25-13.67l-65.17,28.75c-5.06,2.23-9.09,5.87-11.83,10.26-4.54,7.27-5.55,16.6-1.84,25l28.75,65.17c5.94,13.45,21.8,19.6,35.25,13.67l65.17-28.75c10.29-4.54,16.3-14.88,15.91-25.51-.12-3.27-.84-6.57-2.24-9.74Z"/></g>
-      </svg>
       <span class="nav-logo-wordmark"><span>trosyn</span><span class="nav-logo-ai">AI</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Product</a></li>
       <li><a href="investors.html" class="active">Investors</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="waitlist.html" class="nav-cta">Join the Waitlist</a></li>
     </ul>
   </div>
 </nav>
@@ -230,9 +666,9 @@ footer a:hover{color:var(--gold);}
 <!-- HERO -->
 <section class="inv-hero">
   <div class="container">
-    <div class="inv-badge">Investor Overview · Seed Round · 2026</div>
-    <h1>The AI market<br/>Africa can <em>actually use.</em></h1>
-    <p class="inv-hero-sub">Trosyn AI is an offline-first, data-sovereign AI platform for African businesses. We automate HR, Finance, and Legal work — on-premise, with zero cloud dependency, built for the continent's infrastructure and regulatory realities.</p>
+    <div class="inv-badge">Investor Overview · Private AI Infrastructure · Seed Round</div>
+    <h1>Private AI infrastructure<br/>for businesses the cloud <em>does not serve well.</em></h1>
+    <p class="inv-hero-sub">Trosyn AI is a local-deployment AI platform for document-heavy teams. We are starting in African markets where connectivity, compliance, and cost make cloud AI unreliable, then expanding into similar environments globally.</p>
     <div style="display:flex;gap:16px;flex-wrap:wrap;">
       <a href="contact.html?type=investor" style="display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:14px 28px;border-radius:4px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:background 0.2s;">Request Investor Brief →</a>
       <a href="#ask" style="display:inline-flex;align-items:center;gap:8px;color:var(--teal-lt);font-size:0.88rem;font-weight:500;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(220,240,240,0.2);transition:color 0.2s;">View the Ask →</a>
@@ -240,19 +676,19 @@ footer a:hover{color:var(--gold);}
     <div class="inv-hero-stats">
       <div class="inv-stat">
         <div class="inv-stat-num" data-count-to="16.5" data-count-decimals="1" data-count-prefix="$" data-count-suffix="B">$16.5B</div>
-        <div class="inv-stat-label">Africa AI market by 2030 at 27% CAGR</div>
+        <div class="inv-stat-label">Africa AI market by 2030 in the initial expansion region</div>
       </div>
       <div class="inv-stat">
         <div class="inv-stat-num" data-count-to="44" data-count-suffix="M">44M</div>
-        <div class="inv-stat-label">SMEs — 90% of all African businesses</div>
+        <div class="inv-stat-label">SMEs across the broader African expansion path</div>
       </div>
       <div class="inv-stat">
         <div class="inv-stat-num" data-count-to="39" data-count-suffix="/55">39/55</div>
-        <div class="inv-stat-label">African nations with active data protection laws</div>
+        <div class="inv-stat-label">African countries with active data protection laws</div>
       </div>
       <div class="inv-stat">
         <div class="inv-stat-num" data-count-to="1" data-count-prefix="&lt;" data-count-suffix="%" data-count-decimals="0">&lt;1%</div>
-        <div class="inv-stat-label">Of global data center capacity on the continent</div>
+        <div class="inv-stat-label">Share of global data center capacity in Africa</div>
       </div>
     </div>
   </div>
@@ -264,21 +700,21 @@ footer a:hover{color:var(--gold);}
 <section id="vision">
   <div class="container">
     <p class="section-label">Vision</p>
-    <h2 class="section-title">Africa's businesses deserve AI that works in the real world — not a lab.</h2>
+    <h2 class="section-title">Build the default AI stack for businesses that cannot depend on the cloud.</h2>
     <div class="two-col-wide">
       <div>
-        <p class="section-body">We are building the infrastructure layer that allows any African business — a logistics company in Kampala, a bank in Lagos, an NGO in Nairobi — to use powerful AI without sending their data offshore, without needing constant internet, and without paying Western enterprise prices.</p>
-        <p style="margin-top:16px;font-size:0.95rem;color:var(--teal-lt);line-height:1.8;opacity:0.85;max-width:560px;">Long term, Trosyn becomes the operating system for African business intelligence — a platform that understands local languages, local regulations, and local workflows at a depth no global tool can match.</p>
+        <p class="section-body">Trosyn is a product company, not a services firm. The first wedge is in African markets where internet reliability, local hosting rules, and cost sensitivity make cloud AI a poor fit. The broader category is global: organizations everywhere need private AI they can run on infrastructure they control.</p>
+        <p style="margin-top:16px;font-size:0.95rem;color:#4f6275;line-height:1.8;opacity:0.95;max-width:560px;">Expansion starts in Uganda, then Kenya and Tanzania, then Nigeria and South Africa, then broader Africa, and then other regulated or infrastructure-constrained markets across the Americas, Europe, and Asia.</p>
       </div>
       <div>
         <div class="card">
           <div class="card-label">The Gap We Fill</div>
           <ul class="check-list">
-            <li>Cloud AI tools fail without reliable internet</li>
-            <li>Data laws now mandate local hosting in 39 nations</li>
-            <li>Global tools ignore African languages and regulations</li>
-            <li>Western pricing excludes 90% of the addressable market</li>
-            <li>No competitor occupies the offline + Africa-specific quadrant</li>
+            <li>Cloud AI assumes stable connectivity and permissive data movement</li>
+            <li>Local deployment is still too technical for most business teams</li>
+            <li>Open-source models are available, but packaging them into workflows is still hard</li>
+            <li>The launch market has unusually strong pain, making it a fast validation wedge</li>
+            <li>The same product architecture can transfer into other constrained environments</li>
           </ul>
         </div>
       </div>
@@ -292,25 +728,25 @@ footer a:hover{color:var(--gold);}
 <section id="problem">
   <div class="container">
     <p class="section-label">Market Gap</p>
-    <h2 class="section-title">Three forces are making cloud AI unworkable in Africa — simultaneously.</h2>
+    <h2 class="section-title">Cloud AI breaks down in constrained operating environments.</h2>
     <div class="two-col">
       <div>
         <ul class="prob-list">
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Connectivity Crisis</strong>Only 1.2% of Africans have 5G. 21 internet shutdowns across 15 countries in 2024 cost businesses $7.69B. Cloud AI stops working the moment connectivity drops. (Access Now, 2025)</div>
+            <div class="prob-text"><strong>Connectivity Dependence</strong>The launch region shows the problem clearly: only 1.2% of Africans have 5G, and internet shutdowns across 15 countries cost businesses $7.69B in 2024. If AI requires the cloud to function, the workflow fails when connectivity does. (Access Now, 2025)</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Unreliable Infrastructure</strong>Frequent power outages and unstable internet make always-on systems impractical. Global software assumes constant uptime conditions that don't exist in most African markets.</div>
+            <div class="prob-text"><strong>Infrastructure Mismatch</strong>Always-on cloud software assumes steady power, stable internet, and hardware budgets that many operators do not have. The first customers make this mismatch obvious, but the same issue appears in other constrained environments globally.</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Data Sovereignty Laws</strong>39 of 55 African nations now have data protection laws. Nigeria mandates local hosting for financial and health data. South Africa's POPIA: fines up to 10% of global turnover. Cloud AI is non-compliant by design.</div>
+            <div class="prob-text"><strong>Local Data Requirements</strong>39 of 55 African nations now have data protection laws. Nigeria mandates local hosting for financial and health data. South Africa's POPIA carries fines up to 10% of global turnover. Local control is becoming a product requirement, not just a legal preference.</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Existential Security Risk</strong>Africa loses ~10% of GDP to cyberattacks annually. Average breach cost: $4.88M (IBM, 2024). For most SMEs, one breach means closure. Cloud-connected tools dramatically increase attack surface.</div>
+            <div class="prob-text"><strong>Security Exposure</strong>The more business context that leaves the organization, the more exposure the customer takes on. For document-heavy teams, private deployment is often the simplest security posture.</div>
           </li>
         </ul>
       </div>
@@ -341,45 +777,45 @@ footer a:hover{color:var(--gold);}
 <section id="solution">
   <div class="container">
     <p class="section-label">Solution</p>
-    <h2 class="section-title">Offline-first AI. On your servers. Compliant by default.</h2>
+    <h2 class="section-title">Private AI infrastructure, packaged for business teams.</h2>
     <div class="two-col-wide">
       <div>
-        <p class="section-body">Trosyn AI is a modular AI platform that runs entirely on a local server inside the business. Users interact via a simple chat interface. All processing stays on-site. Nothing goes to the cloud.</p>
+        <p class="section-body">Trosyn AI runs on a company-controlled server and turns local models into usable business workflows. Users get a simple interface; the customer keeps control over data, deployment, and access.</p>
         <ul class="check-list" style="margin-top:24px;">
-          <li>Runs on quantized LLMs (Gemma 3, Mistral 7B) — optimised for low-resource local servers</li>
-          <li>Trained with African regulatory context — local labor law, tax frameworks, compliance standards</li>
-          <li>Works during outages, shutdowns, and low-connectivity environments</li>
-          <li>Meets POPIA, NDPR, and Kenya's Data Protection Act automatically — no configuration needed</li>
-          <li>Multi-user collaboration — teams work together, platform learns workflows over time</li>
-          <li>Simple chat UI — no AI expertise required from non-technical staff</li>
+          <li>Runs on quantized LLMs optimized for local deployment and lower-resource hardware</li>
+          <li>Starts with HR, Finance, and Legal workflows where document volume and compliance pressure are highest</li>
+          <li>Works during outages, shutdowns, and low-connectivity conditions</li>
+          <li>Launches with support for regional compliance frameworks and extends by jurisdiction over time</li>
+          <li>Multi-user collaboration and reusable workflow context for teams</li>
+          <li>Simple interface designed for non-technical operators, not AI specialists</li>
         </ul>
-        <div style="margin-top:28px;background:rgba(0,0,0,0.2);border-radius:8px;padding:20px 24px;">
-          <div style="font-size:0.68rem;color:var(--teal-md);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">Architecture</div>
+        <div style="margin-top:28px;background:#f7faf8;border:1px solid rgba(0,96,84,0.2);border-radius:8px;padding:20px 24px;">
+          <div style="font-size:0.68rem;color:#2f6660;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-weight:600;">Architecture</div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <div style="background:rgba(240,180,100,0.1);border:1px solid rgba(240,180,100,0.2);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:var(--gold);">User Devices</div>
-            <div style="color:var(--teal-md);font-size:0.8rem;">→</div>
-            <div style="background:rgba(220,80,60,0.1);border:1px solid rgba(220,80,60,0.22);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:var(--coral);">Local Server · Trosyn AI</div>
-            <div style="color:var(--teal-md);font-size:0.8rem;">→</div>
-            <div style="background:rgba(60,100,100,0.2);border:1px solid rgba(220,240,240,0.1);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:var(--teal-lt);">Business Apps</div>
+            <div style="background:rgba(240,180,100,0.16);border:1px solid rgba(240,180,100,0.36);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#855f1f;">User Devices</div>
+            <div style="color:#2f6660;font-size:0.9rem;font-weight:700;">→</div>
+            <div style="background:rgba(220,80,60,0.12);border:1px solid rgba(220,80,60,0.36);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#9a2f21;">Local Server · Trosyn AI</div>
+            <div style="color:#2f6660;font-size:0.9rem;font-weight:700;">→</div>
+            <div style="background:rgba(60,100,100,0.14);border:1px solid rgba(60,100,100,0.34);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#244f58;">Business Apps</div>
           </div>
-          <div style="margin-top:10px;font-size:0.72rem;color:var(--teal-md);font-style:italic;">No data exits this chain. The AI lives inside the business.</div>
+          <div style="margin-top:10px;font-size:0.72rem;color:#2f6660;font-style:italic;">No data exits this chain. The AI lives inside the business.</div>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div class="card">
-          <div class="card-label">Phase 1 Agents</div>
+          <div class="card-label">Initial Workflow Packs</div>
           <div class="card-title">HR · Finance · Legal</div>
-          <div class="card-body">Pre-built AI agents for the highest-burden admin tasks in African SMEs — adapted with local regulatory knowledge from day one.</div>
+          <div class="card-body">Pre-built workflow packs for the highest-volume administrative tasks in the initial ICP: document-heavy, compliance-aware, multi-user teams.</div>
         </div>
         <div class="card">
           <div class="card-label">Competitive Position</div>
-          <div class="card-title">No competitor sits here</div>
-          <div class="card-body">Offline + Africa-specific is an unoccupied quadrant. ChatGPT and Copilot are cloud-dependent. Open-source LLMs have no business context. Sage AI requires cloud and targets Western markets.</div>
+          <div class="card-title">Differentiated by deployment model</div>
+          <div class="card-body">Most AI products optimize for cloud usage. Trosyn is built around local deployment, workflow packaging, and operation in environments where customers need more control than cloud copilots provide.</div>
         </div>
         <div class="card">
-          <div class="card-label">Why They Can't Copy Us</div>
-          <div class="card-title">First-mover advantage is real</div>
-          <div class="card-body">Microsoft and Google's architecture is fundamentally cloud-dependent. Rebuilding for true offline delivery conflicts with their core business model. African regulatory knowledge takes years to build.</div>
+          <div class="card-label">Why It Travels</div>
+          <div class="card-title">Built for a repeatable category</div>
+          <div class="card-body">The same architecture that works in the first launch markets can extend into any region where customers need local control, lower cloud exposure, and more resilient AI workflows.</div>
         </div>
       </div>
     </div>
@@ -392,26 +828,26 @@ footer a:hover{color:var(--gold);}
 <section id="market">
   <div class="container">
     <p class="section-label">Market</p>
-    <h2 class="section-title">East Africa first. The continent next.</h2>
-    <p class="section-body">The EAC's shared regulatory framework makes Kenya, Uganda, Tanzania, and Rwanda a single addressable market. Nigeria and South Africa follow in Phase 3.</p>
+    <h2 class="section-title">Start where the pain is sharpest. Expand where the pattern repeats.</h2>
+    <p class="section-body">Phase 1 starts in Uganda. Phase 2 expands into Kenya and Tanzania. Phase 3 moves into Nigeria and South Africa. Phase 4 extends across the rest of Africa. Phase 5 targets similar regulated and infrastructure-constrained markets in the Americas, Europe, and Asia.</p>
     <div class="market-grid">
       <div class="market-card">
-        <div class="market-card-tag">Beachhead — East Africa</div>
+        <div class="market-card-tag">Launch Wedge</div>
         <div class="market-row"><div class="market-num" data-count-to="689" data-count-prefix="$" data-count-suffix="M">$689M</div><div class="market-desc">Enterprise software market, 2025 (Statista)</div></div>
         <div class="market-row"><div class="market-num" data-count-to="2.33" data-count-prefix="$" data-count-suffix="B" data-count-decimals="2">$2.33B</div><div class="market-desc">Projected by 2030 at 7.16% CAGR</div></div>
         <div class="market-row"><div class="market-num" data-count-to="4.32" data-count-prefix="$" data-count-suffix="B" data-count-decimals="2">$4.32B</div><div class="market-desc">Total IT services market, East Africa, 2025</div></div>
         <div class="market-row"><div class="market-num" data-count-to="304" data-count-suffix="%">304%</div><div class="market-desc">Uganda startup funding growth YoY, 2024 (JEPA)</div></div>
       </div>
       <div class="market-card">
-        <div class="market-card-tag">Continental Opportunity</div>
+        <div class="market-card-tag">Transferable Category</div>
         <div class="market-row"><div class="market-num" data-count-to="16.5" data-count-prefix="$" data-count-suffix="B" data-count-decimals="1">$16.5B</div><div class="market-desc">Africa AI market by 2030 (Mastercard, 2025)</div></div>
         <div class="market-row"><div class="market-num" data-count-to="44" data-count-suffix="M">44M</div><div class="market-desc">SMEs — 90% of all African businesses (IFC)</div></div>
         <div class="market-row"><div class="market-num" data-count-to="80" data-count-suffix="%">80%</div><div class="market-desc">Of Africa's workforce employed by SMEs (ILO, 2025)</div></div>
         <div class="market-row"><div class="market-num" data-count-to="1" data-count-prefix="$" data-count-suffix="T">$1T</div><div class="market-desc">GDP gain projected from AI adoption by 2035 (AfDB)</div></div>
       </div>
     </div>
-    <div style="margin-top:20px;background:rgba(220,80,60,0.07);border:1px solid rgba(220,80,60,0.15);border-radius:8px;padding:20px 24px;font-size:0.87rem;color:var(--white);line-height:1.6;">
-      <strong style="color:var(--coral);">Why global players haven't solved this:</strong> Microsoft and Google are building cloud regions in Africa — but their tools still require internet, send data offshore, and carry Western pricing. We are not competing with them. We are serving the market they structurally cannot reach.
+    <div style="margin-top:20px;background:rgba(220,80,60,0.10);border:1px solid rgba(220,80,60,0.22);border-radius:8px;padding:20px 24px;font-size:0.87rem;color:#4f6275;line-height:1.7;opacity:0.98;">
+      <strong style="color:var(--coral);">Why this opening exists:</strong> Large cloud vendors validate demand for enterprise AI, but they optimize for cloud consumption. Trosyn is built for customers that need local control first.
     </div>
   </div>
 </section>
@@ -422,10 +858,10 @@ footer a:hover{color:var(--gold);}
 <section id="traction">
   <div class="container">
     <p class="section-label">Product & Traction</p>
-    <h2 class="section-title">MVP underway. Early signals confirmed.</h2>
+    <h2 class="section-title">Product in development. Commercial validation underway.</h2>
     <div class="two-col">
       <div>
-        <p style="font-size:0.9rem;color:var(--teal-lt);line-height:1.8;opacity:0.85;margin-bottom:20px;">Trosyn is currently in active development with prototype testing underway on quantized Gemma 3 models running on local server configurations. The platform architecture is proven. We are now hardening it for deployment.</p>
+        <p style="font-size:0.9rem;color:#4f6275;line-height:1.8;opacity:0.95;margin-bottom:20px;">Trosyn is in active product development with prototype testing underway on quantized local models. The current stage is about hardening deployment, validating workflow fit, and turning early demand into repeatable paid usage.</p>
         <div class="card" style="margin-bottom:14px;">
           <div class="card-label">Tech Stack</div>
           <ul class="check-list">
@@ -436,11 +872,11 @@ footer a:hover{color:var(--gold);}
           </ul>
         </div>
         <div class="card">
-          <div class="card-label">Early Validation</div>
+          <div class="card-label">Current Validation</div>
           <ul class="check-list">
             <li>LOIs from a Kenyan bank and a Ugandan telecom for 2026 pilots</li>
-            <li>Active conversations with East African NGOs on HR and compliance bottlenecks</li>
-            <li>Prototype testing confirms offline reliability under real network conditions</li>
+            <li>Active conversations with additional operators on document, compliance, and internal workflow use cases</li>
+            <li>Prototype testing confirms local deployment reliability under unstable network conditions</li>
           </ul>
         </div>
       </div>
@@ -464,8 +900,8 @@ footer a:hover{color:var(--gold);}
             <div class="traction-label">Saved per week by daily AI users (St. Louis Fed, 2024)</div>
           </div>
         </div>
-        <div style="margin-top:14px;background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.07);border-radius:6px;padding:16px 18px;font-size:0.8rem;color:var(--teal-lt);line-height:1.6;opacity:0.8;">
-          These are global benchmarks. Our Q3 2026 pilots will generate the first Africa-specific data on offline AI productivity gains — a dataset that doesn't currently exist.
+        <div class="bench-note">
+          These benchmarks show the category value. The next step is validating local deployment performance and workflow ROI in the first launch accounts.
         </div>
       </div>
     </div>
@@ -479,7 +915,7 @@ footer a:hover{color:var(--gold);}
   <div class="container">
     <p class="section-label">Business Model</p>
     <h2 class="section-title">Simple, recurring, scalable.</h2>
-    <p class="section-body">Subscription licensing with on-premise deployment. Primary focus is mid-market businesses where budget, urgency, and deployment readiness align for fastest adoption.</p>
+    <p class="section-body">Subscription licensing with local deployment. Initial focus is mid-market teams with recurring document workflows, compliance pressure, and a clear reason to keep AI inside the organization.</p>
 
     <div class="pricing-table">
       <div class="pricing-header">
@@ -488,26 +924,21 @@ footer a:hover{color:var(--gold);}
       <div class="pricing-row">
         <div class="pricing-tier">Small Teams (1–10 users)</div>
         <div class="pricing-price">$50–$150</div>
-        <div class="pricing-target">Single-team SME deployments</div>
+        <div class="pricing-target">Smaller teams with repeatable document workflows</div>
       </div>
       <div class="pricing-row highlight">
-        <div class="pricing-tier">Mid-Market (20–100 users)<span class="pricing-tier-badge">Primary</span></div>
+        <div class="pricing-tier"><span class="pricing-tier-text">Mid-Market (20–100 users)</span><span class="pricing-tier-badge">Primary</span></div>
         <div class="pricing-price">$150–$800</div>
-        <div class="pricing-target">Multi-team companies — fastest adoption curve</div>
+        <div class="pricing-target">Multi-team operators with the clearest deployment and ROI case</div>
       </div>
       <div class="pricing-row">
         <div class="pricing-tier">Enterprise</div>
         <div class="pricing-price">$800–$2,500</div>
-        <div class="pricing-target">Banks, telecoms, NGOs, governments</div>
-      </div>
-      <div class="pricing-row">
-        <div class="pricing-tier">Annual Support</div>
-        <div class="pricing-price">15% / yr</div>
-        <div class="pricing-target">Maintenance and model updates</div>
+        <div class="pricing-target">Larger regulated operators with stricter control requirements</div>
       </div>
     </div>
 
-    <p style="margin-top:36px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Financial Projections (2026–2028)</p>
+    <p style="margin-top:36px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Illustrative Revenue Ramp</p>
     <div class="proj-table">
       <div class="proj-header"><div>Period</div><div>Customers</div><div>Blended MRR</div></div>
       <div class="proj-row"><div>Q2 2026</div><div>2–5</div><div>$1K–$3K</div></div>
@@ -517,9 +948,9 @@ footer a:hover{color:var(--gold);}
       <div class="proj-row"><div>Q2 2027</div><div>25–50</div><div>$20K–$45K</div></div>
       <div class="proj-row"><div>Q3 2027</div><div>50–80</div><div>$40K–$75K</div></div>
       <div class="proj-row"><div>Q4 2027</div><div>80–120</div><div>$70K–$120K</div></div>
-      <div class="proj-row milestone"><div class="proj-period">Q1 2028</div><div>120–180</div><div>$100K–$180K · Break-even</div></div>
+      <div class="proj-row milestone"><div class="proj-period">Q1 2028</div><div>120–180</div><div>$100K–$180K · operational maturity</div></div>
       <div class="proj-row"><div>Q2 2028</div><div>180–260</div><div>$150K–$260K</div></div>
-      <div class="proj-row"><div>Q3 2028</div><div>260–350</div><div>$220K–$340K · Series A</div></div>
+      <div class="proj-row"><div>Q3 2028</div><div>260–350</div><div>$220K–$340K · expansion-ready</div></div>
       <div class="proj-row"><div>Q4 2028</div><div>350–500</div><div>$300K–$480K</div></div>
     </div>
   </div>
@@ -531,7 +962,7 @@ footer a:hover{color:var(--gold);}
 <section id="roadmap">
   <div class="container">
     <p class="section-label">Roadmap</p>
-    <h2 class="section-title">Milestone-driven. Four clear phases.</h2>
+    <h2 class="section-title">Milestone-driven. Focused expansion.</h2>
     <div class="roadmap">
       <div class="roadmap-line"><div class="roadmap-progress"></div></div>
       <div class="rm-item">
@@ -551,12 +982,12 @@ footer a:hover{color:var(--gold);}
         <div class="rm-dot coral">2</div>
         <div class="rm-content">
           <div class="rm-phase coral">Q4 2026</div>
-          <div class="rm-title">Collaborate & Expand</div>
+          <div class="rm-title">Convert Pilots</div>
           <ul class="rm-points">
-            <li>Multi-user collaboration — teams work inside the platform simultaneously</li>
-            <li>Add new agents to expand automation capabilities</li>
-            <li>Improve onboarding and user understanding — memory and context awareness</li>
-            <li>Onboard first 50 enterprise users, begin recurring revenue</li>
+            <li>Ship the first production-ready collaboration and admin workflows</li>
+            <li>Turn pilot learning into repeatable onboarding and deployment steps</li>
+            <li>Add new workflow packs where customer demand is strongest</li>
+            <li>Convert early pilots into recurring revenue</li>
           </ul>
         </div>
       </div>
@@ -564,12 +995,12 @@ footer a:hover{color:var(--gold);}
         <div class="rm-dot teal">3</div>
         <div class="rm-content">
           <div class="rm-phase teal">Q1–Q2 2027</div>
-          <div class="rm-title">Documents & Templates</div>
+          <div class="rm-title">Regional Expansion</div>
           <ul class="rm-points">
-            <li>Launch full locally-compliant document and templates library</li>
-            <li>Expand to Nigeria and South Africa via IT integrator partnerships</li>
-            <li>Multi-language support: Swahili, Luganda, Yoruba, Zulu</li>
-            <li>500 paying users by end of Q2 2027</li>
+            <li>Expand from Uganda into Kenya and Tanzania, then Nigeria and South Africa</li>
+            <li>Strengthen deployment playbooks through integrator and operator partnerships</li>
+            <li>Extend language and compliance support by market</li>
+            <li>Build a repeatable regional sales motion</li>
           </ul>
         </div>
       </div>
@@ -577,12 +1008,12 @@ footer a:hover{color:var(--gold);}
         <div class="rm-dot dim">4</div>
         <div class="rm-content">
           <div class="rm-phase dim">Q3–Q4 2027</div>
-          <div class="rm-title dim">Scale & Optimize</div>
+          <div class="rm-title dim">Scale Beyond The First Region</div>
           <ul class="rm-points dim">
-            <li>Analytics dashboards — productivity gains, document volumes, time saved</li>
-            <li>Admin controls and team management for larger deployments</li>
-            <li>1,000+ paying users and break-even</li>
-            <li>Series A preparation begins</li>
+            <li>Expand workflow analytics, controls, and larger-team deployment features</li>
+            <li>Move across the rest of Africa with a cleaner go-to-market motion</li>
+            <li>Prepare the product and sales model for replication into similar global markets</li>
+            <li>Use customer proof, not macro narrative, to support the next raise</li>
           </ul>
         </div>
       </div>
@@ -596,7 +1027,7 @@ footer a:hover{color:var(--gold);}
 <section id="risks">
   <div class="container">
     <p class="section-label">Risks & Mitigation</p>
-    <h2 class="section-title">We've mapped them.<br/>We've built around them.</h2>
+    <h2 class="section-title">Known risks.<br/>Concrete mitigation.</h2>
     <div class="risk-table">
       <div class="risk-row">
         <div class="risk-label">Tech Risk</div>
@@ -604,19 +1035,19 @@ footer a:hover{color:var(--gold);}
       </div>
       <div class="risk-row">
         <div class="risk-label">Adoption Risk</div>
-        <div class="risk-mitigation">Starting with the highest-ROI, lowest-risk use cases — contract drafting and reporting — where time savings are immediate and measurable. Local pilot case studies are the primary sales tool.</div>
+        <div class="risk-mitigation">Start with high-frequency document workflows where value can be measured quickly. Use pilot accounts to build case studies before widening the sales motion.</div>
       </div>
       <div class="risk-row">
         <div class="risk-label">Regulatory Risk</div>
-        <div class="risk-mitigation">Trosyn already exceeds all current African data protection requirements. Tighter regulation is a tailwind for us, not a headwind — it eliminates cloud competitors from key sectors.</div>
+        <div class="risk-mitigation">The initial deployment model is local by default, which keeps the product aligned with tighter data handling requirements as they expand across jurisdictions.</div>
       </div>
       <div class="risk-row">
         <div class="risk-label">Competition Risk</div>
-        <div class="risk-mitigation">Microsoft and Google are cloud-dependent by architecture. Rebuilding for true offline delivery would conflict with their core business model and take years. African regulatory knowledge is a further moat.</div>
+        <div class="risk-mitigation">Differentiate on deployment model, workflow packaging, and customer control. Competing against cloud incumbents requires clearer product fit, not absolute claims.</div>
       </div>
       <div class="risk-row">
         <div class="risk-label">Talent Risk</div>
-        <div class="risk-mitigation">Senior AI engineer hired remotely (global market), supplemented by local talent via iHub Nairobi and Kampala tech hub partnerships. Lean team structure keeps burn low.</div>
+        <div class="risk-mitigation">Keep the team lean, hire core technical talent early, and use partnerships selectively where they accelerate deployment or sales without adding operational drag.</div>
       </div>
     </div>
   </div>
@@ -628,12 +1059,12 @@ footer a:hover{color:var(--gold);}
 <section id="ask">
   <div class="container">
     <p class="section-label">The Ask</p>
-    <h2 class="section-title">$600K to prove it at scale.</h2>
-    <p class="section-body" style="margin-bottom:48px;">This raise covers 18 months of runway — from MVP to 100+ paying customers, proven unit economics, and a $4M+ ARR run rate by late 2028.</p>
+    <h2 class="section-title">$600K to validate the wedge and earn the next step.</h2>
+    <p class="section-body" style="margin-bottom:48px;">This raise covers the move from prototype to live deployments, pilot conversion, and a repeatable local-deployment sales motion. The objective is proof, not projection theatre.</p>
     <div class="funding-block">
       <div class="funding-amount" data-count-to="600" data-count-prefix="$" data-count-suffix="K">$600K</div>
       <div class="funding-label">Seed Round</div>
-      <div class="funding-pill">$3M Pre-Money · 20% Equity · Milestone-Based Tranches</div>
+      <div class="funding-pill">$2M Pre-Money · 15% Equity · Milestone-Based Tranches</div>
       <div class="funds-grid">
         <div class="fund-cell"><div class="fund-cell-label">Product Dev</div><div class="fund-cell-value">$240K</div></div>
         <div class="fund-cell"><div class="fund-cell-label">Sales & Marketing</div><div class="fund-cell-value">$180K</div></div>
@@ -641,12 +1072,12 @@ footer a:hover{color:var(--gold);}
         <div class="fund-cell"><div class="fund-cell-label">Legal & Contingency</div><div class="fund-cell-value">$60K</div></div>
       </div>
       <div class="milestones">
-        <div><div class="milestone-num">Q1/Q2 2028</div><div class="milestone-desc">Break-even at ~100 customers</div></div>
-        <div><div class="milestone-num">$4M+ ARR</div><div class="milestone-desc">Run rate target by late 2028</div></div>
-        <div><div class="milestone-num">Q3 2028</div><div class="milestone-desc">Series A readiness</div></div>
+        <div><div class="milestone-num">MVP Live</div><div class="milestone-desc">Production deployments in the first launch accounts</div></div>
+        <div><div class="milestone-num">Paid Conversion</div><div class="milestone-desc">Move pilots into recurring revenue with measurable ROI</div></div>
+        <div><div class="milestone-num">Next Raise Ready</div><div class="milestone-desc">Clear product proof and a repeatable expansion motion</div></div>
       </div>
       <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(220,240,240,0.08);font-size:0.8rem;color:var(--teal-md);">
-        Milestone-gated tranches: Tranche 1 at MVP completion · Tranche 2 at first 10 customers · Tranche 3 at Series A readiness
+        Milestone-gated tranches: MVP hardening · first paid deployments · repeatable expansion proof
       </div>
     </div>
   </div>
@@ -658,32 +1089,175 @@ footer a:hover{color:var(--gold);}
 <section id="team">
   <div class="container">
     <p class="section-label">Founder</p>
-    <h2 class="section-title">Built from operational reality, not theory.</h2>
+    <h2 class="section-title">Built from operational reality, with a product-first focus.</h2>
     <div class="two-col">
       <div class="card" style="border-color:rgba(240,180,100,0.15);">
         <div style="font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--pure);margin-bottom:4px;">Ivan Ssentongo</div>
         <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Founder & CEO · Trosyn AI</div>
-        <div class="card-body">Builder with a deep understanding of AI systems and real-world business workflows. Background in UX/UI design, focused on creating practical, usable tools for non-technical teams. Experience working directly with businesses facing infrastructure and data constraints — shaping Trosyn AI from real operational needs, not theory.</div>
-        <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(220,240,240,0.07);font-size:0.78rem;color:var(--teal-md);font-style:italic;">Founder-led execution focused on speed, iteration, and direct customer feedback — moving quickly from product to real-world deployment.</div>
+        <div class="card-body">Builder focused on making AI usable in real operating environments, not just technically impressive. Product background in workflow design, practical interfaces, and systems that non-technical teams can actually adopt.</div>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(220,240,240,0.07);font-size:0.78rem;color:var(--teal-md);font-style:italic;">Founder-led execution focused on speed, iteration, and customer proof rather than broad narrative claims.</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div class="card">
           <div class="card-label">Hiring With This Raise</div>
           <ul class="check-list">
             <li><strong style="color:var(--pure);">Senior AI/ML Engineer</strong> — LLM optimization and quantization for offline deployment</li>
-            <li><strong style="color:var(--pure);">East Africa Sales Lead</strong> — enterprise, banking, and NGO networks across the region</li>
-            <li><strong style="color:var(--pure);">Customer Support & Onboarding</strong> — seamless deployment and adoption for SME clients</li>
+            <li><strong style="color:var(--pure);">Regional GTM Lead</strong> — operator relationships and pilot-to-paid conversion in the first markets</li>
+            <li><strong style="color:var(--pure);">Customer Support & Onboarding</strong> — smoother deployment and adoption for the initial ICP</li>
           </ul>
         </div>
         <div class="card">
           <div class="card-label">Why Now</div>
           <ul class="check-list">
-            <li>39/55 nations have data protection laws — local AI becoming legally required</li>
-            <li>East Africa startup investment hit record highs in 2025 — B2B tools are the focus</li>
-            <li>AfDB projects $1T AI GDP gain by 2035 — policy and capital aligning now</li>
-            <li>No competitor currently occupies this market position</li>
+            <li>Local data handling requirements are increasing across the launch region and beyond</li>
+            <li>Document-heavy teams are already looking for automation that does not force cloud exposure</li>
+            <li>The launch wedge is specific enough to prove quickly and broad enough to expand from</li>
+            <li>The product category travels beyond the first geography</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HARD QUESTIONS -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-shell">
+      <div class="faq-intro">
+        <p class="section-label">Hard Questions</p>
+        <h2 class="section-title">The questions that matter.</h2>
+        <p class="section-body">Direct answers on market, competition, timing, and what has to be proven next.</p>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item is-open">
+          <button class="faq-question" type="button" aria-expanded="true">
+            <span class="faq-question-text">Why is this not just a feature for a cloud incumbent?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>The product is different at the deployment layer, not just the UI layer. Trosyn is built around local infrastructure, controlled data movement, and workflow packaging for teams that cannot treat the cloud as the default.</p>
+                <p>That does not make competition impossible. It does create a clear product wedge where customer requirements differ from the assumptions most cloud AI vendors are optimized around.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Why start in these markets first?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>The launch markets have unusually sharp pain: unstable connectivity, tighter local data requirements, and strong pressure to reduce operating overhead. That makes product validation faster if the solution works.</p>
+                <p>The goal is not to remain geographically narrow. The goal is to prove the category where the need is acute, then expand into other markets with similar requirements.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Why can't businesses just use open-source models like Llama for free?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>You can use tools like Ollama or LLaMA for free, but they're just raw models - not usable business tools. To make them work, you need developers, the right hardware, and often specialized expertise to set up, tune, and maintain them.</p>
+                <p>They're technical, hard for non-technical teams to use, and don't understand your documents, workflows, or local context out of the box. By the time you make them usable, you've already spent time and money building what Trosyn gives you from the start: a system your team can actually use, without setup, engineers, or ongoing maintenance.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">You're a solo founder. Is that a dealbreaker?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>At this stage, a focused founder can move faster than a prematurely scaled team. The current work is product hardening, deployment learning, and pilot conversion.</p>
+                <p>The purpose of the raise is to add the minimum team required to turn early demand into a repeatable product and sales motion.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">What if data regulation becomes less important?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Regulation helps, but it is not the whole story. Customers also care about control, uptime, internal security posture, and avoiding cloud dependence in core workflows.</p>
+                <p>If regulation loosened, the deployment and reliability case would still exist. Compliance accelerates the wedge; it does not create it from nothing.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">What does the initial sales motion look like?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Founder-led outbound into teams with clear document and compliance pain, followed by tightly scoped pilots and measurable workflow outcomes. The current LOIs from a Kenyan bank and a Ugandan telecom fit that pattern.</p>
+                <p>The objective is to turn pilot delivery into case studies, then use those case studies to make the next deployments easier to close.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">What has to be true for this to become a strong business?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Three things: the product must work reliably in live deployments, customers must see enough workflow value to convert from pilot to paid use, and onboarding must become repeatable without founder-only effort.</p>
+                <p>If those conditions hold, the model benefits from recurring software revenue without cloud inference dependency in the core workflow.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">What does success look like from here?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Near term success is simpler than long-term exit storytelling: prove the product works, convert pilots into paid use, and show that the same deployment model can expand beyond the first geography.</p>
+                <p>Once that is true, the company becomes easier to finance and more attractive as a standalone software business or strategic acquisition target.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Why should pilots convert into revenue?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>The current pilot conversations are tied to real operational problems: document generation, compliance workflows, and internal process overhead. That gives the product a measurable job to do from day one.</p>
+                <p>The commercial test is whether those gains are strong enough for customers to keep the system in production after pilot use. That is exactly what the next stage is meant to prove.</p>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </div>
@@ -695,18 +1269,48 @@ footer a:hover{color:var(--gold);}
 <section>
   <div class="container">
     <div class="inv-cta">
-      <h2 class="inv-cta-title">Let's talk about<br/><em>the opportunity.</em></h2>
-      <p class="inv-cta-body">Detailed financial model, technical architecture, and pilot data available on request.</p>
+      <h2 class="inv-cta-title">Let's talk about<br/><em>the wedge.</em></h2>
+      <p class="inv-cta-body">Detailed product architecture, pilot status, and current investor materials are available on request.</p>
       <a class="inv-cta-button" href="contact.html">Contact Us</a>
-      <div style="margin-top:14px;font-size:0.8rem;color:var(--teal-md);">Ivan Ssentongo · Founder & CEO · Trosyn AI</div>
+      <div class="cta-signoff">Ivan Ssentongo · Founder & CEO · Trosyn AI</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-    <span>© 2026 Trosyn AI · All figures sourced from AfDB, ILO, Statista, GSMA, IBM, Access Now, Mastercard, JEPA Africa, MSME Pulse 2024</span>
-    <span><a href="index.html">Product</a> &nbsp;·&nbsp; <a href="investors.html">Investors</a></span>
+  <div class="container footer-wrap">
+    <div class="footer-top">
+      <div>
+        <img class="footer-brand-logo" src="Artboard 25.svg" alt="trosynAI"/>
+        <p class="footer-brand-copy">The AI operating system for companies where data cannot leave the building.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Product</div>
+        <a href="waitlist.html">Pricing</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About Us</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Investors</div>
+        <a href="investors.html">Overview</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="contact.html?type=demo">Request Demo</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Trosyn AI. All rights reserved.</span>
+      <span class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms</a>
+        <a href="#privacy-settings" class="js-privacy-settings">Privacy Settings</a>
+      </span>
+    </div>
   </div>
 </footer>
 
@@ -722,8 +1326,12 @@ function formatCountValue(element, value) {
   return visiblePrefix + formatted + suffix;
 }
 
-function markCountCardActive(element) {
-  element.closest('.inv-stat')?.classList.add('is-active');
+function getCountActiveTarget(element) {
+  return element.closest('.inv-stat, .stat-block, .market-row, .traction-card, .funding-block') || element;
+}
+
+function setCountActiveState(element, isActive) {
+  getCountActiveTarget(element).classList.toggle('is-active', isActive);
 }
 
 function animateCount(element) {
@@ -734,9 +1342,11 @@ function animateCount(element) {
 
   if (prefersReducedMotion) {
     element.textContent = formatCountValue(element, endValue);
-    markCountCardActive(element);
+    setCountActiveState(element, true);
     return;
   }
+
+  if (element._countFrame) cancelAnimationFrame(element._countFrame);
 
   const startTime = performance.now();
 
@@ -748,42 +1358,61 @@ function animateCount(element) {
     element.textContent = formatCountValue(element, currentValue);
 
     if (elapsed < 1) {
-      requestAnimationFrame(frame);
+      element._countFrame = requestAnimationFrame(frame);
       return;
     }
 
     element.textContent = formatCountValue(element, endValue);
-    markCountCardActive(element);
+    setCountActiveState(element, true);
+    element._countFrame = null;
   }
 
-  requestAnimationFrame(frame);
+  element._countFrame = requestAnimationFrame(frame);
 }
 
 function setupCountGroup(container, elements, options = {}) {
   const items = Array.from(elements || []);
   if (!container || !items.length) return;
 
+  const stagger = options.stagger || 120;
+  const timers = [];
+  let isInView = false;
+
+  function clearTimers() {
+    while (timers.length) {
+      window.clearTimeout(timers.pop());
+    }
+  }
+
+  function resetItems() {
+    clearTimers();
+    items.forEach(item => {
+      if (item._countFrame) {
+        cancelAnimationFrame(item._countFrame);
+        item._countFrame = null;
+      }
+      item.textContent = formatCountValue(item, Number(item.dataset.countFrom || 0));
+      setCountActiveState(item, false);
+    });
+  }
+
   if (prefersReducedMotion) {
     items.forEach(item => {
       item.textContent = formatCountValue(item, Number(item.dataset.countTo || 0));
-      markCountCardActive(item);
+      setCountActiveState(item, true);
     });
     return;
   }
 
-  items.forEach(item => {
-    item.textContent = formatCountValue(item, Number(item.dataset.countFrom || 0));
-  });
+  resetItems();
 
-  let hasStarted = false;
-  const startAnimation = () => {
-    if (hasStarted) return;
-    hasStarted = true;
-
+  function startAnimation() {
+    clearTimers();
     items.forEach((item, index) => {
-      window.setTimeout(() => animateCount(item), index * (options.stagger || 120));
+      const timer = window.setTimeout(() => animateCount(item), index * stagger);
+      timers.push(timer);
     });
-  };
+  }
 
   if (!('IntersectionObserver' in window)) {
     startAnimation();
@@ -792,9 +1421,17 @@ function setupCountGroup(container, elements, options = {}) {
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      startAnimation();
-      observer.disconnect();
+      if (entry.isIntersecting) {
+        if (isInView) return;
+        isInView = true;
+        resetItems();
+        startAnimation();
+        return;
+      }
+
+      if (!isInView) return;
+      isInView = false;
+      resetItems();
     });
   }, {
     threshold: options.threshold || 0.3,
@@ -842,12 +1479,16 @@ function setupRoadmapScrollAnimation() {
     const ratio = Math.max(0, Math.min(1, (viewportMarker - firstDotY) / range));
 
     progress.style.height = ratio * lineHeight + 'px';
-
+    let activeIndex = 0;
     items.forEach((item, index) => {
       const dotCenter = dots[index].getBoundingClientRect().top + window.scrollY + dots[index].offsetHeight / 2;
-      if (viewportMarker >= dotCenter - 10) {
-        item.classList.add('is-active', 'is-visible');
-      }
+      if (viewportMarker >= dotCenter - 10) activeIndex = index;
+    });
+
+    items.forEach((item, index) => {
+      item.classList.add('is-visible');
+      item.classList.toggle('is-active', index === activeIndex);
+      item.classList.toggle('is-past', index < activeIndex);
     });
   }
 
@@ -901,6 +1542,31 @@ function setupRevealAnimations(configs) {
   revealTargets.forEach(element => observer.observe(element));
 }
 
+function setupFaqAccordion() {
+  const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+  if (!faqItems.length) return;
+
+  function setFaqState(item, isOpen) {
+    const button = item.querySelector('.faq-question');
+    item.classList.toggle('is-open', isOpen);
+    if (button) button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  faqItems.forEach(item => {
+    setFaqState(item, item.classList.contains('is-open'));
+
+    const button = item.querySelector('.faq-question');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+
+      faqItems.forEach(other => setFaqState(other, false));
+      if (willOpen) setFaqState(item, true);
+    });
+  });
+}
+
 setupCountGroup(
   document.querySelector('.inv-hero-stats'),
   document.querySelectorAll('.inv-hero-stats .inv-stat-num[data-count-to]'),
@@ -932,6 +1598,7 @@ setupCountGroup(
 );
 
 setupRoadmapScrollAnimation();
+setupFaqAccordion();
 
 setupRevealAnimations([
   { selector: '#vision .two-col-wide > :first-child', direction: 'left', distance: '24px' },
@@ -948,6 +1615,8 @@ setupRevealAnimations([
   { selector: '#ask .funding-block', delay: 40 },
   { selector: '#team .two-col > :first-child', direction: 'left', distance: '24px' },
   { selector: '#team .two-col > :last-child', direction: 'right', delay: 70, distance: '24px' },
+  { selector: '#faq .faq-intro', delay: 20 },
+  { selector: '#faq .faq-list', delay: 40 },
   { selector: '.inv-cta', delay: 40 }
 ]);
 </script>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trosyn AI - Privacy Policy</title>
+<meta name="description" content="Trosyn AI privacy policy covering both the website and the offline-first application."/>
+<meta name="theme-color" content="#006054"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green:#006054;--navy:#14283C;--coral:#DC503C;--gold:#F0B464;
+  --teal-lt:#DCF0F0;--teal-md:#3C6464;--white:#F0F0F0;--pure:#FFFFFF;
+  --soft-white:#f5f6f4;--soft-white-alt:#eef3f1;--cream:#f8f4ec;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--soft-white);color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden;min-height:100vh;}
+.container{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 28px;}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,240,240,0.08);padding:0 28px;}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--pure);white-space:nowrap;}
+.nav-logo-wordmark{display:inline-flex;align-items:baseline;gap:3px;font-family:'DM Sans',sans-serif;font-size:1.45rem;font-weight:600;letter-spacing:-0.055em;line-height:1;color:var(--pure);}
+.nav-logo-ai{font-weight:500;letter-spacing:-0.065em;opacity:0.94;}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none;}
+.nav-links a{color:var(--white);text-decoration:none;font-size:0.84rem;font-weight:500;padding:7px 16px;border-radius:4px;opacity:0.75;transition:opacity 0.2s,background 0.2s;}
+.nav-links a:hover{opacity:1;background:rgba(220,240,240,0.08);}
+.nav-links a.active{opacity:1;color:var(--pure);}
+.nav-cta{background:#e05a3a!important;color:#ffffff!important;opacity:1!important;font-weight:700!important;border-radius:6px!important;padding:10px 22px!important;}
+.nav-cta:hover{background:#c44030!important;}
+@media(max-width:860px){
+  nav{padding:0 16px;}
+  .nav-inner{height:auto;min-height:68px;padding:10px 0;align-items:flex-start;flex-direction:column;gap:10px;}
+  .nav-links{width:100%;overflow-x:auto;white-space:nowrap;gap:6px;padding-bottom:2px;}
+  .nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;font-size:0.82rem;}
+  .nav-cta{padding:10px 18px!important;}
+}
+
+.page{padding:56px 0 96px;background:var(--soft-white);color:var(--navy);border-top:1px solid rgba(220,240,240,0.1);}
+.page-header{background:linear-gradient(145deg,#00584f 0%,#003f3a 70%,#003536 100%);border:1px solid rgba(220,240,240,0.12);border-radius:18px;box-shadow:0 14px 28px rgba(7,35,36,0.22);padding:clamp(24px,3.8vw,34px);margin-bottom:40px;}
+.section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#c9eee7;margin-bottom:14px;display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;border:1px solid rgba(220,240,240,0.34);background:rgba(228,248,243,0.08);}
+.page-title{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.8rem,6vw,4.8rem);line-height:1.0;letter-spacing:-0.03em;color:var(--pure);margin-bottom:18px;}
+.page-title em{color:var(--gold);font-style:italic;}
+.page-sub{font-size:1rem;color:rgba(228,246,242,0.9);max-width:640px;line-height:1.7;font-weight:300;}
+
+.policy-panel{background:#ffffff;border:1px solid #dbe5e1;border-top:3px solid #8eb8c6;box-shadow:0 10px 24px rgba(20,40,60,0.06);border-radius:10px;padding:36px 40px;}
+.policy-meta{font-size:0.84rem;font-weight:600;color:#5f7183;margin-bottom:22px;}
+.policy-title{font-family:'DM Sans',sans-serif;font-size:1.85rem;line-height:1.2;color:var(--navy);margin-bottom:10px;font-weight:700;letter-spacing:-0.02em;}
+.policy-intro{padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid #e3ece8;}
+.policy-intro h2,.policy-section h2{font-family:'DM Sans',sans-serif;font-size:1rem;line-height:1.4;color:var(--navy);margin-bottom:10px;font-weight:700;}
+.policy-intro p,.policy-intro li,.policy-section p,.policy-section li{color:#384b5d;font-size:0.95rem;line-height:1.82;}
+.policy-intro ul,.policy-section ul,.policy-section ol{padding-left:20px;margin-top:8px;display:grid;gap:8px;}
+.policy-section{margin-top:26px;}
+.policy-section h3{font-family:'DM Sans',sans-serif;font-size:0.98rem;line-height:1.45;color:var(--navy);margin:16px 0 8px;font-weight:700;}
+.policy-section ul,.policy-section ol{padding-left:20px;margin-top:8px;display:grid;gap:8px;}
+.policy-section strong{color:var(--navy);}
+.policy-note{margin-top:20px;padding:0 0 0 14px;border-radius:0;background:none;border:none;border-left:3px solid #c6d8d5;color:#4f6376;}
+.policy-note strong{display:block;margin-bottom:6px;color:var(--navy);}
+
+footer{background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);border-top:1px solid rgba(220,240,240,0.14);padding:56px 0 28px;position:relative;z-index:1;}
+.footer-wrap{display:grid;gap:30px;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;padding-bottom:30px;border-bottom:1px solid rgba(220,240,240,0.14);}
+.footer-brand-logo{height:32px;width:auto;display:block;}
+.footer-brand-copy{margin-top:14px;max-width:340px;color:rgba(220,240,240,0.74);font-size:0.94rem;line-height:1.75;}
+.footer-col-title{color:rgba(220,240,240,0.66);font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+.footer-col a{display:block;color:rgba(240,240,240,0.88);text-decoration:none;font-size:0.96rem;margin-bottom:9px;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:rgba(220,240,240,0.56);font-size:0.82rem;}
+.footer-bottom-links{display:flex;gap:12px;flex-wrap:wrap;}
+.footer-bottom-links a{color:rgba(220,240,240,0.58);text-decoration:none;}
+.footer-bottom-links a:hover{color:var(--gold);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.page-header{animation:fadeUp 0.6s ease both;}
+.policy-panel{animation:fadeUp 0.6s ease 0.1s both;}
+
+@media(max-width:680px){
+  .policy-panel{padding:24px 20px;}
+  .policy-title{font-size:1.55rem;}
+  .footer-top{grid-template-columns:1fr;gap:24px;}
+  .footer-brand-copy{max-width:none;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .footer-bottom-links{gap:8px 12px;}
+}
+</style>
+
+<script defer src="lib/consent/consentManager.js"></script>
+<script defer src="lib/analytics/clarityLoader.js"></script>
+<script defer src="components/ConsentBanner.js"></script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Trosyn AI home">
+      <span class="nav-logo-wordmark"><span>trosyn</span><span class="nav-logo-ai">AI</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Product</a></li>
+      <li><a href="investors.html">Investors</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="waitlist.html" class="nav-cta">Join the Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="container">
+    <div class="page-header">
+      <p class="section-label">Privacy Policy</p>
+      <h1 class="page-title">Your privacy <em>matters</em> to us.</h1>
+      <p class="page-sub">Explore our privacy policy to learn how we collect, use and safeguard the information you share with us.</p>
+    </div>
+
+    <div class="policy-panel">
+        <p class="policy-meta">Effective Date: May 2, 2026</p>
+        <h1 class="policy-title">Privacy Policy</h1>
+        <div class="policy-intro">
+          <p>Trosynai is committed to protecting your privacy. This policy explains how we collect, use, and protect information across two separate environments:</p>
+          <ul>
+            <li>Our website (`Trosynai.com`)</li>
+            <li>The Trosynai application (offline-first system)</li>
+          </ul>
+          <p>These systems operate independently and handle data differently.</p>
+        </div>
+
+        <section class="policy-section" id="scope">
+          <h2>1. Scope of This Policy</h2>
+          <p>This policy applies to:</p>
+          <ul>
+            <li>Use of the Trosynai website, including the blog</li>
+            <li>Use of the Trosynai application</li>
+            <li>Communication with Trosynai services</li>
+          </ul>
+          <p>The website and application are separate systems with different data handling rules.</p>
+        </section>
+
+        <section class="policy-section" id="website">
+          <h2>2. Website (Trosynai.com)</h2>
+          <p>This section applies only when you interact with our website.</p>
+
+          <h3>2.1 Information We Collect</h3>
+          <p><strong>Information you provide:</strong></p>
+          <ul>
+            <li>Name</li>
+            <li>Business email address</li>
+            <li>Phone number</li>
+            <li>Any information submitted via forms or contact pages</li>
+          </ul>
+          <p><strong>Information collected automatically:</strong></p>
+          <ul>
+            <li>IP address</li>
+            <li>Browser type</li>
+            <li>Device information</li>
+            <li>Basic usage analytics</li>
+          </ul>
+          <p>When you explicitly consent, we may also collect website usage analytics through Microsoft Clarity to understand navigation patterns, page interaction, and general site performance. Clarity does not run until analytics consent is accepted.</p>
+          <p>We also use cookies or similar storage mechanisms for essential website functionality and, where consent is given, analytics and performance tracking.</p>
+
+          <h3>2.2 How We Use Website Data</h3>
+          <p>We use website data to:</p>
+          <ul>
+            <li>Respond to inquiries and support requests</li>
+            <li>Provide product and service information</li>
+            <li>Improve website performance and usability</li>
+            <li>Review aggregated behavior signals from Microsoft Clarity where analytics consent has been granted</li>
+            <li>Send updates or communications (where consent is required)</li>
+          </ul>
+
+          <h3>2.3 Website Storage</h3>
+          <p>Website data is stored on secure online systems required to operate the website and communication services.</p>
+        </section>
+
+        <section class="policy-section" id="application">
+          <h2>3. Trosynai Application (Offline System)</h2>
+          <p>This section applies only when using the installed Trosynai application.</p>
+
+          <h3>3.1 Core Principle</h3>
+          <p>The Trosynai application is offline-first.</p>
+          <p>By default:</p>
+          <ul>
+            <li>Your documents</li>
+            <li>Your AI interactions</li>
+            <li>Your business data</li>
+          </ul>
+          <p>remain stored locally on your device.</p>
+          <p>This data is not uploaded or stored on external servers during normal operation.</p>
+
+          <h3>3.2 Data That May Leave the Device (Strict Exceptions)</h3>
+          <p>Only two system processes communicate externally:</p>
+          <ol>
+            <li>
+              <strong>Subscription Verification (Heartbeat System)</strong>
+              <ul>
+                <li>Activates only when the device is connected to the internet</li>
+                <li>Confirms subscription status</li>
+                <li>Sends only minimal license verification data</li>
+                <li>Does not transmit files, prompts, or business content</li>
+              </ul>
+              <p>If the device remains offline for 14 consecutive days, internet access is required to continue use.</p>
+            </li>
+            <li>
+              <strong>Software Updates</strong>
+              <ul>
+                <li>Checks for and downloads system updates when online</li>
+                <li>May include AI model improvements, features, and security patches</li>
+                <li>Only software components are transferred</li>
+                <li>No user data is transmitted</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>3.3 Security Measures</h3>
+          <p>We apply appropriate safeguards to protect system integrity, including:</p>
+          <ul>
+            <li>Encryption where applicable</li>
+            <li>Access control systems</li>
+            <li>Secure authentication</li>
+            <li>Monitoring for unauthorized access</li>
+          </ul>
+        </section>
+
+        <section class="policy-section" id="sharing">
+          <h2>4. Data Sharing</h2>
+          <p>We do not sell personal data.</p>
+          <p>We may share information only when necessary with:</p>
+          <ul>
+            <li>Authorized Trosynai personnel</li>
+            <li>Third-party service providers acting as data processors under confidentiality obligations</li>
+            <li>Legal or regulatory authorities when required by law</li>
+          </ul>
+          <p>All third parties are required to handle data securely and only for specified purposes.</p>
+        </section>
+
+        <section class="policy-section" id="retention">
+          <h2>5. Data Retention</h2>
+          <p>We retain personal data only for as long as necessary to:</p>
+          <ul>
+            <li>Provide services</li>
+            <li>Comply with legal obligations</li>
+            <li>Resolve disputes</li>
+            <li>Enforce agreements</li>
+          </ul>
+          <p>After this period, data is securely deleted or anonymized.</p>
+        </section>
+
+        <section class="policy-section" id="international">
+          <h2>6. International Data Use</h2>
+          <p>Where applicable, data may be processed in different jurisdictions. When cross-border transfers occur, we implement appropriate safeguards to protect your information in accordance with applicable laws.</p>
+        </section>
+
+        <section class="policy-section" id="cookies">
+          <h2>7. Cookies (Website Only)</h2>
+          <p>We use cookies on our website to:</p>
+          <ul>
+            <li>Enable core functionality</li>
+            <li>Improve performance</li>
+            <li>Understand usage patterns through Microsoft Clarity, only where analytics consent has been accepted</li>
+          </ul>
+          <p>You may disable cookies through your browser settings and you may manage analytics consent at any time through the site's Privacy Settings control.</p>
+        </section>
+
+        <section class="policy-section" id="links">
+          <h2>8. Third-Party Links</h2>
+          <p>Our website may contain links to external websites. We are not responsible for their privacy practices. You should review their policies before providing any information.</p>
+        </section>
+
+        <section class="policy-section" id="rights">
+          <h2>9. Your Rights</h2>
+          <p>Depending on your location and applicable law, you may have the right to:</p>
+          <ul>
+            <li>Access your personal data</li>
+            <li>Request correction or deletion</li>
+            <li>Object to or restrict processing</li>
+            <li>Withdraw consent where applicable</li>
+            <li>Opt out of marketing communications</li>
+          </ul>
+          <p>Requests can be submitted via the contact details below.</p>
+          <p>We respond to valid requests within a reasonable timeframe as required by law.</p>
+        </section>
+
+        <section class="policy-section" id="children">
+          <h2>10. Children's Privacy</h2>
+          <p>Trosynai is designed for business use and is not intended for individuals under 13 years of age. We do not knowingly collect personal data from children.</p>
+        </section>
+
+        <section class="policy-section" id="updates">
+          <h2>11. Policy Updates</h2>
+          <p>We may update this Privacy Policy from time to time. Updates will be posted with a revised effective date. Where appropriate, significant changes may be communicated directly.</p>
+        </section>
+
+        <section class="policy-section" id="contact-policy">
+          <h2>12. Contact</h2>
+          <p>For questions or requests regarding this Privacy Policy:</p>
+          <p><strong>Email:</strong> <a href="mailto:issentongoivan1@gmail.com">issentongoivan1@gmail.com</a></p>
+          <div class="policy-note">
+            <strong>Important distinction</strong>
+            The website and the offline application are treated separately in this policy. Website data may use secure online systems, while the installed application keeps business data local by default.
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-wrap">
+    <div class="footer-top">
+      <div>
+        <img class="footer-brand-logo" src="Artboard 25.svg" alt="trosynAI"/>
+        <p class="footer-brand-copy">The AI operating system for companies where data cannot leave the building.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Product</div>
+        <a href="waitlist.html">Pricing</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About Us</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Investors</div>
+        <a href="investors.html">Overview</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="contact.html?type=demo">Request Demo</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Trosyn AI. All rights reserved.</span>
+      <span class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms</a>
+        <a href="#privacy-settings" class="js-privacy-settings">Privacy Settings</a>
+      </span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

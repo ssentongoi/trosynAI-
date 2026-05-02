@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trosyn AI Blog</title>
+  <meta name="description" content="Product notes, deployment thinking, and field learnings from Trosyn AI on running private AI in real business environments." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script defer src="../lib/consent/consentManager.js"></script>
+  <script defer src="../lib/analytics/clarityLoader.js"></script>
+  <script defer src="../components/ConsentBanner.js"></script>
+</head>
+<body class="blog-page blog-index-page">
+  <div class="topo"></div>
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="../index.html" aria-label="Trosyn AI home">
+        <span class="nav-logo-wordmark"><span>trosyn</span><span class="nav-logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Product</a></li>
+        <li><a href="../investors.html">Investors</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="./index.html" class="active">Blog</a></li>
+        <li><a href="../waitlist.html" class="nav-cta">Join the Waitlist</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="blog-shell blog-index-shell">
+    <section class="blog-hero" aria-label="Blog hero">
+      <span class="blog-hero-kicker">OUR BLOGS</span>
+      <h1 class="blog-hero-title">Product Notes, Field Learnings &amp; Articles</h1>
+      <p class="blog-hero-sub">How private AI gets deployed, evaluated, and used in real business workflows, starting in constrained environments and expanding from there.</p>
+    </section>
+
+    <section class="blog-latest panel" aria-label="Latest articles">
+      <h2 class="blog-section-title">Latest Articles</h2>
+      <p class="blog-section-sub">Essays and operating notes on local AI deployment, workflow design, and what teams need before AI becomes production infrastructure.</p>
+
+      <div id="blog-filters" class="blog-filters" role="tablist" aria-label="Blog categories"></div>
+      <div id="blog-list" class="blog-grid enhanced" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div class="footer-top">
+        <div>
+          <img class="footer-brand-logo" src="../Artboard 25.svg" alt="trosynAI" />
+          <p class="footer-brand-copy">The AI operating system for companies where data cannot leave the building.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a href="../waitlist.html">Pricing</a>
+          <a href="../index.html#features">Features</a>
+          <a href="../index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a href="../about.html">About Us</a>
+          <a href="./index.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Investors</div>
+          <a href="../investors.html">Overview</a>
+          <a href="../waitlist.html">Waitlist</a>
+          <a href="../contact.html?type=demo">Request Demo</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trosyn AI. All rights reserved.</span>
+        <span class="footer-bottom-links">
+          <a href="../privacy-policy.html">Privacy Policy</a>
+          <a href="../terms-of-service.html">Terms</a>
+          <a href="#privacy-settings" class="js-privacy-settings">Privacy Settings</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const FALLBACK_POSTS = [
+      {
+        title: "When AI Meets Government Power, the \"Thin Line\" Gets Thinner",
+        date: "2026-03-25",
+        excerpt: "What the Anthropic-U.S. clash reveals about how governance pressure shapes AI deployment decisions inside serious institutions.",
+        slug: "when-ai-meets-government-power-the-thin-line-gets-thinner",
+        image: "./images/1IMoaEYiohYWzTcLmdV_SHg.webp",
+        category: "featured",
+        readTime: "4 min read"
+      },
+      {
+        title: "The Real Cost of AI. The Cost of AI Is Not Money; It Is Control.",
+        date: "2026-04-08",
+        excerpt: "Why the real decision in AI procurement is not cost alone, but where operational control and institutional reasoning ultimately live.",
+        slug: "the-real-cost-of-ai-the-cost-of-ai-is-not-money-it-is-control",
+        image: "./images/1_4c5Houvx_AsxLKhJepY8A.webp",
+        category: "featured",
+        readTime: "6 min read"
+      },
+      {
+        title: "AI Is Not Replacing Jobs; It Is Redefining What Work Actually Looks Like.",
+        date: "2026-04-15",
+        excerpt: "How AI changes the shape of work inside teams by moving value away from manual execution and toward judgment, review, and leverage.",
+        slug: "ai-is-not-replacing-jobs-it-is-redefining-what-work-actually-looks-like",
+        image: "./images/1776020279c281.png",
+        category: "featured",
+        readTime: "7 min read"
+      },
+      {
+        title: "My Thoughts on the Near Future of AI",
+        date: "2026-04-01",
+        excerpt: "A grounded view of the near-term AI stack: stronger human-AI collaboration, more output, and tighter operational oversight.",
+        slug: "my-thoughts-on-the-near-future-of-ai",
+        image: "./images/1RxTa2U3ahFFNi9EQAGHBjg.webp",
+        category: "featured",
+        readTime: "6 min read"
+      },
+      {
+        title: "How Have We Quietly Given Up on Privacy Because It Is Convenient",
+        date: "2026-04-22",
+        excerpt: "Why fast AI workflows can quietly erode privacy expectations, and why deployment choices matter more than most teams admit.",
+        slug: "how-have-we-quietly-given-up-on-privacy-because-it-is-convenient",
+        image: "./images/1bPoA_tl4LF5jTsqQvgTXaQ.webp",
+        category: "featured",
+        readTime: "6 min read"
+      },
+      {
+        title: "Does AI Still Belong to Silicon Valley?",
+        date: "2026-04-29",
+        excerpt: "How AI is reducing the importance of location for product execution and making smaller, high-leverage teams more viable.",
+        slug: "ai-rise",
+        image: "./images/1tCpQUcgqrBeDm-lQVuoB5Q.webp",
+        category: "featured",
+        readTime: "5 min read"
+      }
+    ];
+
+    const FILTERS = [
+      { id: 'all', label: 'All' },
+      { id: 'featured', label: 'Blog' },
+      { id: 'news', label: 'News' },
+      { id: 'tips', label: 'Tips' }
+    ];
+
+    const formatDate = (dateStr) => {
+      const d = new Date(dateStr);
+      if (Number.isNaN(d.getTime())) return dateStr;
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    };
+
+    const escapeHtml = (value = '') => value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+    const toCardImageSrc = (image) => {
+      if (!image) return '../assets/blog/diagram.png';
+      if (image.startsWith('http://') || image.startsWith('https://') || image.startsWith('/')) return image;
+      if (image.startsWith('./') || image.startsWith('../')) return image;
+      if (image.startsWith('assets/')) return `../${image}`;
+      return image;
+    };
+
+    const getLeadImageFromArticle = async (slug) => {
+      try {
+        const res = await fetch(`./${slug}.html`);
+        if (!res.ok) return null;
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const lead = doc.querySelector('article h1 + img');
+        return lead ? lead.getAttribute('src') : null;
+      } catch (_) {
+        return null;
+      }
+    };
+
+    const enrichPostsWithLeadImages = async (posts) => {
+      const enriched = await Promise.all(
+        posts.map(async (post) => {
+          const leadImage = await getLeadImageFromArticle(post.slug);
+          return {
+            ...post,
+            image: leadImage || post.image
+          };
+        })
+      );
+      return enriched;
+    };
+
+    const renderBlog = (posts) => {
+        const list = document.getElementById('blog-list');
+        const filters = document.getElementById('blog-filters');
+        let activeFilter = 'all';
+
+        const normalized = [...posts]
+          .map((post) => ({
+            ...post,
+            category: (post.category || 'stories').toLowerCase(),
+            readTime: post.readTime || '8 min read'
+          }))
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        const renderPosts = () => {
+          const visible = activeFilter === 'all'
+            ? normalized
+            : normalized.filter((post) => post.category === activeFilter);
+
+          if (!visible.length) {
+            list.innerHTML = '<p class="blog-empty">No posts in this category yet.</p>';
+            return;
+          }
+
+          list.innerHTML = visible.map((post) => {
+            const safeTitle = escapeHtml(post.title || 'Untitled');
+            const safeExcerpt = escapeHtml(post.excerpt || '');
+            const categoryLabel = escapeHtml(
+              post.category === 'featured'
+                ? 'blog'
+                : post.category.replace('-', ' & ')
+            );
+            const dateLabel = escapeHtml(formatDate(post.date));
+            const readTime = escapeHtml(post.readTime);
+
+            return `
+              <a href="${post.slug}.html" class="blog-card enhanced-card">
+                <div class="card-media-wrap">
+                  <img src="${toCardImageSrc(post.image)}" alt="${safeTitle}" loading="lazy" />
+                  <span class="card-pill">${categoryLabel}</span>
+                </div>
+                <div class="blog-card-body">
+                  <div class="card-meta-top">
+                    <small>${dateLabel}</small>
+                  </div>
+                  <h3>${safeTitle}</h3>
+                  <p>${safeExcerpt}</p>
+                  <div class="card-read">${readTime}</div>
+                </div>
+              </a>
+            `;
+          }).join('');
+        };
+
+        const renderFilters = () => {
+          filters.innerHTML = FILTERS.map((filter) => `
+            <button type="button" class="filter-chip ${filter.id === activeFilter ? 'active' : ''}" data-filter="${filter.id}">
+              ${filter.label}
+            </button>
+          `).join('');
+
+          filters.querySelectorAll('button').forEach((button) => {
+            button.addEventListener('click', () => {
+              activeFilter = button.dataset.filter;
+              renderFilters();
+              renderPosts();
+            });
+          });
+        };
+
+        renderFilters();
+        renderPosts();
+    };
+
+    fetch('../blogs.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to load blogs.json');
+        return res.json();
+      })
+      .then(async (posts) => {
+        const enriched = await enrichPostsWithLeadImages(posts);
+        renderBlog(enriched);
+      })
+      .catch(async () => {
+        const enriched = await enrichPostsWithLeadImages(FALLBACK_POSTS);
+        renderBlog(enriched);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trosyn AI - Waitlist</title>
+<meta name="description" content="Join the Trosyn AI waitlist for early access to private AI infrastructure built for document-heavy business workflows."/>
+<meta name="theme-color" content="#006054"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green:#006054;--navy:#14283C;--coral:#DC503C;--gold:#F0B464;
+  --teal-lt:#DCF0F0;--teal-md:#3C6464;--white:#F0F0F0;--pure:#FFFFFF;
+  --soft-white:#f5f6f4;--soft-white-alt:#eef3f1;--cream:#f8f4ec;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--green);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.35;}
+.topo{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.05;background-image:repeating-radial-gradient(ellipse at 20% 50%,transparent 0,transparent 40px,#DCF0F0 41px,transparent 42px),repeating-radial-gradient(ellipse at 80% 20%,transparent 0,transparent 60px,#DCF0F0 61px,transparent 62px);}
+.container{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 28px;}
+section{padding:88px 0;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(220,240,240,0.18),transparent);}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,240,240,0.08);padding:0 28px;}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--pure);white-space:nowrap;}
+.nav-logo-icon{height:36px;width:auto;flex-shrink:0;display:block;}
+.nav-logo-wordmark{display:inline-flex;align-items:baseline;gap:3px;font-family:'DM Sans',sans-serif;font-size:1.45rem;font-weight:600;letter-spacing:-0.055em;line-height:1;color:var(--pure);}
+.nav-logo-ai{font-weight:500;letter-spacing:-0.065em;opacity:0.94;}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none;}
+.nav-links a{color:var(--white);text-decoration:none;font-size:0.84rem;font-weight:500;padding:7px 16px;border-radius:4px;opacity:0.75;transition:opacity 0.2s,background 0.2s;}
+.nav-links a:hover{opacity:1;background:rgba(220,240,240,0.08);}
+.nav-links a.active{opacity:1;color:var(--pure);}
+.nav-cta{background:#e05a3a!important;color:#ffffff!important;opacity:1!important;font-weight:700!important;border-radius:6px!important;padding:10px 22px!important;}
+.nav-cta:hover{background:#c44030!important;}
+@media(max-width:860px){
+  nav{padding:0 16px;}
+  .nav-inner{height:auto;min-height:68px;padding:10px 0;align-items:flex-start;flex-direction:column;gap:10px;}
+  .nav-links{width:100%;overflow-x:auto;white-space:nowrap;gap:6px;padding-bottom:2px;}
+  .nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;font-size:0.82rem;}
+  .nav-cta{padding:10px 18px!important;}
+}
+
+.section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--coral);margin-bottom:14px;}
+.section-title{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.9rem,4vw,3rem);line-height:1.1;letter-spacing:-0.02em;color:var(--pure);margin-bottom:18px;}
+.section-body{font-size:0.95rem;color:var(--teal-lt);max-width:640px;line-height:1.8;opacity:0.9;}
+
+.hero{padding:110px 0 96px;}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);gap:48px;align-items:start;}
+.hero-badge{display:inline-flex;align-items:center;background:rgba(240,180,100,0.12);border:1px solid rgba(240,180,100,0.25);color:var(--gold);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:30px;}
+.hero-title{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(3rem,7vw,5.6rem);line-height:0.98;letter-spacing:-0.04em;color:var(--pure);margin-bottom:22px;max-width:11ch;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:1.05rem;color:var(--teal-lt);max-width:560px;line-height:1.75;font-weight:300;margin-bottom:30px;}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:15px 30px;border-radius:4px;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s,transform 0.2s;}
+.btn-primary:hover{background:#c44030;transform:translateY(-2px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--teal-lt);font-size:0.88rem;font-weight:500;text-decoration:none;padding:15px 4px;border-bottom:1px solid rgba(220,240,240,0.2);transition:border-color 0.2s,color 0.2s;}
+.btn-ghost:hover{color:var(--pure);border-color:rgba(220,240,240,0.5);}
+.hero-support{font-size:0.8rem;color:var(--teal-md);max-width:520px;}
+
+.hero-panel{background:rgba(20,40,60,0.42);border:1px solid rgba(220,240,240,0.08);border-radius:14px;padding:28px;position:relative;overflow:hidden;}
+.hero-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(240,180,100,0.08),transparent 48%);}
+.hero-panel-tag{position:relative;display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,0.14);border:1px solid rgba(220,240,240,0.08);border-radius:100px;padding:8px 12px;font-size:0.7rem;color:var(--teal-lt);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;}
+.hero-panel-title{position:relative;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--pure);line-height:1.15;margin-bottom:14px;}
+.hero-panel-copy{position:relative;font-size:0.88rem;color:var(--teal-lt);line-height:1.7;opacity:0.86;margin-bottom:24px;}
+.signal-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.signal-card{background:rgba(0,0,0,0.12);border:1px solid rgba(220,240,240,0.08);border-radius:10px;padding:18px 16px;min-height:132px;}
+.signal-label{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.signal-value{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:900;color:var(--pure);line-height:1;margin-bottom:10px;}
+.signal-copy{font-size:0.78rem;color:var(--teal-lt);line-height:1.55;opacity:0.82;}
+
+.value-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:40px;}
+.value-card{background:rgba(20,40,60,0.42);border:1px solid rgba(220,240,240,0.07);border-radius:10px;padding:24px 20px;min-height:190px;position:relative;overflow:hidden;}
+.value-card::after{content:'';position:absolute;inset:auto -18px -28px auto;width:76px;height:76px;background:radial-gradient(circle,rgba(240,180,100,0.08),transparent 68%);border-radius:50%;}
+.value-icon{font-size:1.3rem;margin-bottom:14px;}
+.value-title{font-weight:700;font-size:0.92rem;color:var(--pure);margin-bottom:8px;}
+.value-copy{font-size:0.8rem;color:var(--teal-lt);line-height:1.65;opacity:0.84;}
+
+.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,0.9fr);gap:48px;align-items:start;}
+.info-card{background:rgba(20,40,60,0.42);border:1px solid rgba(220,240,240,0.08);border-radius:12px;padding:28px;}
+.info-card-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:var(--pure);margin-bottom:12px;}
+.info-card-copy{font-size:0.88rem;color:var(--teal-lt);line-height:1.75;opacity:0.88;}
+.info-card-copy + .info-card-copy{margin-top:14px;}
+.pilot-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:24px;}
+.pilot-list li{background:rgba(0,0,0,0.12);border:1px solid rgba(220,240,240,0.06);border-radius:10px;padding:16px 16px 16px 44px;font-size:0.82rem;color:var(--teal-lt);line-height:1.6;position:relative;}
+.pilot-list li::before{content:'+';position:absolute;left:16px;top:15px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(220,80,60,0.16);color:var(--coral);font-weight:700;font-size:0.8rem;}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;}
+.step-card{background:rgba(20,40,60,0.42);border:1px solid rgba(220,240,240,0.07);border-radius:12px;padding:26px 22px;position:relative;overflow:hidden;}
+.step-number{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:16px;}
+.step-title{font-weight:700;font-size:0.96rem;color:var(--pure);margin-bottom:8px;}
+.step-copy{font-size:0.82rem;color:var(--teal-lt);line-height:1.65;opacity:0.84;}
+
+.signup-shell{background:rgba(20,40,60,0.32);border:1px solid rgba(220,240,240,0.08);border-radius:16px;padding:36px;display:grid;grid-template-columns:minmax(0,0.95fr) minmax(320px,1.05fr);gap:28px;align-items:start;}
+.signup-sidebar{padding-right:8px;}
+.signup-title{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:var(--pure);line-height:1.1;margin-bottom:14px;}
+.signup-copy{font-size:0.9rem;color:var(--teal-lt);line-height:1.8;opacity:0.88;margin-bottom:18px;}
+.meta-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+.meta-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,0.14);border:1px solid rgba(220,240,240,0.08);border-radius:100px;padding:8px 12px;font-size:0.73rem;color:var(--teal-lt);opacity:0.8;}
+
+.form-card{background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(0,0,0,0.12));border:1px solid rgba(220,240,240,0.08);border-radius:14px;padding:20px;box-shadow:0 24px 48px rgba(0,0,0,0.12);}
+.form-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,180,100,0.1);border:1px solid rgba(240,180,100,0.22);color:var(--gold);font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:100px;margin-bottom:14px;}
+.form-title{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--pure);margin-bottom:6px;}
+.form-sub{font-size:0.8rem;color:var(--teal-lt);line-height:1.6;opacity:0.78;margin-bottom:18px;}
+.review-note{background:rgba(220,80,60,0.08);border:1px solid rgba(220,80,60,0.16);border-radius:10px;padding:12px 14px;font-size:0.77rem;color:var(--teal-lt);line-height:1.6;opacity:0.88;margin-bottom:16px;}
+.review-note strong{color:var(--coral);}
+.tally-shell{min-height:560px;background:#f8f6f2;border:1px solid rgba(220,240,240,0.12);border-radius:16px;overflow:hidden;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),0 20px 40px rgba(0,0,0,0.1);padding:22px;}
+.tally-shell::before{content:'';position:absolute;inset:0 0 auto 0;height:56px;background:linear-gradient(180deg,rgba(20,40,60,0.06),rgba(20,40,60,0));pointer-events:none;z-index:1;}
+.tally-frame-wrap{max-width:760px;margin:0 auto;background:#ffffff;border:1px solid rgba(20,40,60,0.08);border-radius:18px;overflow:hidden;box-shadow:0 20px 40px rgba(20,40,60,0.08);position:relative;z-index:2;}
+.tally-shell iframe{display:block;width:100%;height:100%;min-height:560px;border:0;background:#f8f6f2;}
+.tally-placeholder{display:flex;align-items:center;justify-content:center;min-height:560px;padding:24px;position:relative;z-index:2;}
+.tally-placeholder-card{width:min(100%,420px);text-align:center;background:#ffffff;border:1px solid rgba(20,40,60,0.08);border-radius:14px;padding:28px 24px;box-shadow:0 18px 36px rgba(20,40,60,0.08);}
+.tally-placeholder-icon{font-size:2rem;margin-bottom:14px;}
+.tally-placeholder-title{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.tally-placeholder-copy{font-size:0.82rem;color:#49646a;line-height:1.65;opacity:0.92;margin-bottom:18px;}
+.tally-placeholder-link{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:0.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(240,180,100,0.28);padding-bottom:2px;}
+
+.trust-strip{background:rgba(240,180,100,0.08);border:1px solid rgba(240,180,100,0.14);border-radius:14px;padding:28px 30px;display:grid;grid-template-columns:minmax(0,0.75fr) minmax(0,1.25fr);gap:26px;align-items:center;}
+.trust-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:var(--pure);line-height:1.15;}
+.trust-copy{font-size:0.88rem;color:var(--teal-lt);line-height:1.75;opacity:0.9;}
+
+.reveal{opacity:0;transform:translate3d(0,var(--reveal-distance,24px),0);transition:opacity 0.72s cubic-bezier(0.22,1,0.36,1),transform 0.72s cubic-bezier(0.22,1,0.36,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform;}
+.reveal-left{transform:translate3d(calc(var(--reveal-distance,24px) * -1),0,0);}
+.reveal-right{transform:translate3d(var(--reveal-distance,24px),0,0);}
+.reveal.is-visible{opacity:1;transform:translate3d(0,0,0);}
+
+/* WAITLIST PAGE COLORWAY POLISH (MATCH HOME/INVESTOR RHYTHM) */
+.divider{display:none;}
+
+#value,#how-it-works{
+  background:var(--soft-white);
+}
+
+#controlled-access,#waitlist-form{
+  background:var(--soft-white-alt);
+}
+
+section:last-of-type{
+  background:var(--cream);
+}
+
+#value .section-label,
+#controlled-access .section-label,
+#how-it-works .section-label,
+#waitlist-form .section-label{
+  color:var(--green);
+}
+
+#value .section-title,
+#controlled-access .section-title,
+#how-it-works .section-title,
+#waitlist-form .section-title{
+  color:var(--navy);
+}
+
+#value .section-body,
+#controlled-access .section-body,
+#how-it-works .section-body,
+#waitlist-form .section-body{
+  color:#4d6072;
+  opacity:0.95;
+}
+
+#value .value-card,
+#controlled-access .info-card,
+#controlled-access .pilot-list li,
+#how-it-works .step-card,
+#waitlist-form .signup-shell,
+#waitlist-form .form-card{
+  background:#f8fbfa;
+  border:1px solid rgba(0,96,84,0.18);
+}
+
+#value .value-title,
+#controlled-access .info-card-title,
+#how-it-works .step-title,
+#waitlist-form .signup-title,
+#waitlist-form .form-title{
+  color:var(--navy);
+}
+
+#value .value-copy,
+#controlled-access .info-card-copy,
+#controlled-access .pilot-list li,
+#how-it-works .step-copy,
+#waitlist-form .signup-copy,
+#waitlist-form .form-sub,
+#waitlist-form .review-note{
+  color:#506375;
+  opacity:1;
+}
+
+#controlled-access .pilot-list li::before{
+  background:rgba(0,96,84,0.12);
+  color:var(--green);
+}
+
+#how-it-works .step-number{
+  color:var(--green);
+}
+
+#waitlist-form .meta-pill{
+  background:rgba(0,96,84,0.08);
+  border:1px solid rgba(0,96,84,0.16);
+  color:#486173;
+}
+
+#waitlist-form .form-badge{
+  background:rgba(0,96,84,0.08);
+  border:1px solid rgba(0,96,84,0.2);
+  color:var(--green);
+}
+
+#waitlist-form .review-note{
+  background:rgba(220,80,60,0.06);
+  border:1px solid rgba(220,80,60,0.14);
+}
+
+section:last-of-type .trust-strip{
+  background:#fbfefd;
+  border:1px solid rgba(0,96,84,0.22);
+}
+
+section:last-of-type .trust-title{
+  color:var(--navy);
+}
+
+section:last-of-type .trust-copy{
+  color:#4f6375;
+  opacity:1;
+}
+
+footer{
+  background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);
+  border-top:1px solid rgba(220,240,240,0.14);
+  padding:56px 0 28px;
+  position:relative;
+  z-index:1;
+}
+.footer-wrap{display:grid;gap:30px;}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:34px;
+  padding-bottom:30px;
+  border-bottom:1px solid rgba(220,240,240,0.14);
+}
+.footer-brand-logo{height:32px;width:auto;display:block;}
+.footer-brand-copy{
+  margin-top:14px;
+  max-width:340px;
+  color:rgba(220,240,240,0.74);
+  font-size:0.94rem;
+  line-height:1.75;
+}
+.footer-col-title{
+  color:rgba(220,240,240,0.66);
+  font-size:0.68rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:14px;
+}
+.footer-col a{
+  display:block;
+  color:rgba(240,240,240,0.88);
+  text-decoration:none;
+  font-size:0.96rem;
+  margin-bottom:9px;
+}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  color:rgba(220,240,240,0.56);
+  font-size:0.82rem;
+}
+.footer-bottom-links{display:flex;gap:12px;flex-wrap:wrap;}
+.footer-bottom-links a{
+  color:rgba(220,240,240,0.58);
+  text-decoration:none;
+}
+.footer-bottom-links a:hover{color:var(--gold);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.hero > .container > *{animation:fadeUp 0.65s ease both;}
+.hero > .container > *:nth-child(2){animation-delay:0.12s;}
+
+@media(max-width:980px){
+  .hero-grid,.two-col,.signup-shell,.trust-strip{grid-template-columns:1fr;}
+  .value-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .steps{grid-template-columns:1fr;}
+  .signup-sidebar{padding-right:0;}
+}
+@media(max-width:640px){
+  .hero{padding:96px 0 84px;}
+  .hero-title{font-size:clamp(2.5rem,12vw,4rem);max-width:none;}
+  .hero-sub{font-size:1rem;}
+  .hero-actions{width:100%;}
+  .hero-actions .btn-primary,.hero-actions .btn-ghost{width:100%;justify-content:center;}
+  .signal-grid,.value-grid{grid-template-columns:1fr;}
+  .hero-panel,.signup-shell,.trust-strip,.info-card,.form-card{padding:24px 20px;}
+  .tally-shell{padding:14px;}
+  .tally-shell,.tally-shell iframe,.tally-placeholder{min-height:500px;}
+  .footer-top{grid-template-columns:1fr;gap:24px;}
+  .footer-brand-copy{max-width:none;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .footer-bottom-links{gap:8px 12px;}
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal,.reveal-left,.reveal-right{opacity:1;transform:none;transition:none;}
+}
+</style>
+
+<script defer src="lib/consent/consentManager.js"></script>
+<script defer src="lib/analytics/clarityLoader.js"></script>
+<script defer src="components/ConsentBanner.js"></script>
+</head>
+<body>
+<div class="topo"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Trosyn AI home">
+      <span class="nav-logo-wordmark"><span>trosyn</span><span class="nav-logo-ai">AI</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Product</a></li>
+      <li><a href="investors.html">Investors</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="waitlist.html" class="active nav-cta">Join the Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">Controlled Early Access</div>
+        <h1 class="hero-title">Private AI for <em>document-heavy</em> teams</h1>
+        <p class="hero-sub">Trosyn AI runs locally on company-controlled infrastructure. Early access starts with selected teams in East Africa, then expands into similar markets globally.</p>
+        <div class="hero-actions">
+          <a href="#waitlist-form" class="btn-primary">Join the Waitlist</a>
+          <a href="#how-it-works" class="btn-ghost">How It Works</a>
+        </div>
+        <p class="hero-support">Early access is limited while we validate deployment, reliability, and workflow fit in live operating environments.</p>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-panel-tag">Built for real business conditions</div>
+        <div class="hero-panel-title">Local deployment. Private workflows. Deliberate rollout.</div>
+        <div class="hero-panel-copy">Trosyn AI is designed for teams that need document processing, internal automation, and operational support without depending on stable internet or sending sensitive information outside the organization.</div>
+        <div class="signal-grid">
+          <div class="signal-card">
+            <div class="signal-label">Runs locally</div>
+            <div class="signal-value">On-device</div>
+            <div class="signal-copy">Built to operate on company-controlled infrastructure instead of cloud-only workflows.</div>
+          </div>
+          <div class="signal-card">
+            <div class="signal-label">Works offline</div>
+            <div class="signal-value">Offline-first</div>
+            <div class="signal-copy">Core workflows continue to function even in low-connectivity or unstable network environments.</div>
+          </div>
+          <div class="signal-card">
+            <div class="signal-label">Business scope</div>
+            <div class="signal-value">HR / Finance / Legal</div>
+            <div class="signal-copy">Focused on practical business workflows instead of generic consumer AI usage.</div>
+          </div>
+          <div class="signal-card">
+            <div class="signal-label">Access model</div>
+            <div class="signal-value">By review</div>
+            <div class="signal-copy">We are admitting early users carefully while validating real-world business use cases.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="value">
+  <div class="container">
+    <p class="section-label">Why teams join</p>
+    <h2 class="section-title">Clear workflow value, without cloud dependency.</h2>
+    <p class="section-body">Trosyn AI is built for businesses that want useful automation, tighter data control, and a deployment model they can actually operate.</p>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">📄</div>
+        <div class="value-title">Create and edit business documents</div>
+        <div class="value-copy">Support for structured document work such as drafting, summarizing, rewriting, and internal document processing.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🧾</div>
+        <div class="value-title">Automate HR, finance, and legal tasks</div>
+        <div class="value-copy">Designed around common internal workflows where teams spend time on repetitive admin and document-heavy work.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📡</div>
+        <div class="value-title">Works without constant internet</div>
+        <div class="value-copy">Built for environments where internet reliability cannot be assumed all day, every day.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔒</div>
+        <div class="value-title">Keeps data inside your organization</div>
+        <div class="value-copy">Local deployment helps businesses keep sensitive documents and internal data within their own environment.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🏢</div>
+        <div class="value-title">Built for repeatable business use</div>
+        <div class="value-copy">Positioned for practical operations, not novelty use. The focus is business reliability, clarity, and control.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="controlled-access">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <p class="section-label">Why the waitlist exists</p>
+        <h2 class="section-title">Access is limited because deployment quality matters.</h2>
+        <p class="section-body">Trosyn AI is in controlled testing. Access is limited so we can validate real business workflows, deployment requirements, and customer value before wider release.</p>
+        <div class="info-card" style="margin-top:30px;">
+          <div class="info-card-title">Early-stage, but structured.</div>
+          <p class="info-card-copy">This is not an instant-download product or open public launch. We are admitting early users deliberately so onboarding, product feedback, and deployment support can be handled well.</p>
+          <p class="info-card-copy">That gives us cleaner product learning and stronger proof before broader rollout into additional markets.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">Selected teams will</div>
+        <ul class="pilot-list">
+          <li>receive early access invitations when a testing slot is available</li>
+          <li>participate in pilot testing for real business scenarios</li>
+          <li>get onboarding instructions once access is ready</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="how-it-works">
+  <div class="container">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Simple process. Deliberate rollout.</h2>
+    <p class="section-body">The goal is to admit the right early teams, not the fastest clickers. Every request is reviewed before access is offered.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-title">Submit your details</div>
+        <div class="step-copy">Share your name, email, and basic company context through the waitlist form.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-title">Application reviewed</div>
+        <div class="step-copy">Submissions are reviewed so we can prioritize high-signal deployment situations and useful early feedback.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-title">Selected users invited</div>
+        <div class="step-copy">Approved teams receive an access invitation and onboarding instructions when a slot opens.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="waitlist-form">
+  <div class="container">
+    <div class="signup-shell">
+      <div class="signup-sidebar">
+        <p class="section-label">Join the Waitlist</p>
+        <div class="signup-title">Request early access to Trosyn AI.</div>
+        <p class="signup-copy">Use the form to request access for your business or team. We are currently reviewing applications while the product remains in controlled early testing.</p>
+        <p class="signup-copy">The current rollout is designed to identify teams with real workflow pain, clear deployment conditions, and useful feedback potential.</p>
+        <div class="meta-list">
+          <div class="meta-pill">Full name</div>
+          <div class="meta-pill">Email</div>
+          <div class="meta-pill">Company name</div>
+          <div class="meta-pill">Role</div>
+        </div>
+      </div>
+      <div class="form-card">
+        <div class="form-badge">Request Access</div>
+        <div class="form-title">Waitlist application</div>
+        <div class="form-sub">Tell us who you are and we will review your request for controlled early access.</div>
+        <div class="review-note"><strong>Controlled access:</strong> submitting the form does not imply instant access, instant download, or automatic approval.</div>
+        <div class="tally-shell" data-tally-src="https://tally.so/embed/rj08rp?hideTitle=1&amp;dynamicHeight=1">
+          <div class="tally-placeholder">
+            <div class="tally-placeholder-card">
+              <div class="tally-placeholder-icon">📝</div>
+              <div class="tally-placeholder-title">Opening the waitlist form</div>
+              <div class="tally-placeholder-copy">If the embedded form takes a moment to appear, you can open it directly in a new tab instead.</div>
+              <a class="tally-placeholder-link" href="https://tally.so/r/rj08rp" target="_blank" rel="noreferrer">Open form in a new tab</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-title">Local deployment and measured rollout by design.</div>
+      <div class="trust-copy">Trosyn AI is designed for company-controlled deployment and careful rollout. The current focus is proving the product in live business workflows before widening access across more markets.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-wrap">
+    <div class="footer-top">
+      <div>
+        <img class="footer-brand-logo" src="Artboard 25.svg" alt="trosynAI"/>
+        <p class="footer-brand-copy">The AI operating system for companies where data cannot leave the building.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Product</div>
+        <a href="waitlist.html">Pricing</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About Us</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Investors</div>
+        <a href="investors.html">Overview</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="contact.html?type=demo">Request Demo</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Trosyn AI. All rights reserved.</span>
+      <span class="footer-bottom-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms</a>
+        <a href="#privacy-settings" class="js-privacy-settings">Privacy Settings</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function setupRevealAnimations(configs) {
+  const revealTargets = [];
+
+  configs.forEach(config => {
+    document.querySelectorAll(config.selector).forEach((element, index) => {
+      if (element.dataset.revealReady === 'true') return;
+
+      element.dataset.revealReady = 'true';
+      element.classList.add('reveal');
+
+      if (config.direction === 'left') element.classList.add('reveal-left');
+      if (config.direction === 'right') element.classList.add('reveal-right');
+
+      const delay = (config.delay || 0) + index * (config.stagger || 0);
+      if (delay) element.style.setProperty('--reveal-delay', delay + 'ms');
+      if (config.distance) element.style.setProperty('--reveal-distance', config.distance);
+
+      revealTargets.push(element);
+    });
+  });
+
+  if (!revealTargets.length) return;
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealTargets.forEach(element => element.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+  revealTargets.forEach(element => observer.observe(element));
+}
+
+function setupTallyEmbed() {
+  const shell = document.querySelector('.tally-shell');
+  if (!shell) return;
+
+  const src = (shell.dataset.tallySrc || '').trim();
+  if (!src) return;
+
+  const iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.title = 'Trosyn AI waitlist form';
+  iframe.loading = 'lazy';
+  shell.innerHTML = '';
+  const frameWrap = document.createElement('div');
+  frameWrap.className = 'tally-frame-wrap';
+  frameWrap.appendChild(iframe);
+  shell.appendChild(frameWrap);
+
+  const script = document.createElement('script');
+  script.src = 'https://tally.so/widgets/embed.js';
+  script.async = true;
+  document.body.appendChild(script);
+}
+
+setupTallyEmbed();
+
+setupRevealAnimations([
+  { selector: '.hero-grid > :first-child', direction: 'left', distance: '28px' },
+  { selector: '.hero-grid > :last-child', direction: 'right', delay: 80, distance: '28px' },
+  { selector: '#value .value-grid', delay: 40 },
+  { selector: '#controlled-access .two-col > :first-child', direction: 'left', distance: '24px' },
+  { selector: '#controlled-access .two-col > :last-child', direction: 'right', delay: 70, distance: '24px' },
+  { selector: '#how-it-works .steps', delay: 40 },
+  { selector: '#waitlist-form .signup-shell', delay: 40 },
+  { selector: '.trust-strip', delay: 40 }
+]);
+</script>
+
+</body>
+</html>
