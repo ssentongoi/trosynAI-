@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trosyn AI – Private, Offline AI for Businesses</title>
+<meta name="description" content="Trosyn AI brings generative AI to African businesses — fully offline, data-sovereign, and built for the continent."/>
+<meta name="theme-color" content="#006054"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --green:   #006054;
+  --navy:    #14283C;
+  --coral:   #DC503C;
+  --gold:    #F0B464;
+  --teal-lt: #DCF0F0;
+  --teal-md: #3C6464;
+  --white:   #F0F0F0;
+  --pure:    #FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--green);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.35;}
+.topo{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.05;background-image:repeating-radial-gradient(ellipse at 20% 50%,transparent 0,transparent 40px,#DCF0F0 41px,transparent 42px),repeating-radial-gradient(ellipse at 80% 20%,transparent 0,transparent 60px,#DCF0F0 61px,transparent 62px);}
+.container{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 28px;}
+section{padding:88px 0;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(220,240,240,0.18),transparent);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,240,240,0.08);padding:0 28px;}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--pure);white-space:nowrap;}
+.nav-logo-icon{height:36px;width:auto;flex-shrink:0;display:block;}
+.nav-logo-wordmark{display:inline-flex;align-items:baseline;gap:3px;font-family:'DM Sans',sans-serif;font-size:1.45rem;font-weight:600;letter-spacing:-0.055em;line-height:1;color:var(--pure);}
+.nav-logo-ai{font-weight:500;letter-spacing:-0.065em;opacity:0.94;}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none;}
+.nav-links a{color:var(--white);text-decoration:none;font-size:0.84rem;font-weight:500;padding:7px 16px;border-radius:4px;opacity:0.75;transition:opacity 0.2s,background 0.2s;}
+.nav-links a:hover{opacity:1;background:rgba(220,240,240,0.08);}
+.nav-links a.active{opacity:1;color:var(--pure);}
+.nav-cta{background:var(--coral)!important;color:var(--pure)!important;opacity:1!important;font-weight:600!important;}
+.nav-cta:hover{background:#c44030!important;}
+
+/* HERO */
+.hero{padding:120px 0 100px;}
+.hero-badge{display:inline-flex;align-items:center;background:rgba(240,180,100,0.12);border:1px solid rgba(240,180,100,0.25);color:var(--gold);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:32px;}
+.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(3rem,7vw,5.8rem);line-height:1.0;letter-spacing:-0.03em;color:var(--pure);margin-bottom:24px;max-width:11ch;}
+.hero-line{display:block;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--teal-lt);max-width:520px;margin-bottom:44px;font-weight:300;line-height:1.7;}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:15px 30px;border-radius:4px;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s,transform 0.2s;}
+.btn-primary:hover{background:#c44030;transform:translateY(-2px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--teal-lt);font-size:0.88rem;font-weight:500;text-decoration:none;padding:15px 4px;border-bottom:1px solid rgba(220,240,240,0.2);transition:border-color 0.2s,color 0.2s;}
+.btn-ghost:hover{color:var(--pure);border-color:rgba(220,240,240,0.5);}
+.hero-visual{margin-top:72px;background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.08);border-radius:12px;padding:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;overflow:hidden;}
+.hero-stat{padding:24px 20px;text-align:center;background:rgba(0,0,0,0.1);transition:background 0.35s,transform 0.35s;}
+.hero-stat.is-active{background:rgba(0,0,0,0.18);transform:translateY(-2px);}
+.hero-stat-num{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums lining-nums;}
+.hero-stat-label{font-size:0.77rem;color:var(--teal-lt);margin-top:6px;opacity:0.8;line-height:1.4;}
+
+/* SECTION LABELS */
+.section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--coral);margin-bottom:16px;}
+.section-title{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;letter-spacing:-0.02em;color:var(--pure);margin-bottom:20px;}
+.section-body{font-size:0.95rem;color:var(--teal-lt);max-width:600px;line-height:1.8;opacity:0.9;}
+
+/* PROBLEM */
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;margin-top:48px;border-radius:8px;overflow:hidden;background:rgba(220,240,240,0.06);}
+.problem-card{background:rgba(20,40,60,0.55);padding:36px 28px;position:relative;}
+.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--coral);}
+.problem-icon{font-size:1.6rem;margin-bottom:16px;}
+.problem-title{font-weight:700;font-size:1rem;color:var(--pure);margin-bottom:10px;}
+.problem-text{font-size:0.85rem;color:var(--teal-lt);line-height:1.7;opacity:0.85;}
+
+/* SOLUTION */
+.solution-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:center;}
+.solution-left{}
+.solution-features{display:flex;flex-direction:column;gap:0;}
+.feature-row{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid rgba(220,240,240,0.07);align-items:flex-start;}
+.feature-row:first-child{padding-top:0;}
+.feature-row:last-child{border-bottom:none;padding-bottom:0;}
+.feature-icon{width:40px;height:40px;background:rgba(240,180,100,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.feature-name{font-weight:600;font-size:0.92rem;color:var(--pure);margin-bottom:4px;}
+.feature-desc{font-size:0.82rem;color:var(--teal-lt);line-height:1.6;opacity:0.8;}
+.solution-callout{background:rgba(0,0,0,0.2);border-radius:10px;padding:32px;}
+.solution-callout-title{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--pure);margin-bottom:20px;line-height:1.3;}
+.solution-callout-title em{color:var(--gold);font-style:italic;}
+.arch-flow{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+.arch-node{background:rgba(20,40,60,0.6);border:1px solid rgba(220,240,240,0.1);border-radius:6px;padding:14px 18px;font-size:0.82rem;display:flex;align-items:center;gap:12px;}
+.arch-node-icon{width:28px;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+.arch-node-icon.gold{background:rgba(240,180,100,0.15);}
+.arch-node-icon.coral{background:rgba(220,80,60,0.15);}
+.arch-node-icon.teal{background:rgba(60,100,100,0.3);}
+.arch-node-label{color:var(--white);font-weight:500;}
+.arch-node-desc{color:var(--teal-lt);opacity:0.65;font-size:0.78rem;}
+.arch-arrow{text-align:center;color:var(--teal-md);font-size:0.75rem;padding:2px 0;}
+.arch-note{font-size:0.75rem;color:var(--teal-md);font-style:italic;text-align:center;padding-top:16px;border-top:1px solid rgba(220,240,240,0.07);}
+
+/* FEATURES GRID */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:48px;}
+.feat-card{background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.07);border-radius:8px;padding:28px 24px;transition:border-color 0.2s,background 0.2s;}
+.feat-card:hover{border-color:rgba(240,180,100,0.2);background:rgba(20,40,60,0.7);}
+.feat-card-icon{font-size:1.4rem;margin-bottom:14px;}
+.feat-card-name{font-weight:700;font-size:0.92rem;color:var(--pure);margin-bottom:8px;}
+.feat-card-desc{font-size:0.82rem;color:var(--teal-lt);line-height:1.6;opacity:0.8;}
+
+/* USE CASES */
+.use-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:48px;}
+.use-case{background:rgba(20,40,60,0.45);border:1px solid rgba(220,240,240,0.07);border-radius:6px;padding:24px 20px;position:relative;overflow:hidden;}
+.use-case::after{content:'';position:absolute;bottom:-24px;right:-16px;width:60px;height:60px;background:radial-gradient(circle,rgba(240,180,100,0.06) 0%,transparent 70%);border-radius:50%;}
+.use-case-dept{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.use-case-title{font-weight:600;font-size:0.9rem;color:var(--pure);margin-bottom:10px;}
+.use-case-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.use-case-list li{font-size:0.78rem;color:var(--teal-lt);opacity:0.8;padding-left:14px;position:relative;line-height:1.4;}
+.use-case-list li::before{content:'→';position:absolute;left:0;color:var(--teal-md);font-size:0.7rem;}
+
+/* FAQ */
+.faq-shell{padding-top:6px;}
+.faq-intro{max-width:720px;margin-bottom:42px;}
+.faq-intro .section-title{max-width:11ch;margin-bottom:18px;}
+.faq-intro .section-body{max-width:640px;font-size:1rem;}
+.faq-list{border-top:1px solid rgba(220,240,240,0.1);}
+.faq-item{border-bottom:1px solid rgba(220,240,240,0.1);transition:border-color 0.35s ease;}
+.faq-item.is-open{border-bottom-color:rgba(220,80,60,0.22);}
+.faq-question{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:transparent;border:none;color:inherit;padding:28px 0;text-align:left;cursor:pointer;font:inherit;}
+.faq-question-text{font-size:1.05rem;font-weight:700;line-height:1.4;color:var(--pure);padding-right:12px;}
+.faq-toggle{width:56px;height:56px;border-radius:50%;border:2px solid rgba(220,240,240,0.2);display:inline-flex;align-items:center;justify-content:center;position:relative;transition:background 0.35s ease,border-color 0.35s ease,transform 0.35s ease,box-shadow 0.35s ease;}
+.faq-toggle::before,.faq-toggle::after{content:'';position:absolute;width:18px;height:2px;border-radius:999px;background:var(--teal-lt);transition:transform 0.35s ease,background 0.35s ease,opacity 0.35s ease;}
+.faq-toggle::after{transform:rotate(90deg);}
+.faq-question:hover .faq-toggle{border-color:rgba(240,180,100,0.32);transform:translateY(-1px);}
+.faq-item.is-open .faq-toggle{background:var(--coral);border-color:rgba(240,180,100,0.42);box-shadow:0 12px 28px rgba(220,80,60,0.2);}
+.faq-item.is-open .faq-toggle::before,.faq-item.is-open .faq-toggle::after{background:var(--pure);}
+.faq-item.is-open .faq-toggle::before{transform:rotate(45deg);}
+.faq-item.is-open .faq-toggle::after{transform:rotate(-45deg);}
+.faq-answer-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.45s cubic-bezier(0.22,1,0.36,1);}
+.faq-item.is-open .faq-answer-wrap{grid-template-rows:1fr;}
+.faq-answer{overflow:hidden;}
+.faq-answer-inner{padding:0 92px 34px 0;max-width:1100px;}
+.faq-answer-inner p{font-size:0.95rem;color:var(--teal-lt);line-height:1.9;opacity:0.92;margin-bottom:18px;}
+.faq-answer-inner p:last-child{margin-bottom:0;}
+
+/* CTA */
+.cta-section{background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.07);border-radius:12px;padding:64px 48px;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(220,80,60,0.06) 0%,transparent 70%);}
+.cta-title{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--pure);letter-spacing:-0.03em;margin-bottom:16px;position:relative;}
+.cta-title em{color:var(--gold);font-style:italic;}
+.cta-body{font-size:0.95rem;color:var(--teal-lt);opacity:0.8;margin-bottom:36px;max-width:420px;margin-left:auto;margin-right:auto;position:relative;}
+.cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:14px 28px;border-radius:4px;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s,transform 0.2s;position:relative;}
+.cta-button:hover{background:#c44030;transform:translateY(-2px);}
+
+.reveal{opacity:0;transform:translate3d(0,var(--reveal-distance,24px),0);transition:opacity 0.72s cubic-bezier(0.22,1,0.36,1),transform 0.72s cubic-bezier(0.22,1,0.36,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform;}
+.reveal-left{transform:translate3d(calc(var(--reveal-distance,24px) * -1),0,0);}
+.reveal-right{transform:translate3d(var(--reveal-distance,24px),0,0);}
+.reveal.is-visible{opacity:1;transform:translate3d(0,0,0);}
+
+footer{border-top:1px solid rgba(220,240,240,0.07);padding:24px 28px;text-align:center;font-size:0.73rem;color:var(--teal-md);position:relative;z-index:1;}
+footer a{color:var(--teal-md);text-decoration:none;opacity:0.8;}
+footer a:hover{color:var(--gold);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero>div>*{animation:fadeUp 0.65s ease both;}
+.hero>div>*:nth-child(2){animation-delay:0.08s;}
+.hero>div>*:nth-child(3){animation-delay:0.16s;}
+.hero>div>*:nth-child(4){animation-delay:0.24s;}
+.hero>div>*:nth-child(5){animation-delay:0.36s;}
+
+@media(max-width:640px){
+  .solution-layout,.hero-visual{grid-template-columns:1fr;}
+  nav .nav-links .nav-links-secondary{display:none;}
+  .hero h1{font-size:clamp(2.15rem,12vw,3.9rem);line-height:0.96;letter-spacing:-0.045em;max-width:none;}
+  .hero-line{white-space:nowrap;}
+  .hero-badge{font-size:0.66rem;letter-spacing:0.1em;padding:6px 14px;}
+  .hero-sub{font-size:1rem;line-height:1.65;}
+  .faq-question{gap:18px;padding:22px 0;}
+  .faq-question-text{font-size:0.97rem;padding-right:0;}
+  .faq-toggle{width:46px;height:46px;}
+  .faq-toggle::before,.faq-toggle::after{width:14px;}
+  .faq-answer-inner{padding:0 0 26px 0;}
+  .cta-section{padding:44px 24px;}
+  .use-cases{grid-template-columns:1fr 1fr;}
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal,.reveal-left,.reveal-right{opacity:1;transform:none;transition:none;}
+}
+</style>
+</head>
+<body>
+<div class="topo"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Trosyn AI home">
+      <span class="nav-logo-wordmark"><span>trosyn</span><span class="nav-logo-ai">AI</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Product</a></li>
+      <li><a href="investors.html">Investors</a></li>
+      <li><a href="waitlist.html">Waitlist</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">AFRICA · B2B · OFFLINE-FIRST AI</div>
+    <h1><span class="hero-line">AI at the <em>Edge</em></span><span class="hero-line">for African</span><span class="hero-line">Business.</span></h1>
+    <p class="hero-sub">Trosyn AI brings generative AI to African businesses — fully offline, data-sovereign, and built for the continent's languages, laws, and realities.</p>
+    <div class="hero-actions">
+      <a href="contact.html?type=demo" class="btn-primary">Request a Demo →</a>
+      <a href="investors.html" class="btn-ghost">Investor Overview →</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count-from="0" data-count-to="100" data-count-duration="1800" data-count-suffix="%">0%</div>
+        <div class="hero-stat-label">Offline — works during outages and shutdowns</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count-from="12" data-count-to="0" data-count-duration="1500">12</div>
+        <div class="hero-stat-label">Data leaves your premises — ever</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count-from="0" data-count-to="3" data-count-duration="1400">0</div>
+        <div class="hero-stat-label">Built-in AI agents for HR, Finance & Legal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <p class="section-label">The Problem</p>
+    <h2 class="section-title">Global AI tools weren't built for how African businesses actually operate.</h2>
+    <p class="section-body">Cloud-first AI tools assume stable internet, Western regulations, and English workflows. Most African businesses work in a completely different reality.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">📡</div>
+        <div class="problem-title">Connectivity is unpredictable</div>
+        <div class="problem-text">Only 1.2% of Africans have 5G. Internet shutdowns cost businesses $7.69B in 2024 alone. When the connection drops, cloud AI tools stop working entirely — halting operations.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⚡</div>
+        <div class="problem-title">Infrastructure is unreliable</div>
+        <div class="problem-text">Frequent power outages and unstable internet make always-on systems impractical. Global software assumes constant uptime that simply doesn't exist across most of Africa.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔒</div>
+        <div class="problem-title">Compliance is now mandatory</div>
+        <div class="problem-text">39 of 55 African nations have enacted data protection laws. Nigeria mandates local data hosting. South Africa's POPIA carries fines up to 10% of global turnover. Cloud tools send your data overseas by default.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <div class="container">
+    <p class="section-label">The Solution</p>
+    <h2 class="section-title">AI that lives inside your business.</h2>
+    <p class="section-body">Trosyn AI runs entirely on a local server inside your organisation. Your team uses a simple chat interface. All processing stays on-site. Nothing goes to the cloud.</p>
+    <div class="solution-layout">
+      <div class="solution-left">
+        <div class="solution-features">
+          <div class="feature-row">
+            <div class="feature-icon">📡</div>
+            <div>
+              <div class="feature-name">Offline-First Engine</div>
+              <div class="feature-desc">AI models run entirely on your local server. Works during internet outages, power instability, and government shutdowns.</div>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">🏗️</div>
+            <div>
+              <div class="feature-name">Local Deployment</div>
+              <div class="feature-desc">Installs on your own infrastructure. No SaaS subscription required. You own and control the entire system.</div>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">🔐</div>
+            <div>
+              <div class="feature-name">Secure Document Processing</div>
+              <div class="feature-desc">Every document — contracts, invoices, reports — processed locally. Compliant with POPIA, NDPR, and Kenya's Data Protection Act by default.</div>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-icon">🤝</div>
+            <div>
+              <div class="feature-name">Multi-User Collaboration</div>
+              <div class="feature-desc">Your whole team works inside the platform simultaneously. Trosyn learns your specific workflows and context over time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-callout">
+        <div class="solution-callout-title">Simple to use.<br/><em>Powerful by design.</em></div>
+        <div class="arch-flow">
+          <div class="arch-node">
+            <div class="arch-node-icon gold">💬</div>
+            <div>
+              <div class="arch-node-label">Your Team</div>
+              <div class="arch-node-desc">Types a request in plain language</div>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node">
+            <div class="arch-node-icon coral">⚙️</div>
+            <div>
+              <div class="arch-node-label">Trosyn AI Engine</div>
+              <div class="arch-node-desc">Processes entirely on your local server</div>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node">
+            <div class="arch-node-icon teal">📄</div>
+            <div>
+              <div class="arch-node-label">Output</div>
+              <div class="arch-node-desc">Document, report, or answer — ready in seconds</div>
+            </div>
+          </div>
+        </div>
+        <div class="arch-note">No data exits this chain. The AI lives inside your business.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <p class="section-label">Built For</p>
+    <h2 class="section-title">Every department.<br/>One platform.</h2>
+    <p class="section-body">Trosyn agents are pre-loaded with African regulatory knowledge — local labor law, tax frameworks, and compliance standards — so outputs are accurate from day one.</p>
+    <div class="use-cases">
+      <div class="use-case">
+        <div class="use-case-dept">HR Department</div>
+        <div class="use-case-title">HR Agent</div>
+        <ul class="use-case-list">
+          <li>Employment contracts</li>
+          <li>Onboarding documents</li>
+          <li>Policy queries</li>
+          <li>Payroll questions</li>
+        </ul>
+      </div>
+      <div class="use-case">
+        <div class="use-case-dept">Finance Department</div>
+        <div class="use-case-title">Finance Agent</div>
+        <ul class="use-case-list">
+          <li>Invoice generation</li>
+          <li>Financial reports</li>
+          <li>Expense summaries</li>
+          <li>Account reconciliation</li>
+        </ul>
+      </div>
+      <div class="use-case">
+        <div class="use-case-dept">Legal & Compliance</div>
+        <div class="use-case-title">Legal Agent</div>
+        <ul class="use-case-list">
+          <li>NDA drafting</li>
+          <li>Regulatory summaries</li>
+          <li>Compliance checks</li>
+          <li>Standard filings</li>
+        </ul>
+      </div>
+      <div class="use-case" style="border-style:dashed;opacity:0.5;">
+        <div class="use-case-dept">Coming Soon</div>
+        <div class="use-case-title">More Agents</div>
+        <ul class="use-case-list">
+          <li>Procurement</li>
+          <li>Reporting</li>
+          <li>Communications</li>
+          <li>Custom workflows</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-shell">
+      <div class="faq-intro">
+        <p class="section-label">Frequently Asked Questions</p>
+        <h2 class="section-title">Wondering about something? Let's clear things up.</h2>
+        <p class="section-body">Everything you need to know about running Trosyn AI on your own infrastructure.</p>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item is-open">
+          <button class="faq-question" type="button" aria-expanded="true">
+            <span class="faq-question-text">How do I install Trosyn AI locally?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Trosyn AI is currently in a controlled testing phase. Access is granted through a waitlist, where selected participants are invited into pilot programs to evaluate real-world use cases.</p>
+                <p>As the product progresses toward release, users will receive access instructions and installation packages to deploy Trosyn AI locally within their organization.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Can I use Trosyn AI without internet?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Yes. Trosyn AI operates offline by default. Core AI functions run locally on the device. Internet connectivity is only used for external services such as payments, license verification, and system updates.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">How is my data secured?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Trosyn AI keeps all your files and data on your device. Nothing is sent to external servers or uploaded online. Only you and your approved users can access it.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Which document formats are supported?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>PDF, DOCX, TXT, and Markdown files are fully supported for summarising, rewriting, and analysis. The system converts everything into a normalized text layer for accurate search and understanding by the AI.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Can I add multiple departments?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Yes. You can already organize your work into different project areas like HR, Finance, or Design within your account.</p>
+                <p>In the next version, you will also be able to add teams, share access with others, and collaborate across departments.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">How do I update the AI models?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Trosyn AI will notify you when a new model version is available. You can then download and install the update through the app.</p>
+                <p>Once installed, the system automatically recognizes the new model and switches to it without requiring reinstalling the app or manual configuration.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Does Trosyn AI support multiple languages?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Yes. Trosyn AI can work with multiple languages depending on the AI model in use. Basic tasks like summarization, rewriting, and search can function in different languages, with stronger performance in widely supported languages such as English.</p>
+                <p>Support for additional African languages, including Swahili, Luganda, Yoruba, and Zulu, is planned for future updates.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Can Trosyn AI handle large documents and research projects?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Yes. Trosyn AI can work with large files, including PDFs and multi-document projects. It processes information in stages so it can handle bigger workloads without slowing down your device.</p>
+                <p>Performance depends on your hardware, but it is designed to stay responsive even with heavy documents.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">What are the system requirements?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>For smooth performance, a computer with at least 4 GB of RAM is needed. Devices with 8 GB RAM or more will run faster, especially when working with large documents or heavier tasks.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">How do I request a demo or trial?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>You can request access through the contact form on this website. Once submitted, your details are added to the waitlist, and selected users are invited to a demo or pilot session where they can test Trosyn AI.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Is my data safe on Trosyn AI?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Your data stays on your device and is not uploaded to external servers. Access is controlled locally within your organization, reducing exposure to external breaches.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">What happens if my device is lost or damaged?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Your data is stored locally, so it is tied to your device or internal setup. Backup options will be available depending on your organization's configuration.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Who should use Trosyn AI?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Trosyn AI is designed for businesses that need secure document processing, automation, and offline AI support - especially in environments with limited or unreliable internet access.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Will Trosyn AI replace my current software?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>No. Trosyn AI works alongside your existing tools by helping automate document creation, analysis, and internal workflows.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">How is Trosyn AI different from other AI tools?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Unlike cloud-based AI tools, Trosyn AI runs locally, meaning it works without constant internet access and keeps your data within your organization.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-question-text">Do I need technical skills to use it?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>No. Trosyn AI is designed with a simple interface so any staff member can use it without technical training.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-section">
+      <h2 class="cta-title">Ready to see it<br/><em>in action?</em></h2>
+      <p class="cta-body">We're onboarding pilot businesses in Uganda and Kenya. Get in touch to learn how Trosyn fits your operations.</p>
+      <a class="cta-button" href="contact.html">Contact Us</a>
+      <div style="margin-top:16px;font-size:0.8rem;color:var(--teal-md);">Ivan Ssentongo · Founder & CEO · Trosyn AI</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <span>© 2026 Trosyn AI</span>
+    <span><a href="index.html">Product</a> &nbsp;·&nbsp; <a href="investors.html">Investors</a> &nbsp;·&nbsp; <a href="waitlist.html">Waitlist</a> &nbsp;·&nbsp; <a href="../blog/index.html">Blog</a> &nbsp;·&nbsp; <a href="contact.html">Contact Us</a></span>
+  </div>
+</footer>
+
+<script>
+const statNumbers = document.querySelectorAll('.hero-stat-num[data-count-to]');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function formatStatValue(element, value) {
+  const suffix = element.dataset.countSuffix || '';
+  return Math.round(value) + suffix;
+}
+
+function animateStat(element) {
+  const startValue = Number(element.dataset.countFrom || 0);
+  const endValue = Number(element.dataset.countTo || 0);
+  const duration = Number(element.dataset.countDuration || 1400);
+  const parentCard = element.closest('.hero-stat');
+
+  if (prefersReducedMotion) {
+    element.textContent = formatStatValue(element, endValue);
+    if (parentCard) parentCard.classList.add('is-active');
+    return;
+  }
+
+  const startTime = performance.now();
+
+  function frame(now) {
+    const elapsed = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - elapsed, 3);
+    const currentValue = startValue + (endValue - startValue) * eased;
+
+    element.textContent = formatStatValue(element, currentValue);
+
+    if (elapsed < 1) {
+      requestAnimationFrame(frame);
+      return;
+    }
+
+    element.textContent = formatStatValue(element, endValue);
+    if (parentCard) parentCard.classList.add('is-active');
+  }
+
+  requestAnimationFrame(frame);
+}
+
+const heroVisual = document.querySelector('.hero-visual');
+
+if (heroVisual && statNumbers.length) {
+  let hasStarted = false;
+
+  const startAnimation = () => {
+    if (hasStarted) return;
+    hasStarted = true;
+
+    statNumbers.forEach((stat, index) => {
+      window.setTimeout(() => animateStat(stat), index * 180);
+    });
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        startAnimation();
+        observer.disconnect();
+      });
+    }, { threshold: 0.45 });
+
+    observer.observe(heroVisual);
+  } else {
+    startAnimation();
+  }
+}
+
+function setupRevealAnimations(configs) {
+  const revealTargets = [];
+
+  configs.forEach(config => {
+    document.querySelectorAll(config.selector).forEach((element, index) => {
+      if (element.dataset.revealReady === 'true') return;
+
+      element.dataset.revealReady = 'true';
+      element.classList.add('reveal');
+
+      if (config.direction === 'left') element.classList.add('reveal-left');
+      if (config.direction === 'right') element.classList.add('reveal-right');
+
+      const delay = (config.delay || 0) + index * (config.stagger || 0);
+      if (delay) element.style.setProperty('--reveal-delay', delay + 'ms');
+      if (config.distance) element.style.setProperty('--reveal-distance', config.distance);
+
+      revealTargets.push(element);
+    });
+  });
+
+  if (!revealTargets.length) return;
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealTargets.forEach(element => element.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+  revealTargets.forEach(element => observer.observe(element));
+}
+
+function setupFaqAccordion() {
+  const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+  if (!faqItems.length) return;
+
+  function setFaqState(item, isOpen) {
+    const button = item.querySelector('.faq-question');
+    item.classList.toggle('is-open', isOpen);
+    if (button) button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  faqItems.forEach(item => {
+    setFaqState(item, item.classList.contains('is-open'));
+
+    const button = item.querySelector('.faq-question');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+
+      faqItems.forEach(other => setFaqState(other, false));
+      if (willOpen) setFaqState(item, true);
+    });
+  });
+}
+
+setupFaqAccordion();
+
+setupRevealAnimations([
+  { selector: '#problem .problem-grid', delay: 60 },
+  { selector: '#solution .solution-left', direction: 'left', distance: '28px' },
+  { selector: '#solution .solution-callout', direction: 'right', delay: 90, distance: '28px' },
+  { selector: '#features .use-cases', delay: 60 },
+  { selector: '#faq .faq-intro', delay: 20 },
+  { selector: '#faq .faq-list', delay: 40 },
+  { selector: '#contact .cta-section', delay: 40 }
+]);
+</script>
+
+</body>
+</html>
