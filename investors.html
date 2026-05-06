@@ -4,11 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Trosyn AI – Investor Overview</title>
-<meta name="description" content="Trosyn AI investor overview — private AI infrastructure for document-heavy businesses, starting in constrained markets and expanding globally."/>
+<meta name="description" content="Trosyn AI investor overview — private AI infrastructure for sensitive document workflows, built for local and internal deployment."/>
 <meta name="theme-color" content="#006054"/>
 <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
 <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --green:#006054;--navy:#14283C;--coral:#DC503C;--gold:#F0B464;
@@ -58,11 +58,62 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .inv-hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.8rem,6vw,5rem);line-height:1.0;letter-spacing:-0.03em;color:var(--pure);margin-bottom:20px;}
 .inv-hero h1 em{color:var(--gold);font-style:italic;}
 .inv-hero-sub{font-size:1.05rem;color:var(--teal-lt);max-width:580px;line-height:1.7;font-weight:300;margin-bottom:40px;}
-.inv-hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(220,240,240,0.08);border:1px solid rgba(220,240,240,0.08);border-radius:8px;overflow:hidden;margin-top:56px;}
-.inv-stat{background:rgba(0,0,0,0.15);padding:24px 20px;text-align:center;transition:background 0.35s,transform 0.35s;}
-.inv-stat.is-active{background:rgba(0,0,0,0.22);transform:translateY(-2px);}
-.inv-stat-num{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:900;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums lining-nums;}
-.inv-stat-label{font-size:0.72rem;color:var(--teal-lt);margin-top:5px;opacity:0.75;line-height:1.4;}
+.inv-hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:56px;
+}
+.inv-stat{
+  position:relative;
+  min-height:168px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:28px 24px 26px;
+  background:linear-gradient(155deg,rgba(220,240,240,0.12) 0%,rgba(20,40,60,0.16) 100%);
+  border:1px solid rgba(220,240,240,0.16);
+  border-radius:10px;
+  box-shadow:0 18px 42px rgba(0,0,0,0.08);
+  backdrop-filter:blur(8px);
+  overflow:hidden;
+  transition:background 0.35s,border-color 0.35s,transform 0.35s,box-shadow 0.35s;
+}
+.inv-stat::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:22px;
+  right:22px;
+  height:3px;
+  border-radius:0 0 999px 999px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0.75;
+}
+.inv-stat.is-active{
+  background:linear-gradient(155deg,rgba(220,240,240,0.16) 0%,rgba(20,40,60,0.22) 100%);
+  border-color:rgba(240,180,100,0.28);
+  transform:translateY(-3px);
+  box-shadow:0 22px 50px rgba(0,0,0,0.12);
+}
+.inv-stat-num{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.6rem,2.1vw,2.25rem);
+  font-weight:900;
+  color:var(--gold);
+  line-height:1.05;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+.inv-stat-label{
+  max-width:230px;
+  font-size:0.82rem;
+  color:var(--teal-lt);
+  margin-top:12px;
+  opacity:0.78;
+  line-height:1.5;
+}
 
 /* TWO-COL LAYOUT */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:start;}
@@ -78,7 +129,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .stat-block{padding:28px 0;border-bottom:1px solid rgba(220,240,240,0.07);transition:transform 0.45s cubic-bezier(0.22,1,0.36,1),border-color 0.45s ease,opacity 0.45s ease;transform-origin:left center;}
 .stat-block.is-active{transform:translateY(-2px);border-color:rgba(240,180,100,0.18);}
 .stat-block:last-child{border-bottom:none;padding-bottom:0;}
-.stat-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums lining-nums;}
+.stat-num{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:900;color:var(--gold);line-height:1.08;margin-bottom:6px;font-variant-numeric:tabular-nums lining-nums;}
 .stat-desc{font-size:0.83rem;color:var(--teal-lt);line-height:1.6;opacity:0.85;}
 .stat-source{font-size:0.7rem;color:var(--teal-md);margin-top:4px;font-style:italic;}
 
@@ -96,7 +147,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .check-list li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700;}
 
 /* MARKET GRID */
-.market-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;}
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
 .market-card{background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.07);border-radius:8px;padding:24px;}
 .market-card-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
 .market-row{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(220,240,240,0.06);transition:transform 0.45s cubic-bezier(0.22,1,0.36,1),border-color 0.45s ease,opacity 0.45s ease;}
@@ -104,6 +155,55 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .market-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
 .market-num{font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem;color:var(--gold);line-height:1;flex-shrink:0;font-variant-numeric:tabular-nums lining-nums;}
 .market-desc{font-size:0.77rem;color:var(--teal-lt);opacity:0.8;line-height:1.4;}
+
+#market .market-card{
+  min-height:360px;
+  display:flex;
+  flex-direction:column;
+}
+
+#market .market-card-tag{
+  margin-bottom:20px;
+}
+
+#market .market-row{
+  display:block;
+  margin-bottom:0;
+  padding:18px 0;
+}
+
+#market .market-num{
+  display:block;
+  font-size:1.45rem;
+  line-height:1.08;
+  margin-bottom:8px;
+  white-space:normal;
+}
+
+#market .market-desc{
+  display:block;
+  font-size:0.9rem;
+  line-height:1.55;
+  max-width:none;
+}
+
+#market .deployment-card{
+  min-height:0;
+  gap:18px;
+}
+
+#market .deployment-body{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  color:#516578;
+  font-size:0.93rem;
+  line-height:1.68;
+}
+
+#market .deployment-body p{
+  margin:0;
+}
 
 /* ROADMAP */
 .roadmap{margin-top:40px;position:relative;}
@@ -235,7 +335,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 /* INVESTOR PAGE COLORWAY POLISH (MATCH HOME RHYTHM) */
 .divider{display:none;}
 
-#vision,#solution,#traction,#roadmap,#ask{
+#vision,#solution,#cloud,#traction,#roadmap,#ask{
   background:var(--soft-white);
 }
 
@@ -250,6 +350,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 #vision .section-title,
 #problem .section-title,
 #solution .section-title,
+#cloud .section-title,
 #market .section-title,
 #traction .section-title,
 #model .section-title,
@@ -264,6 +365,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 #vision .section-body,
 #problem .section-body,
 #solution .section-body,
+#cloud .section-body,
 #market .section-body,
 #traction .section-body,
 #model .section-body,
@@ -278,6 +380,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 #vision .section-label,
 #problem .section-label,
 #solution .section-label,
+#cloud .section-label,
 #market .section-label,
 #traction .section-label,
 #model .section-label,
@@ -292,6 +395,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 #vision .card,
 #problem .card,
 #solution .card,
+#cloud .card,
 #market .market-card,
 #traction .traction-card,
 #model .card,
@@ -309,6 +413,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 #vision .card-title,
 #problem .card-title,
 #solution .card-title,
+#cloud .card-title,
 #model .card-title,
 #roadmap .card-title,
 #risks .card-title,
@@ -319,6 +424,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 #vision .card-body,
 #problem .card-body,
 #solution .card-body,
+#cloud .card-body,
 #model .card-body,
 #roadmap .card-body,
 #risks .card-body,
@@ -330,6 +436,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 #problem .prob-text,
 #vision .check-list li,
 #solution .check-list li,
+#cloud .check-list li,
 #roadmap .check-list li,
 #team .check-list li,
 #problem .check-list li,
@@ -633,6 +740,9 @@ footer{
   .footer-bottom-links{gap:8px 12px;}
   .inv-hero .btn-primary,.inv-hero .btn-ghost{width:100%;justify-content:center;}
 }
+@media(min-width:681px) and (max-width:980px){
+  .inv-hero-stats{grid-template-columns:repeat(2,1fr);}
+}
 @media (prefers-reduced-motion: reduce){
   .reveal,.reveal-left,.reveal-right{opacity:1;transform:none;transition:none;}
   .rm-item,.rm-item.is-visible,.rm-item.is-active{opacity:1;transform:none;transition:none;}
@@ -667,28 +777,28 @@ footer{
 <section class="inv-hero">
   <div class="container">
     <div class="inv-badge">Investor Overview · Private AI Infrastructure · Seed Round</div>
-    <h1>Private AI infrastructure<br/>for businesses the cloud <em>does not serve well.</em></h1>
-    <p class="inv-hero-sub">Trosyn AI is a local-deployment AI platform for document-heavy teams. We are starting in African markets where connectivity, compliance, and cost make cloud AI unreliable, then expanding into similar environments globally.</p>
+    <h1>Private AI infrastructure<br/>for sensitive work that <em>needs direct control.</em></h1>
+    <p class="inv-hero-sub">Trosyn AI lets organizations run AI on company-controlled devices, shared internal systems, or future internal servers, so sensitive documents and workflows can be processed without sending data to the cloud.</p>
     <div style="display:flex;gap:16px;flex-wrap:wrap;">
       <a href="contact.html?type=investor" style="display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:14px 28px;border-radius:4px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:background 0.2s;">Request Investor Brief →</a>
       <a href="#ask" style="display:inline-flex;align-items:center;gap:8px;color:var(--teal-lt);font-size:0.88rem;font-weight:500;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(220,240,240,0.2);transition:color 0.2s;">View the Ask →</a>
     </div>
     <div class="inv-hero-stats">
       <div class="inv-stat">
-        <div class="inv-stat-num" data-count-to="16.5" data-count-decimals="1" data-count-prefix="$" data-count-suffix="B">$16.5B</div>
-        <div class="inv-stat-label">Africa AI market by 2030 in the initial expansion region</div>
+        <div class="inv-stat-num">Governance</div>
+        <div class="inv-stat-label">Data handling stays closer to the organization’s own controls and deployment choices</div>
       </div>
       <div class="inv-stat">
-        <div class="inv-stat-num" data-count-to="44" data-count-suffix="M">44M</div>
-        <div class="inv-stat-label">SMEs across the broader African expansion path</div>
+        <div class="inv-stat-num">SME First</div>
+        <div class="inv-stat-label">Small and mid-market teams need private AI that reduces infrastructure dependency</div>
       </div>
       <div class="inv-stat">
-        <div class="inv-stat-num" data-count-to="39" data-count-suffix="/55">39/55</div>
-        <div class="inv-stat-label">African countries with active data protection laws</div>
+        <div class="inv-stat-num">3 Modes</div>
+        <div class="inv-stat-label">Device, Team, and Enterprise roadmap deployments use the same platform foundation</div>
       </div>
       <div class="inv-stat">
-        <div class="inv-stat-num" data-count-to="1" data-count-prefix="&lt;" data-count-suffix="%" data-count-decimals="0">&lt;1%</div>
-        <div class="inv-stat-label">Share of global data center capacity in Africa</div>
+        <div class="inv-stat-num">Offline</div>
+        <div class="inv-stat-label">Core workflows can continue where connectivity is unreliable or restricted</div>
       </div>
     </div>
   </div>
@@ -699,22 +809,22 @@ footer{
 <!-- VISION -->
 <section id="vision">
   <div class="container">
-    <p class="section-label">Vision</p>
-    <h2 class="section-title">Build the default AI stack for businesses that cannot depend on the cloud.</h2>
+    <p class="section-label">Opening Statement</p>
+    <h2 class="section-title">A private AI infrastructure layer for organizations that need governance, reliability, and usable workflows.</h2>
     <div class="two-col-wide">
       <div>
-        <p class="section-body">Trosyn is a product company, not a services firm. The first wedge is in African markets where internet reliability, local hosting rules, and cost sensitivity make cloud AI a poor fit. The broader category is global: organizations everywhere need private AI they can run on infrastructure they control.</p>
-        <p style="margin-top:16px;font-size:0.95rem;color:#4f6275;line-height:1.8;opacity:0.95;max-width:560px;">Expansion starts in Uganda, then Kenya and Tanzania, then Nigeria and South Africa, then broader Africa, and then other regulated or infrastructure-constrained markets across the Americas, Europe, and Asia.</p>
+        <p class="section-body">Trosyn AI is a product company building private AI infrastructure, not a services firm. The platform packages local AI, document workflows, access controls, and deployment support into one system that can run at different scales.</p>
+        <p style="margin-top:16px;font-size:0.95rem;color:#4f6275;line-height:1.8;opacity:0.95;max-width:560px;">The first wedge is organizations with sensitive documents, limited tolerance for cloud exposure, and limited internal capacity to build AI infrastructure themselves. Uganda and Kenya make the pain visible through connectivity and local-control pressure, but the category is global.</p>
       </div>
       <div>
         <div class="card">
           <div class="card-label">The Gap We Fill</div>
           <ul class="check-list">
-            <li>Cloud AI assumes stable connectivity and permissive data movement</li>
-            <li>Local deployment is still too technical for most business teams</li>
-            <li>Open-source models are available, but packaging them into workflows is still hard</li>
-            <li>The launch market has unusually strong pain, making it a fast validation wedge</li>
-            <li>The same product architecture can transfer into other constrained environments</li>
+            <li>Cloud AI can move sensitive workflow governance outside direct organizational control</li>
+            <li>Self-hosted AI is still too technical for most business teams</li>
+            <li>Raw models do not become useful workflows without product packaging</li>
+            <li>Small and mid-market teams need private AI without building a full AI infrastructure function</li>
+            <li>The same system can scale from Device Deployment to Team Deployment and, later, Enterprise Deployment</li>
           </ul>
         </div>
       </div>
@@ -727,44 +837,77 @@ footer{
 <!-- PROBLEM -->
 <section id="problem">
   <div class="container">
-    <p class="section-label">Market Gap</p>
-    <h2 class="section-title">Cloud AI breaks down in constrained operating environments.</h2>
+    <p class="section-label">Problem</p>
+    <h2 class="section-title">Sensitive workflows expose the limits of cloud-first AI.</h2>
     <div class="two-col">
       <div>
         <ul class="prob-list">
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Connectivity Dependence</strong>The launch region shows the problem clearly: only 1.2% of Africans have 5G, and internet shutdowns across 15 countries cost businesses $7.69B in 2024. If AI requires the cloud to function, the workflow fails when connectivity does. (Access Now, 2025)</div>
+            <div class="prob-text"><strong>Data Governance</strong>Many organizations cannot comfortably process contracts, financial files, investigations, HR records, or internal reports through systems governed outside their direct environment.</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Infrastructure Mismatch</strong>Always-on cloud software assumes steady power, stable internet, and hardware budgets that many operators do not have. The first customers make this mismatch obvious, but the same issue appears in other constrained environments globally.</div>
+            <div class="prob-text"><strong>Infrastructure Burden</strong>Running private AI internally usually requires deployment work, security review, and ongoing maintenance. Most SMEs and mid-market teams do not have that capacity.</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Local Data Requirements</strong>39 of 55 African nations now have data protection laws. Nigeria mandates local hosting for financial and health data. South Africa's POPIA carries fines up to 10% of global turnover. Local control is becoming a product requirement, not just a legal preference.</div>
+            <div class="prob-text"><strong>Connectivity Dependence</strong>Cloud-only AI assumes reliable internet access. In Africa, parts of Asia and South America, and remote sites, core workflows should not stop when the connection does.</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Security Exposure</strong>The more business context that leaves the organization, the more exposure the customer takes on. For document-heavy teams, private deployment is often the simplest security posture.</div>
+            <div class="prob-text"><strong>Workflow Fragmentation</strong>Generic AI tools do not understand the team's documents, permissions, repeatable templates, or internal process context. The result is experimentation rather than dependable workflow adoption.</div>
           </li>
         </ul>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px;">
         <div class="stat-block">
-          <div class="stat-num" data-count-to="55" data-count-suffix="%">55%</div>
-          <div class="stat-desc">Of African MSMEs name technology solutions as their top priority need — yet adoption remains low because no product fits their operating environment.</div>
-          <div class="stat-source">Africa MSME Pulse 2024</div>
+          <div class="stat-num">Sensitive Data</div>
+          <div class="stat-desc">HR, legal, finance, and security teams often need AI assistance while keeping source files under organizational control.</div>
+          <div class="stat-source">Core customer pain</div>
         </div>
         <div class="stat-block">
-          <div class="stat-num" data-count-to="7.69" data-count-prefix="$" data-count-suffix="B" data-count-decimals="2">$7.69B</div>
-          <div class="stat-desc">Cost of internet shutdowns to businesses globally in 2024. Africa alone saw 21 shutdowns across 15 countries.</div>
-          <div class="stat-source">Access Now / WEF, 2025</div>
+          <div class="stat-num">Local Control</div>
+          <div class="stat-desc">Customers want the benefits of AI without making cloud exposure the default path for every document workflow.</div>
+          <div class="stat-source">Market shift</div>
         </div>
         <div class="stat-block">
-          <div class="stat-num" data-count-to="1" data-count-prefix="$" data-count-suffix="T">$1T</div>
-          <div class="stat-desc">Projected GDP gain if Africa achieves coordinated AI adoption by 2035. The infrastructure barrier is the single biggest blocker.</div>
-          <div class="stat-source">AfDB, 2025</div>
+          <div class="stat-num">Practical Adoption</div>
+          <div class="stat-desc">The opportunity is not another chatbot. It is packaging private AI so ordinary teams can use it in repeatable work.</div>
+          <div class="stat-source">Product thesis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CLOUD LIMITS -->
+<section id="cloud">
+  <div class="container">
+    <p class="section-label">Why Cloud AI Breaks For Sensitive Work</p>
+    <h2 class="section-title">The issue is not only privacy. It is control over the operating environment.</h2>
+    <div class="two-col-wide">
+      <div>
+        <p class="section-body">When data is processed through cloud AI systems, retention, deletion, and governance are influenced by provider policies and legal obligations outside the organization’s direct control.</p>
+        <p style="margin-top:16px;font-size:0.95rem;color:#4f6275;line-height:1.8;opacity:0.95;max-width:620px;">That matters differently by market. In Africa and other infrastructure-constrained environments, reliability and local data control are the visible pain. In Western regulated markets, compliance, audit control, and liability are more prominent. The same platform addresses both patterns by moving AI execution into infrastructure the customer controls.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="card">
+          <div class="card-label">Governance</div>
+          <div class="card-title">Customer-controlled environment</div>
+          <div class="card-body">The customer chooses where AI runs and which internal controls apply to documents, workflows, and access.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Operational Benefit</div>
+          <div class="card-title">Flexible local usage</div>
+          <div class="card-body">Usage is shaped by local hardware and deployment capacity rather than cloud vendor rate limits, which matters for high-volume document work.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Reliability</div>
+          <div class="card-title">Offline-capable workflows</div>
+          <div class="card-body">Core work can continue during outages, restricted network access, or environments where connectivity cannot be assumed.</div>
         </div>
       </div>
     </div>
@@ -777,45 +920,45 @@ footer{
 <section id="solution">
   <div class="container">
     <p class="section-label">Solution</p>
-    <h2 class="section-title">Private AI infrastructure, packaged for business teams.</h2>
+    <h2 class="section-title">One private AI platform, packaged for real business use.</h2>
     <div class="two-col-wide">
       <div>
-        <p class="section-body">Trosyn AI runs on a company-controlled server and turns local models into usable business workflows. Users get a simple interface; the customer keeps control over data, deployment, and access.</p>
+        <p class="section-body">Trosyn AI lets organizations run AI on infrastructure they control: a laptop, a shared team environment, or, in the future, an internal server. The product gives users a simple workspace for documents and workflows while keeping processing inside the chosen deployment environment.</p>
         <ul class="check-list" style="margin-top:24px;">
-          <li>Runs on quantized LLMs optimized for local deployment and lower-resource hardware</li>
-          <li>Starts with HR, Finance, and Legal workflows where document volume and compliance pressure are highest</li>
-          <li>Works during outages, shutdowns, and low-connectivity conditions</li>
-          <li>Launches with support for regional compliance frameworks and extends by jurisdiction over time</li>
-          <li>Multi-user collaboration and reusable workflow context for teams</li>
-          <li>Simple interface designed for non-technical operators, not AI specialists</li>
+          <li>Processes documents within the customer's chosen environment</li>
+          <li>Supports repeatable workflows for HR, legal, finance, security, and operational teams</li>
+          <li>Works offline or with limited connectivity where deployment mode allows</li>
+          <li>Reduces dependency on internal AI infrastructure teams</li>
+          <li>Provides reusable workflow context, access control, and document handling</li>
+          <li>Uses a simple interface designed for business operators, not AI specialists</li>
         </ul>
         <div style="margin-top:28px;background:#f7faf8;border:1px solid rgba(0,96,84,0.2);border-radius:8px;padding:20px 24px;">
           <div style="font-size:0.68rem;color:#2f6660;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-weight:600;">Architecture</div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <div style="background:rgba(240,180,100,0.16);border:1px solid rgba(240,180,100,0.36);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#855f1f;">User Devices</div>
+            <div style="background:rgba(240,180,100,0.16);border:1px solid rgba(240,180,100,0.36);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#855f1f;">Documents</div>
             <div style="color:#2f6660;font-size:0.9rem;font-weight:700;">→</div>
-            <div style="background:rgba(220,80,60,0.12);border:1px solid rgba(220,80,60,0.36);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#9a2f21;">Local Server · Trosyn AI</div>
+            <div style="background:rgba(220,80,60,0.12);border:1px solid rgba(220,80,60,0.36);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#9a2f21;">Trosyn AI Private Workspace</div>
             <div style="color:#2f6660;font-size:0.9rem;font-weight:700;">→</div>
-            <div style="background:rgba(60,100,100,0.14);border:1px solid rgba(60,100,100,0.34);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#244f58;">Business Apps</div>
+            <div style="background:rgba(60,100,100,0.14);border:1px solid rgba(60,100,100,0.34);border-radius:4px;padding:8px 14px;font-size:0.78rem;color:#244f58;">Controlled Outputs</div>
           </div>
-          <div style="margin-top:10px;font-size:0.72rem;color:#2f6660;font-style:italic;">No data exits this chain. The AI lives inside the business.</div>
+          <div style="margin-top:10px;font-size:0.72rem;color:#2f6660;font-style:italic;">Same system, different scale: Device, Team, and future Enterprise Deployment.</div>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div class="card">
           <div class="card-label">Initial Workflow Packs</div>
-          <div class="card-title">HR · Finance · Legal</div>
-          <div class="card-body">Pre-built workflow packs for the highest-volume administrative tasks in the initial ICP: document-heavy, compliance-aware, multi-user teams.</div>
+          <div class="card-title">HR · Finance · Legal · Security</div>
+          <div class="card-body">Pre-built workflows for high-sensitivity document work: reviewing files, generating drafts, summarizing evidence, preparing reports, and reusing approved templates.</div>
         </div>
         <div class="card">
           <div class="card-label">Competitive Position</div>
           <div class="card-title">Differentiated by deployment model</div>
-          <div class="card-body">Most AI products optimize for cloud usage. Trosyn is built around local deployment, workflow packaging, and operation in environments where customers need more control than cloud copilots provide.</div>
+          <div class="card-body">Most AI products optimize for cloud usage. Trosyn is built around private deployment, workflow packaging, and customer control.</div>
         </div>
         <div class="card">
           <div class="card-label">Why It Travels</div>
-          <div class="card-title">Built for a repeatable category</div>
-          <div class="card-body">The same architecture that works in the first launch markets can extend into any region where customers need local control, lower cloud exposure, and more resilient AI workflows.</div>
+          <div class="card-title">A global category, not a regional tool</div>
+          <div class="card-body">The need appears anywhere sensitive work, privacy expectations, limited AI infrastructure capacity, and cloud-risk concerns overlap.</div>
         </div>
       </div>
     </div>
@@ -824,84 +967,95 @@ footer{
 
 <div class="divider"></div>
 
-<!-- MARKET -->
+<!-- DEPLOYMENT MODES -->
 <section id="market">
   <div class="container">
-    <p class="section-label">Market</p>
-    <h2 class="section-title">Start where the pain is sharpest. Expand where the pattern repeats.</h2>
-    <p class="section-body">Phase 1 starts in Uganda. Phase 2 expands into Kenya and Tanzania. Phase 3 moves into Nigeria and South Africa. Phase 4 extends across the rest of Africa. Phase 5 targets similar regulated and infrastructure-constrained markets in the Americas, Europe, and Asia.</p>
+    <p class="section-label">Deployment Modes</p>
+    <h2 class="section-title">Same system, different scale.</h2>
+    <p class="section-body">Trosyn AI is not a set of disconnected products. It is one private AI platform that can be packaged for a single device, a shared team environment, and, later, internal server deployment for larger organizations.</p>
     <div class="market-grid">
-      <div class="market-card">
-        <div class="market-card-tag">Launch Wedge</div>
-        <div class="market-row"><div class="market-num" data-count-to="689" data-count-prefix="$" data-count-suffix="M">$689M</div><div class="market-desc">Enterprise software market, 2025 (Statista)</div></div>
-        <div class="market-row"><div class="market-num" data-count-to="2.33" data-count-prefix="$" data-count-suffix="B" data-count-decimals="2">$2.33B</div><div class="market-desc">Projected by 2030 at 7.16% CAGR</div></div>
-        <div class="market-row"><div class="market-num" data-count-to="4.32" data-count-prefix="$" data-count-suffix="B" data-count-decimals="2">$4.32B</div><div class="market-desc">Total IT services market, East Africa, 2025</div></div>
-        <div class="market-row"><div class="market-num" data-count-to="304" data-count-suffix="%">304%</div><div class="market-desc">Uganda startup funding growth YoY, 2024 (JEPA)</div></div>
+      <div class="market-card deployment-card">
+        <div class="market-card-tag">Device Deployment</div>
+        <div class="deployment-body">
+          <p>Designed for individuals and small teams, Device Deployment runs entirely on local machines such as laptops and desktops.</p>
+          <p>It enables private AI use on internal documents without requiring internet connectivity or external infrastructure. Teams can perform tasks like summarization, redaction, and search while keeping all data inside the device.</p>
+          <p>This is the most lightweight and accessible entry point, focused on simplicity, reliability, and immediate usability.</p>
+        </div>
       </div>
-      <div class="market-card">
-        <div class="market-card-tag">Transferable Category</div>
-        <div class="market-row"><div class="market-num" data-count-to="16.5" data-count-prefix="$" data-count-suffix="B" data-count-decimals="1">$16.5B</div><div class="market-desc">Africa AI market by 2030 (Mastercard, 2025)</div></div>
-        <div class="market-row"><div class="market-num" data-count-to="44" data-count-suffix="M">44M</div><div class="market-desc">SMEs — 90% of all African businesses (IFC)</div></div>
-        <div class="market-row"><div class="market-num" data-count-to="80" data-count-suffix="%">80%</div><div class="market-desc">Of Africa's workforce employed by SMEs (ILO, 2025)</div></div>
-        <div class="market-row"><div class="market-num" data-count-to="1" data-count-prefix="$" data-count-suffix="T">$1T</div><div class="market-desc">GDP gain projected from AI adoption by 2035 (AfDB)</div></div>
+      <div class="market-card deployment-card">
+        <div class="market-card-tag">Team Deployment</div>
+        <div class="deployment-body">
+          <p>Built for growing teams, Team Deployment extends the same system into a shared environment across departments.</p>
+          <p>It runs on light internal infrastructure or managed setups, allowing multiple users to access a centralized AI system while maintaining full control over internal data.</p>
+          <p>This deployment supports collaboration, structured workflows, and broader document access, while reducing the complexity typically associated with setting up and maintaining internal AI systems.</p>
+        </div>
+      </div>
+      <div class="market-card deployment-card">
+        <div class="market-card-tag">Enterprise Deployment · ROADMAP ONLY</div>
+        <div class="deployment-body">
+          <p>Planned for larger organizations, Enterprise Deployment extends the system into fully internal server environments, enabling organization-wide access to private AI.</p>
+          <p>All processing remains inside the organization's infrastructure, supporting teams that require strict control over data, compliance, and security.</p>
+          <p>This deployment is a natural extension of the system and will be introduced as a later stage, following validation in smaller-scale environments.</p>
+          <p>The current focus is on Device Deployment and Team Deployment to establish reliability and real-world usage before expanding to full on-prem enterprise systems.</p>
+        </div>
       </div>
     </div>
     <div style="margin-top:20px;background:rgba(220,80,60,0.10);border:1px solid rgba(220,80,60,0.22);border-radius:8px;padding:20px 24px;font-size:0.87rem;color:#4f6275;line-height:1.7;opacity:0.98;">
-      <strong style="color:var(--coral);">Why this opening exists:</strong> Large cloud vendors validate demand for enterprise AI, but they optimize for cloud consumption. Trosyn is built for customers that need local control first.
+      <strong style="color:var(--coral);">Deployment principle:</strong> The customer chooses the environment. Trosyn provides the private AI layer, workflow packaging, and operating interface.
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PRODUCT + TRACTION -->
+<!-- USE CASES + TRACTION -->
 <section id="traction">
   <div class="container">
-    <p class="section-label">Product & Traction</p>
-    <h2 class="section-title">Product in development. Commercial validation underway.</h2>
+    <p class="section-label">Use Cases &amp; Product State</p>
+    <h2 class="section-title">Focused workflows first. Broader infrastructure over time.</h2>
     <div class="two-col">
       <div>
-        <p style="font-size:0.9rem;color:#4f6275;line-height:1.8;opacity:0.95;margin-bottom:20px;">Trosyn is in active product development with prototype testing underway on quantized local models. The current stage is about hardening deployment, validating workflow fit, and turning early demand into repeatable paid usage.</p>
+        <p style="font-size:0.9rem;color:#4f6275;line-height:1.8;opacity:0.95;margin-bottom:20px;">Trosyn is early stage. The current work is product hardening, deployment testing, workflow validation, and pilot conversion. The goal is to prove repeatable value before making broader enterprise claims.</p>
         <div class="card" style="margin-bottom:14px;">
-          <div class="card-label">Tech Stack</div>
+          <div class="card-label">Current Product Focus</div>
           <ul class="check-list">
-            <li>Quantized LLMs: Gemma 3, Mistral 7B, Llama 3</li>
-            <li>Offline inference engine — optimised for low-resource servers</li>
-            <li>Modular agent architecture — HR, Finance, Legal</li>
-            <li>Local server deployment — no cloud dependency</li>
+            <li>Device Deployment for private document work on laptops and PCs</li>
+            <li>Team Deployment for shared internal usage and controlled workflows</li>
+            <li>Workflow packaging for HR, finance, legal, and security use cases</li>
+            <li>Deployment and onboarding that reduces dependency on internal AI infrastructure teams</li>
           </ul>
         </div>
         <div class="card">
           <div class="card-label">Current Validation</div>
           <ul class="check-list">
-            <li>LOIs from a Kenyan bank and a Ugandan telecom for 2026 pilots</li>
-            <li>Active conversations with additional operators on document, compliance, and internal workflow use cases</li>
-            <li>Prototype testing confirms local deployment reliability under unstable network conditions</li>
+            <li>Prototype testing is underway for local document workflows</li>
+            <li>Pilot conversations are focused on document generation, internal knowledge work, and compliance-related tasks</li>
+            <li>The next milestone is live usage that proves reliability, workflow value, and willingness to pay</li>
           </ul>
         </div>
       </div>
       <div>
-        <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Global AI Productivity Benchmarks</p>
+        <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Initial Use Cases</p>
         <div class="traction-grid" style="grid-template-columns:1fr 1fr;gap:12px;">
           <div class="traction-card">
-            <div class="traction-num" data-count-to="500" data-count-suffix="+">500+</div>
-            <div class="traction-label">Hours saved annually in finance with AI automation (Amex/Accenture)</div>
+            <div class="traction-num">HR</div>
+            <div class="traction-label">Employee documents, onboarding materials, policy workflows, and internal HR knowledge.</div>
           </div>
           <div class="traction-card">
-            <div class="traction-num" data-count-to="50" data-count-suffix="%">50%</div>
-            <div class="traction-label">Reduction in HR time-to-hire with AI tools (McKinsey, 2025)</div>
+            <div class="traction-num">Legal</div>
+            <div class="traction-label">Contract review, policy drafting, case summaries, and internal legal research.</div>
           </div>
           <div class="traction-card">
-            <div class="traction-num" data-count-to="38" data-count-suffix="%">38%</div>
-            <div class="traction-label">Of businesses cut compliance time by 50%+ with AI (Fullview, 2025)</div>
+            <div class="traction-num">Finance</div>
+            <div class="traction-label">Invoice review, internal reports, financial document summaries, and audit preparation.</div>
           </div>
           <div class="traction-card">
-            <div class="traction-num" data-count-to="4" data-count-suffix="hrs">4hrs</div>
-            <div class="traction-label">Saved per week by daily AI users (St. Louis Fed, 2024)</div>
+            <div class="traction-num">Security</div>
+            <div class="traction-label">Incident notes, policy workflows, investigation documents, and controlled internal knowledge.</div>
           </div>
         </div>
         <div class="bench-note">
-          These benchmarks show the category value. The next step is validating local deployment performance and workflow ROI in the first launch accounts.
+          Why now: organizations want AI productivity, but sensitive data concerns, privacy expectations, and cloud-only limitations are pushing demand toward private deployment.
         </div>
       </div>
     </div>
@@ -914,44 +1068,38 @@ footer{
 <section id="model">
   <div class="container">
     <p class="section-label">Business Model</p>
-    <h2 class="section-title">Simple, recurring, scalable.</h2>
-    <p class="section-body">Subscription licensing with local deployment. Initial focus is mid-market teams with recurring document workflows, compliance pressure, and a clear reason to keep AI inside the organization.</p>
+    <h2 class="section-title">Subscription first. Enterprise licensing later.</h2>
+    <p class="section-body">The near-term model is recurring subscription revenue for Device Deployment and Team Deployment. Enterprise Deployment is a roadmap-only licensing path for larger customers that need internal server deployment.</p>
 
     <div class="pricing-table">
       <div class="pricing-header">
-        <div>Tier</div><div>Monthly Price</div><div>Target</div>
+        <div>Deployment Mode</div><div>Monthly Price</div><div>Target</div>
       </div>
       <div class="pricing-row">
-        <div class="pricing-tier">Small Teams (1–10 users)</div>
-        <div class="pricing-price">$50–$150</div>
-        <div class="pricing-target">Smaller teams with repeatable document workflows</div>
+        <div class="pricing-tier">Device Deployment</div>
+        <div class="pricing-price">$50-$150/mo</div>
+        <div class="pricing-target">SMEs, professional service firms, and small teams using private AI on laptops or PCs</div>
       </div>
       <div class="pricing-row highlight">
-        <div class="pricing-tier"><span class="pricing-tier-text">Mid-Market (20–100 users)</span><span class="pricing-tier-badge">Primary</span></div>
-        <div class="pricing-price">$150–$800</div>
-        <div class="pricing-target">Multi-team operators with the clearest deployment and ROI case</div>
+        <div class="pricing-tier"><span class="pricing-tier-text">Team Deployment</span><span class="pricing-tier-badge">Primary</span></div>
+        <div class="pricing-price">$150-$800/mo</div>
+        <div class="pricing-target">Mid-market teams with shared internal workflows and stronger control requirements</div>
       </div>
       <div class="pricing-row">
-        <div class="pricing-tier">Enterprise</div>
-        <div class="pricing-price">$800–$2,500</div>
-        <div class="pricing-target">Larger regulated operators with stricter control requirements</div>
+        <div class="pricing-tier">Enterprise Deployment</div>
+        <div class="pricing-price">$800-$2,500/mo</div>
+        <div class="pricing-target">ROADMAP ONLY: on-prem or internal server deployment for larger regulated organizations</div>
       </div>
     </div>
 
-    <p style="margin-top:36px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Illustrative Revenue Ramp</p>
+    <p style="margin-top:36px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Validation Milestones</p>
     <div class="proj-table">
-      <div class="proj-header"><div>Period</div><div>Customers</div><div>Blended MRR</div></div>
-      <div class="proj-row"><div>Q2 2026</div><div>2–5</div><div>$1K–$3K</div></div>
-      <div class="proj-row"><div>Q3 2026</div><div>3–8</div><div>$2K–$5K</div></div>
-      <div class="proj-row"><div>Q4 2026</div><div>5–12</div><div>$4K–$10K</div></div>
-      <div class="proj-row"><div>Q1 2027</div><div>12–25</div><div>$10K–$22K</div></div>
-      <div class="proj-row"><div>Q2 2027</div><div>25–50</div><div>$20K–$45K</div></div>
-      <div class="proj-row"><div>Q3 2027</div><div>50–80</div><div>$40K–$75K</div></div>
-      <div class="proj-row"><div>Q4 2027</div><div>80–120</div><div>$70K–$120K</div></div>
-      <div class="proj-row milestone"><div class="proj-period">Q1 2028</div><div>120–180</div><div>$100K–$180K · operational maturity</div></div>
-      <div class="proj-row"><div>Q2 2028</div><div>180–260</div><div>$150K–$260K</div></div>
-      <div class="proj-row"><div>Q3 2028</div><div>260–350</div><div>$220K–$340K · expansion-ready</div></div>
-      <div class="proj-row"><div>Q4 2028</div><div>350–500</div><div>$300K–$480K</div></div>
+      <div class="proj-header"><div>Stage</div><div>Focus</div><div>Proof Needed</div></div>
+      <div class="proj-row"><div>MVP</div><div>Device Deployment</div><div>Reliable local document workflows</div></div>
+      <div class="proj-row"><div>Pilots</div><div>Team Deployment</div><div>Shared usage, onboarding, and measured workflow value</div></div>
+      <div class="proj-row"><div>Paid Conversion</div><div>Subscription</div><div>Customers continue after pilot use because the product saves time or reduces risk</div></div>
+      <div class="proj-row milestone"><div class="proj-period">Expansion</div><div>Repeatability</div><div>Deployment playbook works beyond founder-led setup</div></div>
+      <div class="proj-row"><div>Roadmap</div><div>Enterprise Deployment</div><div>Internal server deployment is justified by proven demand and support capacity</div></div>
     </div>
   </div>
 </section>
@@ -962,19 +1110,19 @@ footer{
 <section id="roadmap">
   <div class="container">
     <p class="section-label">Roadmap</p>
-    <h2 class="section-title">Milestone-driven. Focused expansion.</h2>
+    <h2 class="section-title">Build proof before widening the promise.</h2>
     <div class="roadmap">
       <div class="roadmap-line"><div class="roadmap-progress"></div></div>
       <div class="rm-item">
         <div class="rm-dot">1</div>
         <div class="rm-content">
           <div class="rm-phase">Q2–Q3 2026</div>
-          <div class="rm-title">Finalize MVP</div>
+          <div class="rm-title">Harden Device Deployment</div>
           <ul class="rm-points">
-            <li>Complete hardening of the offline AI engine — speed, reliability, stability</li>
-            <li>Deploy pilot to 5 businesses in Uganda</li>
-            <li>Generate real-world performance data under actual business conditions</li>
-            <li>Secure 3 Letters of Intent from paying customers</li>
+            <li>Improve reliability, document handling, and offline-capable workflows</li>
+            <li>Validate laptop and PC deployment for small teams</li>
+            <li>Collect real usage feedback from early pilot users</li>
+            <li>Identify the strongest first paid use cases</li>
           </ul>
         </div>
       </div>
@@ -982,12 +1130,12 @@ footer{
         <div class="rm-dot coral">2</div>
         <div class="rm-content">
           <div class="rm-phase coral">Q4 2026</div>
-          <div class="rm-title">Convert Pilots</div>
+          <div class="rm-title">Prove Team Deployment</div>
           <ul class="rm-points">
-            <li>Ship the first production-ready collaboration and admin workflows</li>
+            <li>Ship shared workspace, permissions, and reusable workflow context</li>
             <li>Turn pilot learning into repeatable onboarding and deployment steps</li>
-            <li>Add new workflow packs where customer demand is strongest</li>
-            <li>Convert early pilots into recurring revenue</li>
+            <li>Focus workflow packs on HR, finance, legal, and security use cases</li>
+            <li>Convert early users into recurring subscription customers</li>
           </ul>
         </div>
       </div>
@@ -995,25 +1143,25 @@ footer{
         <div class="rm-dot teal">3</div>
         <div class="rm-content">
           <div class="rm-phase teal">Q1–Q2 2027</div>
-          <div class="rm-title">Regional Expansion</div>
+          <div class="rm-title">Repeatable Sales Motion</div>
           <ul class="rm-points">
-            <li>Expand from Uganda into Kenya and Tanzania, then Nigeria and South Africa</li>
-            <li>Strengthen deployment playbooks through integrator and operator partnerships</li>
-            <li>Extend language and compliance support by market</li>
-            <li>Build a repeatable regional sales motion</li>
+            <li>Use customer proof to refine the ideal customer profile</li>
+            <li>Strengthen deployment playbooks through operators and implementation partners</li>
+            <li>Extend templates and controls based on customer demand</li>
+            <li>Build a repeatable sales motion beyond founder-led conversations</li>
           </ul>
         </div>
       </div>
       <div class="rm-item">
         <div class="rm-dot dim">4</div>
         <div class="rm-content">
-          <div class="rm-phase dim">Q3–Q4 2027</div>
-          <div class="rm-title dim">Scale Beyond The First Region</div>
+          <div class="rm-phase dim">Roadmap</div>
+          <div class="rm-title dim">Prepare Enterprise Deployment</div>
           <ul class="rm-points dim">
-            <li>Expand workflow analytics, controls, and larger-team deployment features</li>
-            <li>Move across the rest of Africa with a cleaner go-to-market motion</li>
-            <li>Prepare the product and sales model for replication into similar global markets</li>
-            <li>Use customer proof, not macro narrative, to support the next raise</li>
+            <li>Expand controls, auditability, and larger-team deployment features</li>
+            <li>Assess internal server deployment only after Device and Team deployments are proven</li>
+            <li>Prepare enterprise licensing and support requirements</li>
+            <li>Use customer proof, not broad claims, to support the next raise</li>
           </ul>
         </div>
       </div>
@@ -1026,12 +1174,12 @@ footer{
 <!-- RISKS -->
 <section id="risks">
   <div class="container">
-    <p class="section-label">Risks & Mitigation</p>
+    <p class="section-label">Risks &amp; Mitigation</p>
     <h2 class="section-title">Known risks.<br/>Concrete mitigation.</h2>
     <div class="risk-table">
       <div class="risk-row">
         <div class="risk-label">Tech Risk</div>
-        <div class="risk-mitigation">Benchmarking Gemma 3, Mistral 7B, and Llama 3 in quantized configurations. Speed/accuracy tradeoffs are acceptable for document generation — our use cases don't require real-time processing.</div>
+        <div class="risk-mitigation">Continue testing local inference quality, speed, and reliability on realistic customer hardware. The product must prove it can support useful document work without cloud dependence.</div>
       </div>
       <div class="risk-row">
         <div class="risk-label">Adoption Risk</div>
@@ -1039,7 +1187,7 @@ footer{
       </div>
       <div class="risk-row">
         <div class="risk-label">Regulatory Risk</div>
-        <div class="risk-mitigation">The initial deployment model is local by default, which keeps the product aligned with tighter data handling requirements as they expand across jurisdictions.</div>
+        <div class="risk-mitigation">Keep the product focused on customer-controlled deployment and conservative data handling. Avoid claiming automatic compliance across jurisdictions.</div>
       </div>
       <div class="risk-row">
         <div class="risk-label">Competition Risk</div>
@@ -1067,9 +1215,9 @@ footer{
       <div class="funding-pill">$2M Pre-Money · 15% Equity · Milestone-Based Tranches</div>
       <div class="funds-grid">
         <div class="fund-cell"><div class="fund-cell-label">Product Dev</div><div class="fund-cell-value">$240K</div></div>
-        <div class="fund-cell"><div class="fund-cell-label">Sales & Marketing</div><div class="fund-cell-value">$180K</div></div>
+        <div class="fund-cell"><div class="fund-cell-label">Sales &amp; Marketing</div><div class="fund-cell-value">$180K</div></div>
         <div class="fund-cell"><div class="fund-cell-label">Operations</div><div class="fund-cell-value">$120K</div></div>
-        <div class="fund-cell"><div class="fund-cell-label">Legal & Contingency</div><div class="fund-cell-value">$60K</div></div>
+        <div class="fund-cell"><div class="fund-cell-label">Legal &amp; Contingency</div><div class="fund-cell-value">$60K</div></div>
       </div>
       <div class="milestones">
         <div><div class="milestone-num">MVP Live</div><div class="milestone-desc">Production deployments in the first launch accounts</div></div>
@@ -1093,7 +1241,7 @@ footer{
     <div class="two-col">
       <div class="card" style="border-color:rgba(240,180,100,0.15);">
         <div style="font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--pure);margin-bottom:4px;">Ivan Ssentongo</div>
-        <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Founder & CEO · Trosyn AI</div>
+        <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Founder &amp; CEO · Trosyn AI</div>
         <div class="card-body">Builder focused on making AI usable in real operating environments, not just technically impressive. Product background in workflow design, practical interfaces, and systems that non-technical teams can actually adopt.</div>
         <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(220,240,240,0.07);font-size:0.78rem;color:var(--teal-md);font-style:italic;">Founder-led execution focused on speed, iteration, and customer proof rather than broad narrative claims.</div>
       </div>
@@ -1101,17 +1249,17 @@ footer{
         <div class="card">
           <div class="card-label">Hiring With This Raise</div>
           <ul class="check-list">
-            <li><strong style="color:var(--pure);">Senior AI/ML Engineer</strong> — LLM optimization and quantization for offline deployment</li>
-            <li><strong style="color:var(--pure);">Regional GTM Lead</strong> — operator relationships and pilot-to-paid conversion in the first markets</li>
-            <li><strong style="color:var(--pure);">Customer Support & Onboarding</strong> — smoother deployment and adoption for the initial ICP</li>
+            <li><strong style="color:var(--pure);">AI Systems Engineer</strong> — local inference, deployment reliability, and product hardening</li>
+            <li><strong style="color:var(--pure);">GTM Lead</strong> — customer discovery, operator relationships, and pilot-to-paid conversion</li>
+            <li><strong style="color:var(--pure);">Customer Support &amp; Onboarding</strong> — smoother deployment and adoption for the initial ICP</li>
           </ul>
         </div>
         <div class="card">
           <div class="card-label">Why Now</div>
           <ul class="check-list">
-            <li>Local data handling requirements are increasing across the launch region and beyond</li>
+            <li>Data handling requirements and security expectations are increasing across sectors</li>
             <li>Document-heavy teams are already looking for automation that does not force cloud exposure</li>
-            <li>The launch wedge is specific enough to prove quickly and broad enough to expand from</li>
+            <li>The initial wedge is specific enough to prove quickly and broad enough to expand from</li>
             <li>The product category travels beyond the first geography</li>
           </ul>
         </div>
@@ -1148,28 +1296,28 @@ footer{
         </article>
         <article class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">
-            <span class="faq-question-text">Why start in these markets first?</span>
+            <span class="faq-question-text">Why start with this customer wedge?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
           <div class="faq-answer-wrap">
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>The launch markets have unusually sharp pain: unstable connectivity, tighter local data requirements, and strong pressure to reduce operating overhead. That makes product validation faster if the solution works.</p>
-                <p>The goal is not to remain geographically narrow. The goal is to prove the category where the need is acute, then expand into other markets with similar requirements.</p>
+                <p>The first customers need private document automation, but they do not have the appetite or staffing to build AI infrastructure internally. That makes the value proposition easier to test.</p>
+                <p>The goal is not to remain narrow. The goal is to prove the category where the need is acute, then expand into other customer segments with similar requirements.</p>
               </div>
             </div>
           </div>
         </article>
         <article class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">
-            <span class="faq-question-text">Why can't businesses just use open-source models like Llama for free?</span>
+            <span class="faq-question-text">Why can't businesses just use open-source models themselves?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
           <div class="faq-answer-wrap">
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>You can use tools like Ollama or LLaMA for free, but they're just raw models - not usable business tools. To make them work, you need developers, the right hardware, and often specialized expertise to set up, tune, and maintain them.</p>
-                <p>They're technical, hard for non-technical teams to use, and don't understand your documents, workflows, or local context out of the box. By the time you make them usable, you've already spent time and money building what Trosyn gives you from the start: a system your team can actually use, without setup, engineers, or ongoing maintenance.</p>
+                <p>Open-source models can be useful, but they are not complete business workflows. A customer still needs deployment, document handling, access control, workflow design, and ongoing maintenance.</p>
+                <p>Trosyn reduces dependency on internal AI infrastructure teams by packaging private AI into a product that business users can adopt more easily.</p>
               </div>
             </div>
           </div>
@@ -1210,7 +1358,7 @@ footer{
           <div class="faq-answer-wrap">
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>Founder-led outbound into teams with clear document and compliance pain, followed by tightly scoped pilots and measurable workflow outcomes. The current LOIs from a Kenyan bank and a Ugandan telecom fit that pattern.</p>
+                <p>Founder-led outbound into teams with clear document and compliance pain, followed by tightly scoped pilots and measurable workflow outcomes.</p>
                 <p>The objective is to turn pilot delivery into case studies, then use those case studies to make the next deployments easier to close.</p>
               </div>
             </div>
@@ -1269,10 +1417,10 @@ footer{
 <section>
   <div class="container">
     <div class="inv-cta">
-      <h2 class="inv-cta-title">Let's talk about<br/><em>the wedge.</em></h2>
-      <p class="inv-cta-body">Detailed product architecture, pilot status, and current investor materials are available on request.</p>
+      <h2 class="inv-cta-title">Building the private AI layer<br/><em>for controlled work.</em></h2>
+      <p class="inv-cta-body">Trosyn AI's long-term goal is to become the infrastructure layer that lets organizations use AI without giving up control of sensitive documents, workflows, or deployment choices.</p>
       <a class="inv-cta-button" href="contact.html">Contact Us</a>
-      <div class="cta-signoff">Ivan Ssentongo · Founder & CEO · Trosyn AI</div>
+      <div class="cta-signoff">Ivan Ssentongo · Founder &amp; CEO · Trosyn AI</div>
     </div>
   </div>
 </section>
@@ -1282,7 +1430,7 @@ footer{
     <div class="footer-top">
       <div>
         <img class="footer-brand-logo" src="assets/images/Artboard 25.svg" alt="trosynAI"/>
-        <p class="footer-brand-copy">The AI operating system for companies where data cannot leave the building.</p>
+        <p class="footer-brand-copy">Private AI infrastructure for organizations that need control over sensitive work.</p>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Product</div>
@@ -1605,6 +1753,8 @@ setupRevealAnimations([
   { selector: '#vision .two-col-wide > :last-child', direction: 'right', delay: 70, distance: '24px' },
   { selector: '#problem .two-col > :first-child', direction: 'left', distance: '24px' },
   { selector: '#problem .two-col > :last-child', direction: 'right', delay: 70, distance: '24px' },
+  { selector: '#cloud .two-col-wide > :first-child', direction: 'left', distance: '24px' },
+  { selector: '#cloud .two-col-wide > :last-child', direction: 'right', delay: 70, distance: '24px' },
   { selector: '#solution .two-col-wide > :first-child', direction: 'left', distance: '24px' },
   { selector: '#solution .two-col-wide > :last-child', direction: 'right', delay: 70, distance: '24px' },
   { selector: '#market .market-grid', delay: 40 },

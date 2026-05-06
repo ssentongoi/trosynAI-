@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Trosyn AI – Private, Offline AI for Businesses</title>
-<meta name="description" content="Trosyn AI helps businesses run private AI locally. Starting in constrained markets, it delivers offline, compliant workflow automation without cloud dependency."/>
+<meta name="description" content="Trosyn AI helps organizations run private AI on company-controlled devices and internal systems for sensitive document workflows."/>
 <meta name="theme-color" content="#006054"/>
 <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
 <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
@@ -53,24 +53,68 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 }
 
 /* HERO */
-.hero{padding:116px 0 100px;}
-.hero .container{max-width:1120px;}
-.hero-copy{max-width:760px;}
-.hero-badge{display:inline-flex;align-items:center;background:rgba(240,180,100,0.12);border:1px solid rgba(240,180,100,0.25);color:var(--gold);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:34px;}
-.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(3.6rem,8vw,6.35rem);line-height:0.92;letter-spacing:-0.05em;color:var(--pure);margin-bottom:28px;max-width:8.2ch;text-wrap:balance;}
+.hero{padding:96px 0 104px;position:relative;overflow:hidden;}
+.hero .container{
+  max-width:none;
+  padding-left:28px;
+  padding-right:0;
+  display:grid;
+  grid-template-columns:minmax(0,0.86fr) minmax(0,1.14fr);
+  grid-template-areas:
+    "copy shot"
+    "stats stats";
+  column-gap:44px;
+  row-gap:18px;
+  align-items:center;
+}
+.hero-copy{max-width:540px;grid-area:copy;align-self:center;padding-top:8px;padding-right:12px;}
+.hero-badge{display:inline-flex;align-items:center;background:rgba(240,180,100,0.13);border:1px solid rgba(240,180,100,0.29);color:var(--gold);font-size:0.68rem;font-weight:600;letter-spacing:0.11em;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:28px;}
+.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.5rem,4.55vw,3.9rem);line-height:0.93;letter-spacing:-0.04em;color:var(--pure);margin-bottom:18px;max-width:8.2ch;text-wrap:balance;}
 .hero-line,.hero-line-accent{display:block;}
 .hero-line-accent{font-style:italic;color:var(--gold);}
-.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--teal-lt);max-width:680px;margin-bottom:44px;font-weight:300;line-height:1.72;}
+.hero-sub{font-size:clamp(0.86rem,1.02vw,0.95rem);color:var(--teal-lt);max-width:45ch;margin-bottom:28px;font-weight:300;line-height:1.62;}
 .hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:15px 30px;border-radius:4px;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s,transform 0.2s;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:var(--pure);padding:12px 24px;border-radius:4px;font-weight:600;font-size:0.82rem;text-decoration:none;letter-spacing:0.015em;transition:background 0.2s,transform 0.2s;}
 .btn-primary:hover{background:#c44030;transform:translateY(-2px);}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--teal-lt);font-size:0.88rem;font-weight:500;text-decoration:none;padding:15px 4px;border-bottom:1px solid rgba(220,240,240,0.2);transition:border-color 0.2s,color 0.2s;}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--teal-lt);font-size:0.82rem;font-weight:500;text-decoration:none;padding:12px 4px;border-bottom:1px solid rgba(220,240,240,0.2);transition:border-color 0.2s,color 0.2s;}
 .btn-ghost:hover{color:var(--pure);border-color:rgba(220,240,240,0.5);}
-.hero-visual{margin-top:76px;background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.08);border-radius:12px;padding:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;overflow:hidden;}
-.hero-stat{padding:24px 20px;text-align:center;background:rgba(0,0,0,0.1);transition:background 0.35s,transform 0.35s;}
-.hero-stat.is-active{background:rgba(0,0,0,0.18);transform:translateY(-2px);}
+.hero-product-frame{
+  grid-area:shot;
+  position:relative;
+  justify-self:end;
+  align-self:start;
+  margin-top:-4px;
+  margin-right:-124px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(220,240,240,0.22);
+  background:linear-gradient(180deg,#f5faf8 0%,#eef6f4 100%);
+  box-shadow:0 30px 64px rgba(0,0,0,0.26),0 4px 0 rgba(255,255,255,0.06) inset;
+  width:min(124%,1320px);
+  aspect-ratio:1933/1693;
+  max-height:none;
+  min-height:0;
+}
+.hero-product-frame::before{
+  display:none;
+}
+.hero-product-frame::after{
+  display:none;
+}
+.hero-product-shot{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  transform:none;
+}
+.hero-product-glow{display:none;}
+.hero-visual{grid-area:stats;justify-self:center;width:min(92%,760px);max-width:760px;margin:28px auto 0;background:rgba(13,34,48,0.56);border:1px solid rgba(220,240,240,0.15);border-radius:16px;padding:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;overflow:hidden;}
+.hero-stat{padding:22px 18px;text-align:left;background:rgba(7,23,34,0.56);border:1px solid rgba(220,240,240,0.1);border-radius:12px;transition:background 0.35s,transform 0.35s,border-color 0.35s;}
+.hero-stat.is-active{background:rgba(7,23,34,0.76);border-color:rgba(240,180,100,0.34);transform:translateY(-2px);}
 .hero-stat-num{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums lining-nums;}
-.hero-stat-label{font-size:0.77rem;color:var(--teal-lt);margin-top:6px;opacity:0.8;line-height:1.4;}
+.hero-stat-label{font-size:0.79rem;color:var(--teal-lt);margin-top:8px;opacity:0.86;line-height:1.45;}
 
 /* SECTION LABELS */
 .section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--coral);margin-bottom:16px;}
@@ -127,6 +171,22 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .use-case-list li{font-size:0.78rem;color:var(--teal-lt);opacity:0.8;padding-left:14px;position:relative;line-height:1.4;}
 .use-case-list li::before{content:'→';position:absolute;left:0;color:var(--teal-md);font-size:0.7rem;}
 
+/* DEPLOYMENT MODES */
+.deployment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px;}
+.deployment-card{background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.08);border-radius:8px;padding:26px;display:flex;flex-direction:column;gap:14px;}
+.deployment-label{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+.deployment-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:800;color:var(--pure);line-height:1.1;}
+.deployment-body{font-size:0.86rem;color:var(--teal-lt);line-height:1.7;opacity:0.86;}
+.deployment-note{font-size:0.76rem;color:var(--teal-md);line-height:1.55;border-top:1px solid rgba(220,240,240,0.08);padding-top:14px;margin-top:auto;}
+
+/* GOVERNANCE */
+.governance-box{margin-top:36px;background:rgba(20,40,60,0.45);border:1px solid rgba(220,240,240,0.08);border-radius:10px;padding:30px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:start;}
+.governance-title{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:800;color:var(--pure);line-height:1.12;}
+.governance-copy{font-size:0.92rem;color:var(--teal-lt);line-height:1.8;opacity:0.88;}
+.governance-points{list-style:none;display:grid;gap:12px;}
+.governance-points li{font-size:0.84rem;color:var(--teal-lt);line-height:1.55;opacity:0.84;padding-left:22px;position:relative;}
+.governance-points li::before{content:'•';position:absolute;left:0;color:var(--gold);font-size:1.2rem;line-height:1;}
+
 /* FAQ */
 .faq-shell{padding-top:6px;}
 .faq-intro{max-width:720px;margin-bottom:42px;}
@@ -164,7 +224,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 /* HOMEPAGE COLORWAY POLISH */
 .divider{display:none;}
 
-#problem,#solution,#features{
+#problem,#solution,#deployment,#features,#governance{
   background:var(--soft-white);
 }
 
@@ -174,21 +234,27 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #problem .section-title,
 #solution .section-title,
+#deployment .section-title,
 #features .section-title,
+#governance .section-title,
 #faq .section-title{
   color:var(--navy);
 }
 
 #problem .section-body,
 #solution .section-body,
+#deployment .section-body,
 #features .section-body,
+#governance .section-body,
 #faq .section-body{
   color:#4d6072;
 }
 
 #problem .section-label,
 #solution .section-label,
+#deployment .section-label,
 #features .section-label,
+#governance .section-label,
 #faq .section-label{
   color:var(--green);
 }
@@ -245,6 +311,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #features .use-case-list li::before{
   color:#2d7367;
+}
+
+#deployment .deployment-card,
+#governance .governance-box{
+  background:#f8faf8;
+  border:1px solid rgba(0,96,84,0.18);
+}
+
+#deployment .deployment-title,
+#governance .governance-title{
+  color:var(--navy);
+}
+
+#deployment .deployment-body,
+#deployment .deployment-note,
+#governance .governance-copy,
+#governance .governance-points li{
+  color:#516578;
 }
 
 #faq .faq-list{
@@ -363,21 +447,26 @@ footer{
   color:var(--gold);
 }
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.hero>div>*{animation:fadeUp 0.65s ease both;}
-.hero>div>*:nth-child(2){animation-delay:0.08s;}
-.hero>div>*:nth-child(3){animation-delay:0.16s;}
-.hero>div>*:nth-child(4){animation-delay:0.24s;}
-.hero>div>*:nth-child(5){animation-delay:0.36s;}
-
 @media(max-width:640px){
-  .solution-layout,.hero-visual{grid-template-columns:1fr;}
-  .hero .container{max-width:960px;}
+  .hero .container{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "copy"
+      "shot"
+      "stats";
+    row-gap:24px;
+  }
+  .solution-layout,.hero-visual,.deployment-grid,.governance-box{grid-template-columns:1fr;}
+  .hero .container{max-width:960px;padding-right:28px;}
   .hero-copy{max-width:none;}
   .hero h1{font-size:clamp(2.15rem,12vw,3.9rem);line-height:0.96;letter-spacing:-0.045em;max-width:none;}
   .hero-line,.hero-line-accent{white-space:nowrap;}
   .hero-badge{font-size:0.66rem;letter-spacing:0.1em;padding:6px 14px;}
   .hero-sub{font-size:1rem;line-height:1.65;}
+  .hero-product-frame{margin-top:0;border-radius:14px;min-height:0;aspect-ratio:1933/1693;width:100%;}
+  .hero-product-shot{width:100%;height:100%;max-width:none;transform:none;object-fit:contain;object-position:center;}
+  .hero-visual{gap:10px;padding:10px;}
+  .hero-stat{padding:18px 14px;}
   .hero-actions{width:100%;}
   .hero-actions .btn-primary,.hero-actions .btn-ghost{width:100%;justify-content:center;}
   .faq-question{gap:18px;padding:22px 0;}
@@ -386,11 +475,26 @@ footer{
   .faq-toggle::before,.faq-toggle::after{width:14px;}
   .faq-answer-inner{padding:0 0 26px 0;}
   .cta-section{padding:44px 24px;}
-  .use-cases{grid-template-columns:1fr 1fr;}
+  .use-cases{grid-template-columns:1fr;}
   .footer-top{grid-template-columns:1fr;gap:24px;}
   .footer-brand-copy{max-width:none;}
   .footer-bottom{flex-direction:column;align-items:flex-start;}
   .footer-bottom-links{gap:8px 12px;}
+}
+@media(max-width:980px) and (min-width:641px){
+  .hero .container{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "copy"
+      "shot"
+      "stats";
+    row-gap:26px;
+  }
+  .hero-copy{
+    max-width:none;
+  }
+  .hero-product-frame{min-height:0;aspect-ratio:1933/1693;width:100%;}
+  .hero-product-shot{width:100%;height:100%;transform:none;object-fit:contain;object-position:center;}
 }
 @media (prefers-reduced-motion: reduce){
   .reveal,.reveal-left,.reveal-right{opacity:1;transform:none;transition:none;}
@@ -425,25 +529,29 @@ footer{
   <div class="container">
     <div class="hero-copy">
       <div class="hero-badge">PRIVATE AI INFRASTRUCTURE · LOCAL DEPLOYMENT</div>
-      <h1><span class="hero-line">Private AI</span><span class="hero-line-accent">infrastructure</span><span class="hero-line">for</span><span class="hero-line">real-world</span><span class="hero-line">operations.</span></h1>
-      <p class="hero-sub">Trosyn AI helps businesses run AI locally for document-heavy workflows. We are starting in African markets where connectivity, compliance, and cost make cloud AI unreliable, then expanding into similar environments globally.</p>
+      <h1><span class="hero-line">Private AI</span><span class="hero-line-accent">infrastructure</span><span class="hero-line">for</span><span class="hero-line">sensitive</span><span class="hero-line">work.</span></h1>
+      <p class="hero-sub">Trosyn AI helps organizations run AI securely on their own devices or internal systems, so teams can process sensitive documents and workflows without sending data to the cloud.</p>
       <div class="hero-actions">
         <a href="contact.html?type=demo" class="btn-primary">Request a Demo →</a>
         <a href="investors.html" class="btn-ghost">Investor Overview →</a>
       </div>
     </div>
+    <div class="hero-product-frame" aria-label="Trosyn AI platform dashboard preview">
+      <img class="hero-product-shot" src="assets/images/hero-replacement-v2.jpg?v=2" alt="Trosyn AI dashboard preview showing workspace navigation, quick actions, and platform features"/>
+      <div class="hero-product-glow" aria-hidden="true"></div>
+    </div>
     <div class="hero-visual">
       <div class="hero-stat">
-        <div class="hero-stat-num" data-count-from="0" data-count-to="100" data-count-duration="1800" data-count-suffix="%">0%</div>
-        <div class="hero-stat-label">Offline — works during outages and shutdowns</div>
+        <div class="hero-stat-num">Private</div>
+        <div class="hero-stat-label">Documents stay inside the chosen deployment environment</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num" data-count-from="12" data-count-to="0" data-count-duration="1500">12</div>
-        <div class="hero-stat-label">Data leaves your premises — ever</div>
+        <div class="hero-stat-num">3 Modes</div>
+        <div class="hero-stat-label">Device, Team, and Enterprise roadmap deployment paths</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num" data-count-from="0" data-count-to="3" data-count-duration="1400">0</div>
-        <div class="hero-stat-label">Built-in AI agents for HR, Finance & Legal</div>
+        <div class="hero-stat-num">Offline</div>
+        <div class="hero-stat-label">Core workflows can run without constant connectivity</div>
       </div>
     </div>
   </div>
@@ -455,23 +563,23 @@ footer{
 <section id="problem">
   <div class="container">
     <p class="section-label">The Problem</p>
-    <h2 class="section-title">Cloud AI fails first where reliability matters most.</h2>
-    <p class="section-body">The first market is in African operating environments, but the problem is broader: businesses cannot run core workflows on AI tools that depend on constant connectivity, easy cross-border data movement, and cloud-first pricing.</p>
+    <h2 class="section-title">Cloud AI creates friction for sensitive business work.</h2>
+    <p class="section-body">Teams want AI for contracts, reports, invoices, policies, and internal knowledge. The problem is that sensitive workflows often require stronger control over where data is processed, who governs it, and whether work can continue when connectivity is unreliable.</p>
     <div class="problem-grid">
       <div class="problem-card">
-        <div class="problem-icon">📡</div>
-        <div class="problem-title">Connectivity cannot be a requirement</div>
-        <div class="problem-text">In the launch markets, internet shutdowns and poor connectivity make cloud AI unreliable at the exact moment teams need it. That same failure mode appears anywhere operations depend on unstable networks.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">⚡</div>
-        <div class="problem-title">Infrastructure assumptions break down</div>
-        <div class="problem-text">Most AI products are designed for always-on cloud environments. Many businesses operate with tighter hardware budgets, unstable power, and real limits on what can stay connected all day.</div>
-      </div>
-      <div class="problem-card">
         <div class="problem-icon">🔒</div>
-        <div class="problem-title">Data control is not optional</div>
-        <div class="problem-text">Local hosting, internal control, and auditability are becoming baseline requirements. The launch region makes that pressure obvious, but the same demand exists across regulated and security-sensitive workflows everywhere.</div>
+        <div class="problem-title">Sensitive data needs direct control</div>
+        <div class="problem-text">Legal, finance, HR, and security teams need AI assistance without making external cloud systems the default place for internal documents and workflow context.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🏛️</div>
+        <div class="problem-title">Governance becomes harder in the cloud</div>
+        <div class="problem-text">When data is processed through cloud AI systems, retention, deletion, and governance are influenced by provider policies and legal obligations outside the organization’s direct control.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📡</div>
+        <div class="problem-title">Cloud dependency limits operations</div>
+        <div class="problem-text">In Africa, parts of Asia and South America, and remote operating sites, unreliable connectivity can make cloud-first AI unavailable exactly when teams need it.</div>
       </div>
     </div>
   </div>
@@ -483,37 +591,37 @@ footer{
 <section id="solution">
   <div class="container">
     <p class="section-label">The Solution</p>
-    <h2 class="section-title">AI that runs where your business runs.</h2>
-    <p class="section-body">Trosyn AI deploys on company-controlled infrastructure. Teams use it through a simple interface, while documents, prompts, and workflow context stay local. The result is AI that fits real operations instead of forcing operations to fit the cloud.</p>
+    <h2 class="section-title">AI that runs inside your organization’s environment.</h2>
+    <p class="section-body">Trosyn AI packages private AI, document workflows, access controls, and deployment support into one system. Teams get a simple interface while the organization keeps control over where processing happens.</p>
     <div class="solution-layout">
       <div class="solution-left">
         <div class="solution-features">
           <div class="feature-row">
             <div class="feature-icon">📡</div>
             <div>
-              <div class="feature-name">Local AI Runtime</div>
-              <div class="feature-desc">Models run on your own server so core workflows remain available during outages, unstable connectivity, or restricted network access.</div>
+              <div class="feature-name">Private AI Infrastructure</div>
+              <div class="feature-desc">Run AI on company-controlled devices, shared internal systems, or future internal server deployments.</div>
             </div>
           </div>
           <div class="feature-row">
             <div class="feature-icon">🏗️</div>
             <div>
-              <div class="feature-name">Company-Controlled Deployment</div>
-              <div class="feature-desc">Trosyn installs inside your environment, giving you direct control over access, data movement, and system behavior.</div>
+              <div class="feature-name">Company-Controlled Data Flow</div>
+              <div class="feature-desc">Documents, prompts, and workflow context stay inside the chosen deployment environment.</div>
             </div>
           </div>
           <div class="feature-row">
             <div class="feature-icon">🔐</div>
             <div>
-              <div class="feature-name">Private Document Processing</div>
-              <div class="feature-desc">Contracts, reports, invoices, and internal files are processed locally. The first compliance layer is built around African frameworks, with expansion designed for additional jurisdictions.</div>
+              <div class="feature-name">Workflow Packs</div>
+              <div class="feature-desc">Start with HR, Finance, Legal, and Security workflows where document volume and control requirements are clear.</div>
             </div>
           </div>
           <div class="feature-row">
             <div class="feature-icon">🤝</div>
             <div>
-              <div class="feature-name">Workflow Collaboration</div>
-              <div class="feature-desc">Teams can work inside one shared system while preserving internal context, repeatable process logic, and department-level workflows.</div>
+              <div class="feature-name">Reduced Infrastructure Dependency</div>
+              <div class="feature-desc">Give business teams private AI without requiring them to build and maintain a full AI infrastructure function.</div>
             </div>
           </div>
         </div>
@@ -533,7 +641,7 @@ footer{
             <div class="arch-node-icon coral">⚙️</div>
             <div>
               <div class="arch-node-label">Trosyn AI Engine</div>
-              <div class="arch-node-desc">Processes entirely on your local server</div>
+              <div class="arch-node-desc">Processes inside the selected deployment environment</div>
             </div>
           </div>
           <div class="arch-arrow">↓</div>
@@ -545,7 +653,38 @@ footer{
             </div>
           </div>
         </div>
-        <div class="arch-note">No data exits this chain. The AI lives inside your business.</div>
+        <div class="arch-note">Processing stays inside the environment your organization controls.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DEPLOYMENT MODES -->
+<section id="deployment">
+  <div class="container">
+    <p class="section-label">Deployment Modes</p>
+    <h2 class="section-title">One system, deployed at the right scale.</h2>
+    <p class="section-body">Trosyn AI starts simple and scales with the organization. Device and Team deployments are the near-term focus. Enterprise deployment is roadmap only.</p>
+    <div class="deployment-grid">
+      <div class="deployment-card">
+        <div class="deployment-label">Device Deployment · SME</div>
+        <div class="deployment-title">Private AI on laptops and desktops</div>
+        <div class="deployment-body">For individuals and small teams that need private document processing without external infrastructure. Designed for self-serve installation and offline-capable workflows.</div>
+        <div class="deployment-note">Entry point for small teams and professional service firms.</div>
+      </div>
+      <div class="deployment-card">
+        <div class="deployment-label">Team Deployment · Mid-market</div>
+        <div class="deployment-title">Shared AI for internal teams</div>
+        <div class="deployment-body">For growing teams that need shared access, reusable workflow context, and broader document collaboration inside a controlled environment.</div>
+        <div class="deployment-note">Primary commercial focus.</div>
+      </div>
+      <div class="deployment-card">
+        <div class="deployment-label">Enterprise Deployment · Roadmap Only</div>
+        <div class="deployment-title">Internal server deployment</div>
+        <div class="deployment-body">For larger organizations that need organization-wide private AI inside internal server environments. This is a later-stage deployment path.</div>
+        <div class="deployment-note">Introduced after smaller deployments prove reliability.</div>
       </div>
     </div>
   </div>
@@ -556,13 +695,13 @@ footer{
 <!-- FEATURES -->
 <section id="features">
   <div class="container">
-    <p class="section-label">Built For</p>
-    <h2 class="section-title">Document-heavy teams.<br/>One local AI layer.</h2>
-    <p class="section-body">Trosyn starts with HR, Finance, and Legal because they combine repetitive document work, compliance pressure, and clear ROI. The first workflow packs are tuned for launch-region requirements and designed to expand beyond them.</p>
+    <p class="section-label">Use Cases</p>
+    <h2 class="section-title">Workflow packs for sensitive document work.</h2>
+    <p class="section-body">Trosyn starts with HR, Finance, Legal, and Security because these teams handle recurring documents, internal context, and data that often requires tighter control.</p>
     <div class="use-cases">
       <div class="use-case">
         <div class="use-case-dept">HR Operations</div>
-        <div class="use-case-title">HR Agent</div>
+        <div class="use-case-title">HR Workflows</div>
         <ul class="use-case-list">
           <li>Employment contracts</li>
           <li>Onboarding documents</li>
@@ -572,7 +711,7 @@ footer{
       </div>
       <div class="use-case">
         <div class="use-case-dept">Finance Operations</div>
-        <div class="use-case-title">Finance Agent</div>
+        <div class="use-case-title">Finance Workflows</div>
         <ul class="use-case-list">
           <li>Invoice generation</li>
           <li>Financial reports</li>
@@ -582,7 +721,7 @@ footer{
       </div>
       <div class="use-case">
         <div class="use-case-dept">Legal & Compliance</div>
-        <div class="use-case-title">Legal Agent</div>
+        <div class="use-case-title">Legal Workflows</div>
         <ul class="use-case-list">
           <li>NDA drafting</li>
           <li>Regulatory summaries</li>
@@ -590,16 +729,39 @@ footer{
           <li>Standard filings</li>
         </ul>
       </div>
-      <div class="use-case" style="border-style:dashed;opacity:0.5;">
-        <div class="use-case-dept">Coming Soon</div>
-        <div class="use-case-title">More Agents</div>
+      <div class="use-case">
+        <div class="use-case-dept">Security Operations</div>
+        <div class="use-case-title">Security Workflows</div>
         <ul class="use-case-list">
-          <li>Procurement</li>
-          <li>Reporting</li>
-          <li>Communications</li>
-          <li>Custom workflows</li>
+          <li>Incident notes</li>
+          <li>Policy workflows</li>
+          <li>Investigation summaries</li>
+          <li>Internal knowledge search</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GOVERNANCE -->
+<section id="governance">
+  <div class="container">
+    <p class="section-label">Data Governance</p>
+    <h2 class="section-title">Keep sensitive AI workflows under company control.</h2>
+    <p class="section-body">Trosyn is built for organizations that need the productivity of AI without giving up direct control over sensitive documents, workflow context, and deployment choices.</p>
+    <div class="governance-box">
+      <div>
+        <div class="governance-title">Cloud AI changes who controls the workflow.</div>
+        <p class="governance-copy" style="margin-top:14px;">When data is processed through cloud AI systems, retention, deletion, and governance are influenced by provider policies and legal obligations outside the organization’s direct control.</p>
+      </div>
+      <ul class="governance-points">
+        <li>Trosyn runs inside company-controlled environments.</li>
+        <li>Data handling follows the customer’s internal controls and deployment choices.</li>
+        <li>Offline-capable operation supports teams where connectivity cannot be assumed.</li>
+        <li>Flexible usage is bounded by local hardware and deployment capacity, not cloud vendor rate limits.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -651,7 +813,7 @@ footer{
           <div class="faq-answer-wrap">
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>Trosyn AI keeps all your files and data on your device. Nothing is sent to external servers or uploaded online. Only you and your approved users can access it.</p>
+                <p>Trosyn AI is designed so core document processing happens inside the selected deployment environment. Access is controlled by your organization and its approved users.</p>
               </div>
             </div>
           </div>
@@ -691,8 +853,8 @@ footer{
           <div class="faq-answer-wrap">
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>Trosyn AI will notify you when a new model version is available. You can then download and install the update through the app.</p>
-                <p>Once installed, the system automatically recognizes the new model and switches to it without requiring reinstalling the app or manual configuration.</p>
+                <p>Trosyn AI will notify you when a system update is available. You can then download and install the update through the app.</p>
+                <p>Once installed, the system applies the update without requiring a full reinstall.</p>
               </div>
             </div>
           </div>
@@ -824,7 +986,7 @@ footer{
           <div class="faq-answer-wrap">
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>No. Trosyn AI is designed with a simple interface so any staff member can use it without technical training.</p>
+                <p>Trosyn AI is designed with a simple interface so business staff can use private AI workflows without needing specialist AI infrastructure knowledge.</p>
               </div>
             </div>
           </div>
@@ -841,7 +1003,7 @@ footer{
   <div class="container">
     <div class="cta-section">
       <h2 class="cta-title">Ready to see it<br/><em>in action?</em></h2>
-      <p class="cta-body">We are onboarding pilot teams starting in Uganda and Kenya. Get in touch if you want to evaluate local AI for regulated or connectivity-constrained workflows.</p>
+      <p class="cta-body">We are onboarding pilot teams that need private AI for sensitive documents, controlled workflows, and environments where cloud dependency creates risk.</p>
       <a class="cta-button" href="contact.html">Contact Us</a>
       <div class="cta-signoff">Ivan Ssentongo · Founder & CEO · Trosyn AI</div>
     </div>
@@ -853,7 +1015,7 @@ footer{
     <div class="footer-top">
       <div>
         <img class="footer-brand-logo" src="assets/images/Artboard 25.svg" alt="trosynAI"/>
-        <p class="footer-brand-copy">The AI operating system for companies where data cannot leave the building.</p>
+        <p class="footer-brand-copy">Private AI infrastructure for organizations that need control over sensitive work.</p>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Product</div>
@@ -1024,9 +1186,12 @@ setupFaqAccordion();
 
 setupRevealAnimations([
   { selector: '#problem .problem-grid', delay: 60 },
+  { selector: '.hero-product-frame', delay: 80 },
   { selector: '#solution .solution-left', direction: 'left', distance: '28px' },
   { selector: '#solution .solution-callout', direction: 'right', delay: 90, distance: '28px' },
+  { selector: '#deployment .deployment-card', delay: 40, stagger: 80 },
   { selector: '#features .use-cases', delay: 60 },
+  { selector: '#governance .governance-box', delay: 60 },
   { selector: '#faq .faq-intro', delay: 20 },
   { selector: '#faq .faq-list', delay: 40 },
   { selector: '#contact .cta-section', delay: 40 }

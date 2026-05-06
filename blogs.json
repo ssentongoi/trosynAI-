@@ -1,5 +1,23 @@
 [
   {
+    "title": "Beyond Headcount: The Asymmetric Advantage of Lean Teams in the AI Era",
+    "date": "2026-05-13",
+    "excerpt": "Why small, AI-augmented teams can now outperform much larger organizations by scaling leverage, speed, and precision instead of headcount.",
+    "slug": "beyond-headcount-the-asymmetric-advantage-of-lean-teams-in-the-ai-era",
+    "image": "./images/beyond-headcount-lean-teams.png",
+    "category": "featured",
+    "readTime": "8 min read"
+  },
+  {
+    "title": "The Quiet Integration: AI's Shift from Background Utility to Operational Core",
+    "date": "2026-05-06",
+    "excerpt": "How AI quietly moved from behind-the-scenes automation to the operational core of day-to-day business execution.",
+    "slug": "the-quiet-integration-ais-shift-from-background-utility-to-operational-core",
+    "image": "./images/quiet-integration-img-5878.png",
+    "category": "featured",
+    "readTime": "8 min read"
+  },
+  {
     "title": "When AI Meets Government Power, the \"Thin Line\" Gets Thinner",
     "date": "2026-03-25",
     "excerpt": "The Anthropic-U.S. clash shows how fast AI is becoming a strategic government-controlled domain.",
