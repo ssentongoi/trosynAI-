@@ -9,6 +9,7 @@
 <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
 <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <style>
 :root {
   --green:   #006054;
@@ -53,24 +54,34 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 }
 
 /* HERO */
-.hero{padding:116px 0 100px;}
+.hero{padding:50px 0 34px;}
 .hero .container{max-width:1120px;}
-.hero-copy{max-width:760px;}
-.hero-badge{display:inline-flex;align-items:center;background:rgba(240,180,100,0.12);border:1px solid rgba(240,180,100,0.25);color:var(--gold);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:34px;}
-.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(3.6rem,8vw,6.35rem);line-height:0.92;letter-spacing:-0.05em;color:var(--pure);margin-bottom:28px;max-width:8.2ch;text-wrap:balance;}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(137px,18vw);gap:6px;align-items:start;}
+.hero-copy{max-width:570px;padding-top:4px;}
+.hero-badge{display:inline-flex;align-items:center;background:rgba(240,180,100,0.12);border:1px solid rgba(240,180,100,0.25);color:var(--gold);font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:6px 13px;border-radius:100px;margin-bottom:18px;}
+.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.31rem,4.72vw,3.78rem);line-height:0.95;letter-spacing:-0.042em;color:var(--pure);margin-bottom:14px;max-width:8.3ch;text-wrap:balance;}
 .hero-line,.hero-line-accent{display:block;}
 .hero-line-accent{font-style:italic;color:var(--gold);}
-.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--teal-lt);max-width:680px;margin-bottom:44px;font-weight:300;line-height:1.72;}
-.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:15px 30px;border-radius:4px;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s,transform 0.2s;}
+.hero-sub{font-size:clamp(0.9rem,1.15vw,0.98rem);color:var(--teal-lt);max-width:520px;margin-bottom:18px;font-weight:300;line-height:1.54;}
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.hero-media{height:87%;min-height:119px;border-radius:12px 0 0 12px;overflow:visible;border:1px solid rgba(220,240,240,0.18);box-shadow:0 14px 24px rgba(7,35,36,0.2);margin-right:calc(50% - 50vw);transform:translateX(-18%);}
+.hero-media img{display:block;width:100%;height:100%;object-fit:contain;object-position:center right;transform:translateX(-22%);}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:var(--pure);padding:12px 22px;border-radius:4px;font-weight:600;font-size:0.82rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s,transform 0.2s;}
 .btn-primary:hover{background:#c44030;transform:translateY(-2px);}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--teal-lt);font-size:0.88rem;font-weight:500;text-decoration:none;padding:15px 4px;border-bottom:1px solid rgba(220,240,240,0.2);transition:border-color 0.2s,color 0.2s;}
+.btn-ghost{display:inline-flex;align-items:center;gap:7px;color:var(--teal-lt);font-size:0.8rem;font-weight:500;text-decoration:none;padding:12px 2px;border-bottom:1px solid rgba(220,240,240,0.2);transition:border-color 0.2s,color 0.2s;}
 .btn-ghost:hover{color:var(--pure);border-color:rgba(220,240,240,0.5);}
-.hero-visual{margin-top:76px;background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.08);border-radius:12px;padding:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;overflow:hidden;}
-.hero-stat{padding:24px 20px;text-align:center;background:rgba(0,0,0,0.1);transition:background 0.35s,transform 0.35s;}
-.hero-stat.is-active{background:rgba(0,0,0,0.18);transform:translateY(-2px);}
-.hero-stat-num{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums lining-nums;}
-.hero-stat-label{font-size:0.77rem;color:var(--teal-lt);margin-top:6px;opacity:0.8;line-height:1.4;}
+/* TRUST CARDS */
+.trust-section{position:relative;background:linear-gradient(180deg,rgba(20,40,60,0.18) 0%,rgba(20,40,60,0.34) 100%);}
+.trust-grid{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid rgba(220,240,240,0.08);border-radius:12px;overflow:hidden;background:rgba(20,40,60,0.28);box-shadow:0 16px 34px rgba(10,30,35,0.12);}
+.trust-card{padding:36px 28px;background:rgba(0,0,0,0.1);min-height:170px;display:flex;flex-direction:column;justify-content:center;text-align:center;border-right:1px solid rgba(220,240,240,0.06);}
+.trust-card:last-child{border-right:none;}
+.trust-card-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;line-height:1.15;color:var(--gold);margin-bottom:12px;}
+.trust-card-body{font-size:0.88rem;line-height:1.65;color:var(--teal-lt);opacity:0.88;max-width:24ch;margin:0 auto;}
+@media(max-width:860px){
+  .trust-grid{grid-template-columns:1fr;}
+  .trust-card{border-right:none;border-bottom:1px solid rgba(220,240,240,0.06);}
+  .trust-card:last-child{border-bottom:none;}
+}
 
 /* SECTION LABELS */
 .section-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--coral);margin-bottom:16px;}
@@ -83,6 +94,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--coral);}
 .problem-icon{font-size:1.6rem;margin-bottom:16px;}
 .problem-title{font-weight:700;font-size:1rem;color:var(--pure);margin-bottom:10px;}
+.problem-tier-sub{display:block;margin-top:-4px;margin-bottom:12px;font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
 .problem-text{font-size:0.85rem;color:var(--teal-lt);line-height:1.7;opacity:0.85;}
 
 /* SOLUTION */
@@ -164,7 +176,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 /* HOMEPAGE COLORWAY POLISH */
 .divider{display:none;}
 
-#problem,#solution,#features{
+#problem,#solution,#deployment,#evolution,#features,#governance{
   background:var(--soft-white);
 }
 
@@ -174,21 +186,30 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #problem .section-title,
 #solution .section-title,
+#deployment .section-title,
+#evolution .section-title,
 #features .section-title,
+#governance .section-title,
 #faq .section-title{
   color:var(--navy);
 }
 
 #problem .section-body,
 #solution .section-body,
+#deployment .section-body,
+#evolution .section-body,
 #features .section-body,
+#governance .section-body,
 #faq .section-body{
   color:#4d6072;
 }
 
 #problem .section-label,
 #solution .section-label,
+#deployment .section-label,
+#evolution .section-label,
 #features .section-label,
+#governance .section-label,
 #faq .section-label{
   color:var(--green);
 }
@@ -245,6 +266,260 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #features .use-case-list li::before{
   color:#2d7367;
+}
+
+#deployment .feat-card,
+#deployment .problem-card,
+#evolution .feat-card,
+#governance .problem-card{
+  background:#f8faf8;
+  border:1px solid rgba(0,96,84,0.22);
+}
+
+#deployment .feat-card-name,
+#deployment .problem-title,
+#evolution .feat-card-name,
+#governance .problem-title{
+  color:var(--navy);
+}
+
+#deployment .feat-card-desc,
+#deployment .problem-text,
+#evolution .feat-card-desc,
+#governance .problem-text{
+  color:#506375;
+  opacity:1;
+}
+
+#deployment .problem-grid,
+#governance .problem-grid{
+  background:#e4eceb;
+}
+
+#deployment .tier-label{
+  display:inline-flex;
+  margin-bottom:8px;
+  font-size:0.64rem;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#6d7f91;
+}
+
+#deployment .tier-label.roadmap{
+  background:rgba(20,40,60,0.08);
+  border-radius:999px;
+  padding:3px 8px;
+}
+
+#deployment .tier-features{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:14px;
+}
+
+#deployment .tier-features li{
+  font-size:0.8rem;
+  line-height:1.45;
+  color:#465d70;
+}
+
+#deployment .tier-features li.locked{
+  color:#8a99a7;
+}
+
+#deployment .tier-tag{
+  display:inline-flex;
+  margin-left:6px;
+  padding:2px 7px;
+  border-radius:999px;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  background:#e6edf3;
+  color:#5f7284;
+}
+
+#deployment .tier-contact{
+  margin-top:6px;
+  padding-top:12px;
+  border-top:1px solid rgba(0,96,84,0.14);
+}
+
+#deployment .tier-contact-btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  margin-top:2px;
+  background:var(--green);
+  color:#ffffff;
+  text-decoration:none;
+  border-radius:6px;
+  padding:11px 14px;
+  font-size:0.82rem;
+  font-weight:700;
+  letter-spacing:0.02em;
+}
+
+#deployment .tier-contact-note{
+  margin-top:8px;
+  font-size:0.71rem;
+  color:#7a8b99;
+  line-height:1.45;
+}
+
+#deployment .feat-card-icon .material-symbols-outlined{
+  font-size:1.45rem;
+  line-height:1;
+  color:var(--green);
+  font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;
+}
+
+#deployment .problem-card.primary-tier{
+  border:2px solid rgba(0,96,84,0.55);
+  box-shadow:0 12px 24px rgba(0,96,84,0.08);
+}
+
+#deployment .primary-badge{
+  display:inline-flex;
+  margin-left:6px;
+  padding:2px 8px;
+  border-radius:999px;
+  background:rgba(0,96,84,0.12);
+  color:var(--green);
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+#deployment .tier-details{
+  margin-top:28px;
+}
+
+#deployment .tier-details-subtitle{
+  font-size:0.88rem;
+  color:#64788b;
+  margin-top:-8px;
+}
+
+#deployment .tier-tabs{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+  margin-bottom:12px;
+  overflow-x:auto;
+  padding-bottom:4px;
+}
+
+#deployment .tier-details-toggle{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border:1px solid rgba(0,96,84,0.22);
+  border-radius:10px;
+  background:#f8faf8;
+  color:#2f4558;
+  padding:12px 14px;
+  font-size:0.86rem;
+  font-weight:600;
+  cursor:pointer;
+  margin-bottom:12px;
+}
+
+#deployment .tier-details-toggle .material-symbols-outlined{
+  font-size:1.15rem;
+  line-height:1;
+  transition:transform 300ms ease;
+  font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;
+}
+
+#deployment .tier-details-toggle.is-open .material-symbols-outlined{
+  transform:rotate(180deg);
+}
+
+#deployment .tier-tab{
+  border:1px solid rgba(0,96,84,0.2);
+  border-radius:8px;
+  background:#e5ecef;
+  color:#2f4558;
+  padding:10px 14px;
+  font-size:0.8rem;
+  font-weight:600;
+  white-space:nowrap;
+  cursor:pointer;
+}
+
+#deployment .tier-tab.is-active{
+  background:var(--green);
+  color:#ffffff;
+}
+
+#deployment .tier-panel{
+  border:1px solid rgba(0,96,84,0.22);
+  border-radius:10px;
+  background:#f8faf8;
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  transition:max-height 300ms ease,opacity 300ms ease;
+}
+
+#deployment .tier-panel.is-open{
+  opacity:1;
+}
+
+#deployment .tier-panel-inner{
+  padding:24px;
+}
+
+#deployment .tier-panel-heading{
+  font-family:'Fraunces',serif;
+  font-size:1.4rem;
+  color:var(--navy);
+  line-height:1.25;
+  margin-bottom:8px;
+}
+
+#deployment .tier-panel-subheading{
+  color:#506375;
+  font-size:0.88rem;
+  margin-bottom:16px;
+}
+
+#deployment .tier-panel-section{
+  margin-bottom:16px;
+}
+
+#deployment .tier-panel-section:last-child{
+  margin-bottom:0;
+}
+
+#deployment .tier-panel-label{
+  font-size:0.68rem;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:#6b7e90;
+  margin-bottom:6px;
+}
+
+#deployment .tier-panel-copy{
+  color:#506375;
+  font-size:0.82rem;
+  line-height:1.65;
+}
+
+@media(max-width:860px){
+  #deployment .tier-panel-inner{
+    padding:18px;
+  }
 }
 
 #faq .faq-list{
@@ -371,13 +646,16 @@ footer{
 .hero>div>*:nth-child(5){animation-delay:0.36s;}
 
 @media(max-width:640px){
-  .solution-layout,.hero-visual{grid-template-columns:1fr;}
+  .solution-layout{grid-template-columns:1fr;}
   .hero .container{max-width:960px;}
+  .hero-layout{grid-template-columns:1fr;gap:18px;}
   .hero-copy{max-width:none;}
   .hero h1{font-size:clamp(2.15rem,12vw,3.9rem);line-height:0.96;letter-spacing:-0.045em;max-width:none;}
   .hero-line,.hero-line-accent{white-space:nowrap;}
   .hero-badge{font-size:0.66rem;letter-spacing:0.1em;padding:6px 14px;}
   .hero-sub{font-size:1rem;line-height:1.65;}
+  .hero-media{width:100%;min-height:250px;border-radius:10px;margin-left:0;margin-right:0;transform:none;}
+  .hero-media img{transform:none;}
   .hero-actions{width:100%;}
   .hero-actions .btn-primary,.hero-actions .btn-ghost{width:100%;justify-content:center;}
   .faq-question{gap:18px;padding:22px 0;}
@@ -423,27 +701,43 @@ footer{
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-copy">
-      <div class="hero-badge">PRIVATE AI INFRASTRUCTURE · LOCAL DEPLOYMENT</div>
-      <h1><span class="hero-line">Private AI</span><span class="hero-line-accent">infrastructure</span><span class="hero-line">for</span><span class="hero-line">real-world</span><span class="hero-line">operations.</span></h1>
-      <p class="hero-sub">Trosyn AI helps businesses run AI locally for document-heavy workflows. We are starting in African markets where connectivity, compliance, and cost make cloud AI unreliable, then expanding into similar environments globally.</p>
-      <div class="hero-actions">
-        <a href="contact.html?type=demo" class="btn-primary">Request a Demo →</a>
-        <a href="investors.html" class="btn-ghost">Investor Overview →</a>
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <div class="hero-badge">PRIVATE AI INFRASTRUCTURE · LOCAL DEPLOYMENT</div>
+        <h1><span class="hero-line">Private AI</span><span class="hero-line-accent">infrastructure</span><span class="hero-line">for</span><span class="hero-line">businesses</span><span class="hero-line">that need control.</span></h1>
+        <p class="hero-sub">Trosyn AI runs inside company-controlled environments so sensitive documents stay local, governance stays under your rules, and teams keep working without rate limits or constant connectivity. We start in Africa because the pain is sharpest there, then expand into every market with the same constraint.</p>
+        <div class="hero-actions">
+          <a href="contact.html?type=demo" class="btn-primary">Request a Demo →</a>
+          <a href="investors.html" class="btn-ghost">Investor Overview →</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="Hero image .jpg" alt="Trosyn AI app interface"/>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-count-from="0" data-count-to="100" data-count-duration="1800" data-count-suffix="%">0%</div>
-        <div class="hero-stat-label">Offline — works during outages and shutdowns</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TRUST -->
+<section class="trust-section">
+  <div class="container">
+    <p class="section-label">Data Control</p>
+    <h2 class="section-title">Private AI that stays inside the company.</h2>
+    <p class="section-body">The same local system keeps sensitive work inside your environment, follows your internal rules, and stays focused on structured work instead of general chat.</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-card-title">Your data stays inside your company</div>
+        <div class="trust-card-body">Most AI tools require sending documents outside your environment. This runs where your data already lives.</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-count-from="12" data-count-to="0" data-count-duration="1500">12</div>
-        <div class="hero-stat-label">Data leaves your premises — ever</div>
+      <div class="trust-card">
+        <div class="trust-card-title">You decide how it&apos;s used</div>
+        <div class="trust-card-body">Access, storage, and usage follow your internal rules, not external provider policies.</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" data-count-from="0" data-count-to="3" data-count-duration="1400">0</div>
-        <div class="hero-stat-label">Built-in AI agents for HR, Finance & Legal</div>
+      <div class="trust-card">
+        <div class="trust-card-title">Built for internal work, not chat</div>
+        <div class="trust-card-body">This is designed for structured workflows and sensitive documents, not general-purpose prompting.</div>
       </div>
     </div>
   </div>
@@ -456,7 +750,7 @@ footer{
   <div class="container">
     <p class="section-label">The Problem</p>
     <h2 class="section-title">Cloud AI fails first where reliability matters most.</h2>
-    <p class="section-body">The first market is in African operating environments, but the problem is broader: businesses cannot run core workflows on AI tools that depend on constant connectivity, easy cross-border data movement, and cloud-first pricing.</p>
+    <p class="section-body">The first market is in African operating environments, but the problem is broader: businesses cannot run core workflows on AI tools that depend on constant connectivity, easy cross-border data movement, and cloud-first pricing. The same constraints appear in Western markets through compliance requirements (GDPR, audit control, internal data policies), even where infrastructure is not the limiting factor.</p>
     <div class="problem-grid">
       <div class="problem-card">
         <div class="problem-icon">📡</div>
@@ -471,7 +765,7 @@ footer{
       <div class="problem-card">
         <div class="problem-icon">🔒</div>
         <div class="problem-title">Data control is not optional</div>
-        <div class="problem-text">Local hosting, internal control, and auditability are becoming baseline requirements. The launch region makes that pressure obvious, but the same demand exists across regulated and security-sensitive workflows everywhere.</div>
+        <div class="problem-text">When data is processed through cloud AI systems, retention, deletion, and governance are influenced by provider policies and legal obligations outside the organization’s direct control.</div>
       </div>
     </div>
   </div>
@@ -484,7 +778,7 @@ footer{
   <div class="container">
     <p class="section-label">The Solution</p>
     <h2 class="section-title">AI that runs where your business runs.</h2>
-    <p class="section-body">Trosyn AI deploys on company-controlled infrastructure. Teams use it through a simple interface, while documents, prompts, and workflow context stay local. The result is AI that fits real operations instead of forcing operations to fit the cloud.</p>
+    <p class="section-body">Trosyn AI deploys on company-controlled infrastructure. Teams use it through a simple interface, while documents, prompts, and workflow context stay local. Teams doing high-volume document work often hit cloud AI rate limits. Local deployment removes those limits by shifting usage from vendor quotas to available hardware.</p>
     <div class="solution-layout">
       <div class="solution-left">
         <div class="solution-features">
@@ -506,7 +800,7 @@ footer{
             <div class="feature-icon">🔐</div>
             <div>
               <div class="feature-name">Private Document Processing</div>
-              <div class="feature-desc">Contracts, reports, invoices, and internal files are processed locally. The first compliance layer is built around African frameworks, with expansion designed for additional jurisdictions.</div>
+              <div class="feature-desc">Contracts, reports, invoices, and internal files are processed locally. Your organization keeps the processing environment, access rules, and governance boundary under its own control.</div>
             </div>
           </div>
           <div class="feature-row">
@@ -553,12 +847,173 @@ footer{
 
 <div class="divider"></div>
 
+<!-- DEPLOYMENT -->
+<section id="deployment">
+  <div class="container">
+    <p class="section-label">Deployment Modes</p>
+    <h2 class="section-title">One system, adapted to each operating scale.</h2>
+    <p class="section-body">All deployment modes run the same system, adapted to different organizational scales. Device runs on individual machines. Team runs as a shared internal system with light infrastructure. Enterprise is the roadmap path for full internal server deployment installed and maintained by Trosyn.</p>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-card-icon"><span class="material-symbols-outlined" aria-hidden="true">laptop_mac</span></div>
+        <div class="feat-card-name">Device Deployment</div>
+        <div class="feat-card-desc">Self-serve app install on laptops or desktops. No server. No IT team. Private AI running on your machine the same day — documents stay on your device, nothing leaves.</div>
+        <div class="problem-text">✓ Connect up to 10 devices to your private AI hub</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><span class="material-symbols-outlined" aria-hidden="true">groups</span></div>
+        <div class="feat-card-name">Team Deployment</div>
+        <div class="feat-card-desc">Runs on light shared infrastructure so multiple team members access one private AI system. Shared workflows, permissions, and department-level document access. All data stays inside your environment.</div>
+        <div class="problem-text">✓ Connect up to 50 devices across departments in one shared private AI hub</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon"><span class="material-symbols-outlined" aria-hidden="true">dns</span></div>
+        <div class="feat-card-name">Enterprise Deployment · Roadmap</div>
+        <div class="feat-card-desc">Software delivered and installed by the Trosyn team on your internal servers. We handle setup, maintenance, and updates remotely. Your team uses it — you never manage the infrastructure.</div>
+        <div class="problem-text">✓ Unlimited devices connected across your entire organization hub</div>
+      </div>
+    </div>
+    <div class="problem-grid" style="margin-top:24px;">
+      <div class="problem-card" id="tier-smallteams">
+        <span class="tier-label">Device Deployment</span>
+        <div class="problem-title">Small Teams</div>
+        <ul class="tier-features">
+          <li>✓ Standard AI model</li>
+          <li>✓ 3 documents at once</li>
+          <li>✓ 10 automations per day</li>
+          <li>✓ HR, Finance, Legal workflow packs</li>
+          <li>✓ Works fully offline</li>
+          <li>✓ Community support</li>
+          <li class="locked">🔒 Advanced model (Team tier)</li>
+          <li class="locked">🔒 AI Agents <span class="tier-tag">Coming Soon</span></li>
+          <li class="locked">🔒 Higher document limits (Team tier)</li>
+        </ul>
+        <div class="tier-contact">
+          <a class="tier-contact-btn" href="contact.html?type=demo&tier=small-teams">Contact Us</a>
+          <div class="tier-contact-note">Get in touch to discuss your plan.</div>
+        </div>
+      </div>
+      <div class="problem-card primary-tier" id="tier-midmarket">
+        <span class="tier-label">Team Deployment</span>
+        <span class="primary-badge">Primary</span>
+        <div class="problem-title">Team — Mid-Market</div>
+        <ul class="tier-features">
+          <li>✓ Advanced AI model</li>
+          <li>✓ 15 documents at once</li>
+          <li>✓ 50 automations per day</li>
+          <li>✓ HR, Finance, Legal workflow packs</li>
+          <li>✓ AI Agents <span class="tier-tag">Early Access</span></li>
+          <li>✓ Advanced model unlocked</li>
+          <li>✓ Email support + priority updates</li>
+          <li class="locked">🔒 Unlimited documents (Enterprise tier)</li>
+          <li class="locked">🔒 Dedicated support (Enterprise tier)</li>
+        </ul>
+        <div class="tier-contact">
+          <a class="tier-contact-btn" href="contact.html?type=demo&tier=mid-market">Contact Us</a>
+          <div class="tier-contact-note">Get in touch to discuss your plan.</div>
+        </div>
+      </div>
+      <div class="problem-card" id="tier-enterprise">
+        <span class="tier-label">Server Deployment</span>
+        <span class="tier-label roadmap">Roadmap</span>
+        <div class="problem-title">Enterprise</div>
+        <div class="problem-tier-sub">Enterprise deployment · roadmap</div>
+        <ul class="tier-features">
+          <li>✓ Advanced AI model</li>
+          <li>✓ Unlimited documents at once</li>
+          <li>✓ Unlimited automations per day</li>
+          <li>✓ AI Agents full access</li>
+          <li>✓ Advanced model unlocked</li>
+          <li>✓ Dedicated support</li>
+          <li>✓ Installed and maintained by Trosyn team</li>
+        </ul>
+        <div class="tier-contact">
+          <a class="tier-contact-btn" href="contact.html?type=demo&tier=enterprise">Contact Us</a>
+          <div class="tier-contact-note">Get in touch to discuss your plan.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tier-details">
+      <h3 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:8px;">What&apos;s included in each tier</h3>
+      <p class="tier-details-subtitle">Select a tier to see everything included.</p>
+      <div class="tier-tabs" role="tablist" aria-label="Tier selector">
+        <button class="tier-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="tier-panel-small" id="tier-tab-small" data-tier-target="small">Small Teams</button>
+        <button class="tier-tab" type="button" role="tab" aria-selected="false" aria-controls="tier-panel-mid" id="tier-tab-mid" data-tier-target="mid">Mid-Market</button>
+        <button class="tier-tab" type="button" role="tab" aria-selected="false" aria-controls="tier-panel-enterprise" id="tier-tab-enterprise" data-tier-target="enterprise">Enterprise</button>
+      </div>
+      <button class="tier-details-toggle" type="button" aria-expanded="false" aria-controls="tier-panel-small" id="tier-details-toggle">
+        <span class="tier-details-toggle-text">Show Small Teams details</span>
+        <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+      </button>
+      <div class="tier-panel" role="tabpanel" id="tier-panel-small" aria-labelledby="tier-tab-small" data-tier-panel="small">
+        <div class="tier-panel-inner">
+          <div class="tier-panel-heading">Small Teams — Device Deployment</div>
+          <div class="tier-panel-subheading">For individuals and small teams that need private AI without heavy procurement.</div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Deployment</div><div class="tier-panel-copy">How it works: Installs as an app on your laptop or desktop. No server needed. No IT team required. Private AI is running on your machine the same day.<br/>Connected devices: Up to 10 devices can connect to your private AI hub. All devices share one workspace. Documents and workflows stay inside your hub — nothing leaves.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Document Processing</div><div class="tier-panel-copy">Documents at once: Process up to 3 documents at the same time.<br/>Supported formats: PDF, DOCX, TXT, Markdown.<br/>Processing: Runs entirely on your device. No data sent externally at any point.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">AI Model</div><div class="tier-panel-copy">Model access: Standard AI model included.<br/>Advanced model: Not available on this tier. Upgrade to Mid-Market to unlock the advanced model.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Workflow Packs</div><div class="tier-panel-copy">Included: HR, Finance, and Legal workflow packs.<br/>Each pack includes pre-built document templates, repeatable workflows, and AI-assisted drafting for that department.<br/>Security pack: Coming in a future update.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Automations</div><div class="tier-panel-copy">Daily limit: Up to 10 automated tasks per day.<br/>What counts: Document generation, scheduled summaries, and repeatable workflow runs all count toward the daily limit.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">AI Agents</div><div class="tier-panel-copy">Status: Coming soon.<br/>Agents will be available to Small Teams users in a future release. Mid-Market and Enterprise tiers will receive early and full access first.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Connectivity</div><div class="tier-panel-copy">Offline: Works fully offline. Core AI functions run locally. Internet is only used for license verification and software updates.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Support</div><div class="tier-panel-copy">Type: Community support.<br/>Updates: Standard release cycle.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Adding People</div><div class="tier-panel-copy">You can add up to 5 additional users beyond your base of 10 — up to 15 total.<br/>Additional users do not unlock new features. All feature limits stay the same regardless of how many users are on the plan.<br/>Need more than 15 users or access to advanced features? Upgrade to Mid-Market.</div></div>
+        </div>
+      </div>
+      <div class="tier-panel" role="tabpanel" id="tier-panel-mid" aria-labelledby="tier-tab-mid" data-tier-panel="mid">
+        <div class="tier-panel-inner">
+          <div class="tier-panel-heading">Mid-Market — Team Deployment</div>
+          <div class="tier-panel-subheading">For growing teams that need shared private AI across departments with stronger workflow control.</div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Deployment</div><div class="tier-panel-copy">How it works: Installs as an app on shared internal infrastructure. Multiple team members access one centralized private AI system.<br/>Connected devices: Up to 50 devices can connect to your shared private AI hub across departments. Each department keeps its own workflows and permissions inside the same secure environment.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Document Processing</div><div class="tier-panel-copy">Documents at once: Process up to 15 documents at the same time.<br/>Supported formats: PDF, DOCX, TXT, Markdown.<br/>Processing: Runs entirely on your internal infrastructure. No data sent externally.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">AI Model</div><div class="tier-panel-copy">Model access: Advanced AI model unlocked.<br/>The advanced model handles more complex document tasks, longer files, and higher accuracy output compared to the standard model.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Workflow Packs</div><div class="tier-panel-copy">Included: HR, Finance, Legal, and Security workflow packs.<br/>Teams can run workflows across departments from one shared system with individual permissions per team.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Automations</div><div class="tier-panel-copy">Daily limit: Up to 50 automated tasks per day.<br/>Shared across the team — department leads can allocate automation capacity across workflows.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">AI Agents</div><div class="tier-panel-copy">Status: Early access.<br/>Mid-Market teams receive early access to AI agents as they are released. Agents automate multi-step document workflows without manual input.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Connectivity</div><div class="tier-panel-copy">Offline: Works fully offline. Entire team operates without internet dependency.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Support</div><div class="tier-panel-copy">Type: Email support with priority updates.<br/>Your team receives faster access to new releases and direct support response.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Adding People</div><div class="tier-panel-copy">You can add up to 5 additional users beyond your base of 50 — up to 55 total.<br/>Additional users do not unlock new features. All feature limits stay the same regardless of how many users are on the plan.<br/>Need more than 55 users or full agent access and unlimited processing? Upgrade to Enterprise.</div></div>
+        </div>
+      </div>
+      <div class="tier-panel" role="tabpanel" id="tier-panel-enterprise" aria-labelledby="tier-tab-enterprise" data-tier-panel="enterprise">
+        <div class="tier-panel-inner">
+          <div class="tier-panel-heading">Enterprise — Server Deployment · Roadmap</div>
+          <div class="tier-panel-subheading">For larger regulated organizations that need organization-wide private AI on fully internal infrastructure.</div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Deployment</div><div class="tier-panel-copy">How it works: Software is delivered and installed by the Trosyn team directly on your internal servers. Your team uses it through a simple interface — you never manage the infrastructure.<br/>Maintenance: Trosyn handles all updates and maintenance remotely. Your IT team does not carry the operational burden.<br/>Connected devices: Unlimited devices across your entire organization connect to one fully private AI hub on your own servers.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Document Processing</div><div class="tier-panel-copy">Documents at once: Unlimited.<br/>Large document volumes, multi-department processing, and organization-wide workloads are all supported.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">AI Model</div><div class="tier-panel-copy">Model access: Advanced AI model.<br/>Custom model configurations available for specific organizational requirements.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Workflow Packs</div><div class="tier-panel-copy">Included: All workflow packs plus custom workflow development for your organization's specific document processes.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Automations</div><div class="tier-panel-copy">Daily limit: Unlimited.<br/>Organization-wide automation with no daily cap. Full workflow automation across all departments.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">AI Agents</div><div class="tier-panel-copy">Status: Full access.<br/>All current and future agents available. Custom agents can be developed for specific organizational workflows.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Connectivity</div><div class="tier-panel-copy">Offline: Fully offline. Entire organization operates without any cloud dependency.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Support</div><div class="tier-panel-copy">Type: Dedicated support team.<br/>Direct line to the Trosyn team for deployment, maintenance, and workflow support.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Adding People</div><div class="tier-panel-copy">Unlimited users. No seat caps. Pricing is custom and agreed per deployment.</div></div>
+          <div class="tier-panel-section"><div class="tier-panel-label">Availability</div><div class="tier-panel-copy">Enterprise deployment is on the roadmap. We are currently validating Device and Team deployments before opening Enterprise to new customers.<br/>Contact us to register your interest and be first in line when Enterprise opens.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SYSTEM EVOLUTION -->
+<section id="evolution">
+  <div class="container">
+    <p class="section-label">How the System Evolves</p>
+    <h2 class="section-title">The same system grows with the organization.</h2>
+    <p class="section-body">Trosyn starts as a local AI engine for document workflows inside one environment. As usage grows, the same system supports more users, more documents, more coordination, and more available compute. Device supports individual work, Team supports shared internal workflows, and Enterprise is the roadmap path for full internal infrastructure.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- FEATURES -->
 <section id="features">
   <div class="container">
-    <p class="section-label">Built For</p>
+    <p class="section-label">Workflow Packs</p>
     <h2 class="section-title">Document-heavy teams.<br/>One local AI layer.</h2>
-    <p class="section-body">Trosyn starts with HR, Finance, and Legal because they combine repetitive document work, compliance pressure, and clear ROI. The first workflow packs are tuned for launch-region requirements and designed to expand beyond them.</p>
+    <p class="section-body">Trosyn starts with HR, Finance, Legal, and Security workflows, with additional vertical packs planned (e.g., Healthcare, Procurement). These teams combine repetitive document work, compliance pressure, and clear ROI.</p>
     <div class="use-cases">
       <div class="use-case">
         <div class="use-case-dept">HR Operations</div>
@@ -590,15 +1045,50 @@ footer{
           <li>Standard filings</li>
         </ul>
       </div>
-      <div class="use-case" style="border-style:dashed;opacity:0.5;">
-        <div class="use-case-dept">Coming Soon</div>
-        <div class="use-case-title">More Agents</div>
+      <div class="use-case">
+        <div class="use-case-dept">Security Operations</div>
+        <div class="use-case-title">Security Agent</div>
         <ul class="use-case-list">
-          <li>Procurement</li>
-          <li>Reporting</li>
-          <li>Communications</li>
-          <li>Custom workflows</li>
+          <li>Incident summaries</li>
+          <li>Policy checks</li>
+          <li>Access reviews</li>
+          <li>Internal reports</li>
         </ul>
+      </div>
+      <div class="use-case" style="border-style:dashed;opacity:0.5;">
+        <div class="use-case-dept">Planned Verticals</div>
+        <div class="use-case-title">More Packs</div>
+        <ul class="use-case-list">
+          <li>Healthcare</li>
+          <li>Procurement</li>
+          <li>Custom workflows</li>
+          <li>Advanced reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GOVERNANCE -->
+<section id="governance">
+  <div class="container">
+    <p class="section-label">Governance</p>
+    <h2 class="section-title">Designed for teams that cannot lose control of sensitive work.</h2>
+    <p class="section-body">Trosyn keeps AI processing inside the organization’s environment so internal data policies, access controls, and audit processes remain central to how the system is governed.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-title">Data stays inside the operating boundary</div>
+        <div class="problem-text">Sensitive documents are processed through local infrastructure instead of being sent to a third-party cloud workflow by default.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-title">Governance stays closer to the business</div>
+        <div class="problem-text">The customer keeps control over who can access the system, where documents live, and how internal review rules are applied.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-title">Built for regional differences</div>
+        <div class="problem-text">Africa, parts of Asia, and South America show connectivity and infrastructure pain. Western markets show the same need through compliance, audit, and internal data policy pressure.</div>
       </div>
     </div>
   </div>
@@ -886,75 +1376,7 @@ footer{
 </footer>
 
 <script>
-const statNumbers = document.querySelectorAll('.hero-stat-num[data-count-to]');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-function formatStatValue(element, value) {
-  const suffix = element.dataset.countSuffix || '';
-  return Math.round(value) + suffix;
-}
-
-function animateStat(element) {
-  const startValue = Number(element.dataset.countFrom || 0);
-  const endValue = Number(element.dataset.countTo || 0);
-  const duration = Number(element.dataset.countDuration || 1400);
-  const parentCard = element.closest('.hero-stat');
-
-  if (prefersReducedMotion) {
-    element.textContent = formatStatValue(element, endValue);
-    if (parentCard) parentCard.classList.add('is-active');
-    return;
-  }
-
-  const startTime = performance.now();
-
-  function frame(now) {
-    const elapsed = Math.min((now - startTime) / duration, 1);
-    const eased = 1 - Math.pow(1 - elapsed, 3);
-    const currentValue = startValue + (endValue - startValue) * eased;
-
-    element.textContent = formatStatValue(element, currentValue);
-
-    if (elapsed < 1) {
-      requestAnimationFrame(frame);
-      return;
-    }
-
-    element.textContent = formatStatValue(element, endValue);
-    if (parentCard) parentCard.classList.add('is-active');
-  }
-
-  requestAnimationFrame(frame);
-}
-
-const heroVisual = document.querySelector('.hero-visual');
-
-if (heroVisual && statNumbers.length) {
-  let hasStarted = false;
-
-  const startAnimation = () => {
-    if (hasStarted) return;
-    hasStarted = true;
-
-    statNumbers.forEach((stat, index) => {
-      window.setTimeout(() => animateStat(stat), index * 180);
-    });
-  };
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        startAnimation();
-        observer.disconnect();
-      });
-    }, { threshold: 0.45 });
-
-    observer.observe(heroVisual);
-  } else {
-    startAnimation();
-  }
-}
 
 function setupRevealAnimations(configs) {
   const revealTargets = [];
@@ -1020,13 +1442,88 @@ function setupFaqAccordion() {
   });
 }
 
+function setupTierDetailsTabs() {
+  const tabs = Array.from(document.querySelectorAll('#deployment .tier-tab'));
+  const panels = Array.from(document.querySelectorAll('#deployment .tier-panel'));
+  const toggle = document.getElementById('tier-details-toggle');
+  const toggleText = toggle ? toggle.querySelector('.tier-details-toggle-text') : null;
+  if (!tabs.length || !panels.length || !toggle || !toggleText) return;
+
+  let activeTier = 'small';
+  let isOpen = false;
+
+  function closeAllPanels() {
+    panels.forEach(panel => {
+      panel.classList.remove('is-open');
+      panel.style.maxHeight = '0px';
+    });
+  }
+
+  function openPanel(panel) {
+    panel.classList.add('is-open');
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+  }
+
+  function tierLabel(tier) {
+    if (tier === 'mid') return 'Mid-Market';
+    if (tier === 'enterprise') return 'Enterprise';
+    return 'Small Teams';
+  }
+
+  function syncToggle() {
+    toggleText.textContent = (isOpen ? 'Hide ' : 'Show ') + tierLabel(activeTier) + ' details';
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    toggle.classList.toggle('is-open', isOpen);
+    const activePanel = document.querySelector('#deployment .tier-panel[data-tier-panel="' + activeTier + '"]');
+    if (activePanel) {
+      toggle.setAttribute('aria-controls', activePanel.id);
+    }
+  }
+
+  function renderPanel() {
+    closeAllPanels();
+    if (!isOpen) return;
+    const panel = document.querySelector('#deployment .tier-panel[data-tier-panel="' + activeTier + '"]');
+    if (panel) openPanel(panel);
+  }
+
+  function activate(target) {
+    activeTier = target;
+    isOpen = false;
+    tabs.forEach(tab => {
+      const isActive = tab.getAttribute('data-tier-target') === target;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    syncToggle();
+    renderPanel();
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activate(tab.getAttribute('data-tier-target')));
+  });
+
+  toggle.addEventListener('click', () => {
+    isOpen = !isOpen;
+    syncToggle();
+    renderPanel();
+  });
+
+  activate('small');
+}
+
 setupFaqAccordion();
+setupTierDetailsTabs();
 
 setupRevealAnimations([
   { selector: '#problem .problem-grid', delay: 60 },
   { selector: '#solution .solution-left', direction: 'left', distance: '28px' },
   { selector: '#solution .solution-callout', direction: 'right', delay: 90, distance: '28px' },
+  { selector: '#deployment .features-grid', delay: 50 },
+  { selector: '#deployment .problem-grid', delay: 70 },
+  { selector: '#evolution .container', delay: 40 },
   { selector: '#features .use-cases', delay: 60 },
+  { selector: '#governance .problem-grid', delay: 60 },
   { selector: '#faq .faq-intro', delay: 20 },
   { selector: '#faq .faq-list', delay: 40 },
   { selector: '#contact .cta-section', delay: 40 }

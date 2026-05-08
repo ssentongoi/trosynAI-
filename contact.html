@@ -662,6 +662,23 @@ const enquiryByType = {
   press: 'Press / Media',
   other: 'Other'
 };
+const tierPrefill = {
+  'small-teams': {
+    label: 'Small Teams',
+    deployment: 'Device Deployment',
+    message: "Hi Trosyn team,\n\nI'm interested in the Small Teams tier (Device Deployment). Please share next steps for onboarding and setup.\n\nEstimated users: up to 15\nPrimary workflow needs: "
+  },
+  'mid-market': {
+    label: 'Mid-Market',
+    deployment: 'Team Deployment',
+    message: "Hi Trosyn team,\n\nI'm interested in the Mid-Market tier (Team Deployment). Please share onboarding requirements and rollout guidance.\n\nEstimated users: up to 55\nDepartments involved: "
+  },
+  enterprise: {
+    label: 'Enterprise',
+    deployment: 'Server Deployment · Roadmap',
+    message: "Hi Trosyn team,\n\nI'm interested in the Enterprise tier (Server Deployment · Roadmap). Please share availability, deployment requirements, and timeline.\n\nEstimated users/devices: \nCompliance or infrastructure requirements: "
+  }
+};
 
 function hasActiveAccessKey() {
   const value = accessKey.value.trim();
@@ -733,12 +750,30 @@ function applyEnquiry(enquiry) {
 function applyQueryDefaults() {
   const params = new URLSearchParams(window.location.search);
   const mappedType = enquiryByType[params.get('type') || ''];
+  const tierKey = (params.get('tier') || '').toLowerCase();
+  const tierData = tierPrefill[tierKey];
 
   if (mappedType) {
     applyEnquiry(mappedType);
   } else {
     syncSubject();
   }
+
+  if (!tierData) return;
+
+  if (mappedType !== 'Demo Request') {
+    applyEnquiry('Demo Request');
+  }
+
+  if (!organisationField.value.trim()) {
+    organisationField.value = tierData.label + ' enquiry';
+  }
+
+  if (!messageField.value.trim()) {
+    messageField.value = tierData.message;
+  }
+
+  emailSubject.value = 'Demo Request - ' + tierData.label + ' - Trosyn AI';
 }
 
 function setupRevealAnimations(configs) {

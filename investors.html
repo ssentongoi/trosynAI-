@@ -9,6 +9,7 @@
 <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
 <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <style>
 :root{
   --green:#006054;--navy:#14283C;--coral:#DC503C;--gold:#F0B464;
@@ -53,16 +54,23 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .coral{color:var(--coral);}
 
 /* HERO / HEADER */
-.inv-hero{padding:100px 0 80px;border-bottom:1px solid rgba(220,240,240,0.08);}
+.inv-hero{padding:50px 0 34px;border-bottom:1px solid rgba(220,240,240,0.08);overflow-x:hidden;}
+.inv-hero .container{max-width:1120px;}
+.inv-hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,32vw);gap:18px;align-items:start;}
+.inv-hero-copy{max-width:760px;padding-top:4px;margin-left:-34px;}
 .inv-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(220,80,60,0.12);border:1px solid rgba(220,80,60,0.25);color:var(--coral);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:28px;}
-.inv-hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.8rem,6vw,5rem);line-height:1.0;letter-spacing:-0.03em;color:var(--pure);margin-bottom:20px;}
+.inv-hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.31rem,4.72vw,3.78rem);line-height:0.95;letter-spacing:-0.042em;color:var(--pure);margin-bottom:14px;}
 .inv-hero h1 em{color:var(--gold);font-style:italic;}
-.inv-hero-sub{font-size:1.05rem;color:var(--teal-lt);max-width:580px;line-height:1.7;font-weight:300;margin-bottom:40px;}
-.inv-hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(220,240,240,0.08);border:1px solid rgba(220,240,240,0.08);border-radius:8px;overflow:hidden;margin-top:56px;}
-.inv-stat{background:rgba(0,0,0,0.15);padding:24px 20px;text-align:center;transition:background 0.35s,transform 0.35s;}
-.inv-stat.is-active{background:rgba(0,0,0,0.22);transform:translateY(-2px);}
+.inv-hero-sub{font-size:clamp(0.9rem,1.15vw,0.98rem);color:var(--teal-lt);max-width:580px;line-height:1.54;font-weight:300;margin-bottom:18px;}
+.inv-hero-media{height:100%;min-height:280px;border-radius:12px 0 0 12px;overflow:visible;border:1px solid rgba(220,240,240,0.18);box-shadow:0 14px 24px rgba(7,35,36,0.2);margin-right:calc(50% - 50vw);transform:translateX(10%);justify-self:end;}
+.inv-hero-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:left top;transform:none;}
+.inv-hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#dbe6e8;border:1px solid rgba(0,96,84,0.18);border-radius:12px;overflow:hidden;margin-top:22px;}
+.inv-hero-below{padding:26px 0 50px;background:var(--soft-white-alt);}
+.inv-hero-core{max-width:860px;background:#245b6a;border:1px solid rgba(0,96,84,0.24);border-radius:14px;padding:20px 24px;color:#eaf4f4;font-size:0.9rem;line-height:1.7;}
+.inv-stat{background:#ffffff;padding:28px 22px;text-align:center;transition:background 0.35s,transform 0.35s;}
+.inv-stat.is-active{background:#f6faf9;transform:translateY(-2px);}
 .inv-stat-num{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:900;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums lining-nums;}
-.inv-stat-label{font-size:0.72rem;color:var(--teal-lt);margin-top:5px;opacity:0.75;line-height:1.4;}
+.inv-stat-label{font-size:0.72rem;color:#4f6376;margin-top:7px;opacity:1;line-height:1.42;}
 
 /* TWO-COL LAYOUT */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:start;}
@@ -97,13 +105,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 /* MARKET GRID */
 .market-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;}
-.market-card{background:rgba(20,40,60,0.4);border:1px solid rgba(220,240,240,0.07);border-radius:8px;padding:24px;}
+.market-card{background:rgba(20,40,60,0.58);border:1px solid rgba(220,240,240,0.12);border-radius:8px;padding:24px;}
 .market-card-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
 .market-row{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(220,240,240,0.06);transition:transform 0.45s cubic-bezier(0.22,1,0.36,1),border-color 0.45s ease,opacity 0.45s ease;}
 .market-row.is-active{transform:translateX(4px);border-color:rgba(240,180,100,0.18);}
 .market-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
 .market-num{font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem;color:var(--gold);line-height:1;flex-shrink:0;font-variant-numeric:tabular-nums lining-nums;}
-.market-desc{font-size:0.77rem;color:var(--teal-lt);opacity:0.8;line-height:1.4;}
+.market-desc{font-size:0.77rem;color:var(--pure);opacity:0.9;line-height:1.6;}
 
 /* ROADMAP */
 .roadmap{margin-top:40px;position:relative;}
@@ -157,17 +165,29 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .pricing-row.highlight{background:linear-gradient(90deg,rgba(240,180,100,0.12) 0%,rgba(220,80,60,0.06) 100%);border-color:rgba(240,180,100,0.16);}
 .pricing-tier{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-weight:700;font-size:1rem;line-height:1.35;color:var(--pure);}
 .pricing-tier-text{display:block;}
+.pricing-tier-sub{display:block;margin-top:-6px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-md);}
 .pricing-tier-badge{display:inline-flex;align-items:center;justify-content:center;font-size:0.66rem;font-weight:800;letter-spacing:0.12em;line-height:1;text-transform:uppercase;background:rgba(220,80,60,0.12);color:var(--coral);padding:10px 16px;border-radius:999px;border:1px solid rgba(220,80,60,0.14);white-space:nowrap;box-shadow:0 6px 16px rgba(220,80,60,0.08);}
 .pricing-price{font-family:'Fraunces',serif;font-weight:700;font-size:1.18rem;line-height:1;color:var(--gold);}
 .pricing-target{font-size:0.92rem;line-height:1.55;color:var(--teal-lt);opacity:0.82;}
-
-/* PROJECTIONS TABLE */
-.proj-table{margin-top:28px;border-radius:8px;overflow:hidden;border:1px solid rgba(220,240,240,0.07);}
-.proj-header{display:grid;grid-template-columns:1fr 1fr 1.5fr;background:rgba(20,40,60,0.7);padding:10px 18px;font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-md);}
-.proj-row{display:grid;grid-template-columns:1fr 1fr 1.5fr;padding:12px 18px;border-top:1px solid rgba(220,240,240,0.05);background:rgba(20,40,60,0.25);font-size:0.82rem;color:var(--teal-lt);transition:background 0.2s;}
-.proj-row:hover{background:rgba(20,40,60,0.5);}
-.proj-row.milestone{background:rgba(240,180,100,0.06);border-color:rgba(240,180,100,0.1);}
-.proj-row.milestone .proj-period{color:var(--gold);font-weight:600;}
+.model-subtitle{margin-top:34px;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
+.model-note{margin-top:12px;font-size:0.9rem;line-height:1.75;color:var(--teal-lt);max-width:760px;opacity:0.9;}
+.model-table{margin-top:16px;border-radius:12px;overflow:hidden;border:1px solid rgba(220,240,240,0.08);background:rgba(20,40,60,0.18);}
+.model-table-head,.model-table-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:14px 18px;gap:16px;align-items:start;}
+.model-table-head{background:rgba(20,40,60,0.78);font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-md);}
+.model-table-row{background:rgba(20,40,60,0.34);border-top:1px solid rgba(220,240,240,0.08);font-size:0.84rem;line-height:1.55;color:var(--teal-lt);}
+.model-table-row strong{color:var(--pure);font-weight:600;}
+.upgrade-flow{margin-top:14px;border-radius:12px;border:1px solid rgba(220,240,240,0.08);background:rgba(20,40,60,0.34);padding:20px 22px;}
+.upgrade-flow-track{position:relative;display:flex;flex-direction:column;gap:12px;padding-left:18px;}
+.upgrade-flow-track::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,rgba(200,144,63,0.65),rgba(45,115,103,0.35));border-radius:999px;}
+.upgrade-node{position:relative;background:#ffffff;border:1px solid rgba(0,96,84,0.2);border-radius:10px;padding:14px 16px 14px 18px;box-shadow:0 8px 18px rgba(20,40,60,0.06);}
+.upgrade-node::before{content:'';position:absolute;left:-16px;top:20px;width:12px;height:12px;border-radius:50%;background:#ffffff;border:2px solid #c8903f;}
+.upgrade-node:last-child::before{border-color:#2d7367;}
+.upgrade-flow-step{font-family:'Fraunces',serif;font-weight:700;font-size:1.18rem;color:var(--navy);margin-bottom:6px;}
+.upgrade-trigger{display:flex;align-items:flex-start;gap:8px;font-size:0.88rem;color:#4f6376;line-height:1.55;margin:3px 0;}
+.upgrade-trigger .material-symbols-outlined{font-size:1.05rem;line-height:1.2;color:#c8903f;font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;}
+.upgrade-trigger .material-symbols-outlined[data-kind="success"]{color:#2d7367;}
+.upgrade-flow-arrow{display:flex;justify-content:flex-start;align-items:center;padding-left:2px;color:#c8903f;}
+.upgrade-flow-arrow .material-symbols-outlined{font-size:1.2rem;line-height:1;font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;}
 
 /* TRACTION */
 .traction-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;}
@@ -235,11 +255,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 /* INVESTOR PAGE COLORWAY POLISH (MATCH HOME RHYTHM) */
 .divider{display:none;}
 
-#vision,#solution,#traction,#roadmap,#ask{
+#vision,#solution,#deployment,#traction,#roadmap,#ask{
   background:var(--soft-white);
 }
 
-#problem,#market,#model,#risks,#team{
+#problem,#cloud,#market,#model,#evolution,#risks,#team{
   background:var(--soft-white-alt);
 }
 
@@ -249,10 +269,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #vision .section-title,
 #problem .section-title,
+#cloud .section-title,
 #solution .section-title,
+#deployment .section-title,
 #market .section-title,
 #traction .section-title,
 #model .section-title,
+#evolution .section-title,
 #roadmap .section-title,
 #risks .section-title,
 #ask .section-title,
@@ -263,10 +286,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #vision .section-body,
 #problem .section-body,
+#cloud .section-body,
 #solution .section-body,
+#deployment .section-body,
 #market .section-body,
 #traction .section-body,
 #model .section-body,
+#evolution .section-body,
 #roadmap .section-body,
 #risks .section-body,
 #ask .section-body,
@@ -275,12 +301,39 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
   color:#4d6072;
 }
 
+#cloud .prob-text{
+  color:#4d6072;
+  opacity:1;
+}
+#cloud .prob-text strong{
+  color:var(--navy);
+}
+#cloud .prob-dot{
+  opacity:0.95;
+}
+#cloud .card-body{
+  color:#4d6072;
+  opacity:1;
+}
+
+#model .market-card{
+  background:rgba(20,40,60,0.7);
+  border-color:rgba(220,240,240,0.16);
+}
+#model .market-desc{
+  color:var(--teal-lt);
+  opacity:0.96;
+}
+
 #vision .section-label,
 #problem .section-label,
+#cloud .section-label,
 #solution .section-label,
+#deployment .section-label,
 #market .section-label,
 #traction .section-label,
 #model .section-label,
+#evolution .section-label,
 #roadmap .section-label,
 #risks .section-label,
 #ask .section-label,
@@ -291,12 +344,14 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #vision .card,
 #problem .card,
+#cloud .card,
 #solution .card,
+#deployment .card,
 #market .market-card,
 #traction .traction-card,
 #model .card,
+#evolution .card,
 #model .pricing-table,
-#model .proj-table,
 #roadmap .card,
 #risks .card,
 #team .card,
@@ -308,8 +363,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #vision .card-title,
 #problem .card-title,
+#cloud .card-title,
 #solution .card-title,
+#deployment .card-title,
 #model .card-title,
+#evolution .card-title,
 #roadmap .card-title,
 #risks .card-title,
 #team .card-title{
@@ -318,8 +376,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #vision .card-body,
 #problem .card-body,
+#cloud .card-body,
 #solution .card-body,
+#deployment .card-body,
 #model .card-body,
+#evolution .card-body,
 #roadmap .card-body,
 #risks .card-body,
 #team .card-body,
@@ -336,7 +397,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 #market .market-desc,
 #traction .traction-label,
 #model .pricing-target,
-#model .proj-row,
 #risks .risk-mitigation{
   color:#516578;
 }
@@ -380,20 +440,17 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
   color:var(--navy);
 }
 
-#model .pricing-header,
-#model .proj-header{
+#model .pricing-header{
   background:linear-gradient(180deg,#edf5f2 0%,#e4efeb 100%);
   color:#486273;
 }
 
-#model .pricing-row,
-#model .proj-row{
+#model .pricing-row{
   background:#ffffff;
   border-top:1px solid #d9e6e2;
 }
 
-#model .pricing-row:hover,
-#model .proj-row:hover{
+#model .pricing-row:hover{
   background:#f2f8f6;
 }
 
@@ -404,6 +461,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 
 #model .pricing-tier{
   color:var(--navy);
+}
+
+#model .pricing-tier-sub{
+  color:#6f8396;
 }
 
 #model .pricing-tier-badge{
@@ -420,6 +481,47 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
   color:#6f8396;
   opacity:1;
 }
+
+#model .model-subtitle{
+  color:var(--navy);
+}
+
+#model .model-note{
+  color:#4f6376;
+  opacity:1;
+}
+
+#model .model-table{
+  background:#ffffff;
+  border:1px solid rgba(0,96,84,0.2);
+}
+
+#model .model-table-head{
+  background:linear-gradient(180deg,#edf5f2 0%,#e4efeb 100%);
+  color:#486273;
+}
+
+#model .model-table-row{
+  background:#ffffff;
+  border-top:1px solid #d9e6e2;
+  color:#5a6f82;
+}
+
+#model .model-table-row strong{
+  color:var(--navy);
+}
+
+#model .upgrade-flow{
+  background:#ffffff;
+  border:1px solid rgba(0,96,84,0.2);
+}
+
+#model .upgrade-flow-step{
+  color:var(--navy);
+}
+
+#model .upgrade-trigger{color:#4f6376;}
+#model .upgrade-flow-arrow{color:#c8903f;}
 
 #faq .faq-list{
   border-top:1px solid rgba(20,40,60,0.14);
@@ -614,12 +716,29 @@ footer{
 .inv-hero>div>*:nth-child(4){animation-delay:0.26s;}
 .inv-hero>div>*:nth-child(5){animation-delay:0.38s;}
 
+@media(max-width:1024px){
+  .inv-hero-layout{grid-template-columns:minmax(0,1fr) minmax(200px,34vw);gap:12px;}
+  .inv-hero-copy{max-width:700px;margin-left:-14px;}
+  .inv-hero-media{min-height:230px;transform:translateX(6%);}
+  .inv-hero-media img{object-position:left top;}
+}
+
+@media(max-width:768px){
+  .inv-hero-layout{grid-template-columns:1fr;gap:18px;}
+  .inv-hero-copy{max-width:none;margin-left:0;}
+  .inv-hero-media{width:100%;min-height:250px;border-radius:10px;margin-right:0;transform:none;}
+  .inv-hero-media img{transform:none;}
+  .inv-hero-core{padding:16px 16px;font-size:0.84rem;}
+}
+
 @media(max-width:680px){
   .two-col,.two-col-wide,.market-grid,.traction-grid,.milestones,.funds-grid{grid-template-columns:1fr;}
   .inv-hero-stats{grid-template-columns:1fr;}
   .pricing-header,.pricing-row{grid-template-columns:1fr;}
   .pricing-price,.pricing-target{margin-top:8px;}
-  .proj-header,.proj-row{grid-template-columns:1fr;}
+  .model-table-head,.model-table-row{grid-template-columns:1fr;}
+  .upgrade-flow-track{padding-left:14px;}
+  .upgrade-node::before{left:-13px;}
   .risk-row{grid-template-columns:1fr;}
   .faq-question{gap:18px;padding:22px 0;}
   .faq-question-text{font-size:0.97rem;padding-right:0;}
@@ -666,12 +785,27 @@ footer{
 <!-- HERO -->
 <section class="inv-hero">
   <div class="container">
-    <div class="inv-badge">Investor Overview · Private AI Infrastructure · Seed Round</div>
-    <h1>Private AI infrastructure<br/>for businesses the cloud <em>does not serve well.</em></h1>
-    <p class="inv-hero-sub">Trosyn AI is a local-deployment AI platform for document-heavy teams. We are starting in African markets where connectivity, compliance, and cost make cloud AI unreliable, then expanding into similar environments globally.</p>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;">
-      <a href="contact.html?type=investor" style="display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:var(--pure);padding:14px 28px;border-radius:4px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:background 0.2s;">Request Investor Brief →</a>
-      <a href="#ask" style="display:inline-flex;align-items:center;gap:8px;color:var(--teal-lt);font-size:0.88rem;font-weight:500;text-decoration:none;padding:14px 4px;border-bottom:1px solid rgba(220,240,240,0.2);transition:color 0.2s;">View the Ask →</a>
+    <div class="inv-hero-layout">
+      <div class="inv-hero-copy">
+        <div class="inv-badge">Investor Overview · Private AI Infrastructure · Seed Round</div>
+        <h1>Private AI infrastructure<br/>for businesses that need <em>control.</em></h1>
+        <p class="inv-hero-sub">Trosyn AI is a local-deployment AI platform for document-heavy teams. It runs inside company-controlled environments, keeps governance closer to the customer, and shifts high-volume usage from vendor quotas to available hardware. Africa is the sharpest starting wedge, not the ceiling.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="contact.html?type=investor" style="display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:var(--pure);padding:12px 22px;border-radius:4px;font-weight:600;font-size:0.82rem;text-decoration:none;transition:background 0.2s;">Request Investor Brief →</a>
+          <a href="#ask" style="display:inline-flex;align-items:center;gap:7px;color:var(--teal-lt);font-size:0.8rem;font-weight:500;text-decoration:none;padding:12px 2px;border-bottom:1px solid rgba(220,240,240,0.2);transition:color 0.2s;">View the Ask →</a>
+        </div>
+      </div>
+      <div class="inv-hero-media">
+        <img src="image for investors page.png" alt="Investor page dashboard preview"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inv-hero-below">
+  <div class="container">
+    <div class="inv-hero-core">
+      <strong style="color:var(--gold);">Core wedge:</strong> regulated and document-heavy businesses need local control, legal defensibility, and predictable throughput. Trosyn is built around that infrastructure layer, not around cloud consumption.
     </div>
     <div class="inv-hero-stats">
       <div class="inv-stat">
@@ -728,43 +862,80 @@ footer{
 <section id="problem">
   <div class="container">
     <p class="section-label">Market Gap</p>
-    <h2 class="section-title">Cloud AI breaks down in constrained operating environments.</h2>
+    <h2 class="section-title">Cloud AI is built for always-connected, externally managed environments.</h2>
+    <p class="section-body">That architecture misaligns with real enterprise conditions where data control, regulatory compliance, and infrastructure constraints matter more than raw model performance.</p>
     <div class="two-col">
       <div>
         <ul class="prob-list">
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Connectivity Dependence</strong>The launch region shows the problem clearly: only 1.2% of Africans have 5G, and internet shutdowns across 15 countries cost businesses $7.69B in 2024. If AI requires the cloud to function, the workflow fails when connectivity does. (Access Now, 2025)</div>
+            <div class="prob-text"><strong>Africa reveals the infrastructure constraint</strong> In Sub-Saharan Africa, connectivity remains structurally uneven. Internet usage reached 38% in 2024 versus 68% globally, and mobile broadband still leaves parts of the region outside reliable coverage. When AI depends on continuous cloud access, the failure happens at the infrastructure layer, not the model layer.</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Infrastructure Mismatch</strong>Always-on cloud software assumes steady power, stable internet, and hardware budgets that many operators do not have. The first customers make this mismatch obvious, but the same issue appears in other constrained environments globally.</div>
+            <div class="prob-text"><strong>The same constraint appears globally as a governance challenge</strong> In the United States, Europe, and other advanced economies, the limiting factor shifts from connectivity to compliance. Enterprises handling legal, financial, healthcare, or customer data need tighter control over retention, audit rights, and verification once data leaves the organization.</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Local Data Requirements</strong>39 of 55 African nations now have data protection laws. Nigeria mandates local hosting for financial and health data. South Africa's POPIA carries fines up to 10% of global turnover. Local control is becoming a product requirement, not just a legal preference.</div>
+            <div class="prob-text"><strong>Structural limitations of cloud-hosted AI</strong> Across both environments, cloud processing shifts control outward. Retention, deletion, and audit boundaries depend on third-party infrastructure policies instead of enterprise governance, which makes regulated workflows harder to manage end to end.</div>
           </li>
           <li class="prob-item">
             <div class="prob-dot"></div>
-            <div class="prob-text"><strong>Security Exposure</strong>The more business context that leaves the organization, the more exposure the customer takes on. For document-heavy teams, private deployment is often the simplest security posture.</div>
+            <div class="prob-text"><strong>Resulting market gap</strong> The gap is between capable cloud AI systems and the operational need for sovereignty, compliance, and resilience. For regulated or sensitive workflows, that is an architectural constraint, not a convenience issue.</div>
           </li>
         </ul>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px;">
         <div class="stat-block">
           <div class="stat-num" data-count-to="55" data-count-suffix="%">55%</div>
-          <div class="stat-desc">Of African MSMEs name technology solutions as their top priority need — yet adoption remains low because no product fits their operating environment.</div>
+          <div class="stat-desc">Of African MSMEs name technology solutions as their top priority need, yet adoption remains low because most products do not fit their operating environment.</div>
           <div class="stat-source">Africa MSME Pulse 2024</div>
         </div>
         <div class="stat-block">
           <div class="stat-num" data-count-to="7.69" data-count-prefix="$" data-count-suffix="B" data-count-decimals="2">$7.69B</div>
-          <div class="stat-desc">Cost of internet shutdowns to businesses globally in 2024. Africa alone saw 21 shutdowns across 15 countries.</div>
+          <div class="stat-desc">Cost of internet shutdowns to businesses globally in 2024, with Africa alone seeing 21 shutdowns across 15 countries.</div>
           <div class="stat-source">Access Now / WEF, 2025</div>
         </div>
         <div class="stat-block">
           <div class="stat-num" data-count-to="1" data-count-prefix="$" data-count-suffix="T">$1T</div>
-          <div class="stat-desc">Projected GDP gain if Africa achieves coordinated AI adoption by 2035. The infrastructure barrier is the single biggest blocker.</div>
+          <div class="stat-desc">Projected GDP gain if Africa achieves coordinated AI adoption by 2035, showing the size of the opportunity once the infrastructure barrier is removed.</div>
           <div class="stat-source">AfDB, 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY CLOUD AI FAILS -->
+<section id="cloud">
+  <div class="container">
+    <p class="section-label">Why Cloud AI Fails</p>
+    <h2 class="section-title">Why Cloud AI Fails for Sensitive Work</h2>
+    <p class="section-body">Cloud AI is limited not by model capability, but by where and how enterprise data must be processed and governed. When organizations use cloud-based AI systems, computation, storage, and retention are handled outside the organization’s environment.</p>
+    <div class="two-col-wide">
+      <div>
+        <ul class="prob-list">
+          <li class="prob-item">
+            <div class="prob-dot"></div>
+            <div class="prob-text"><strong>Infrastructure-constrained markets</strong> In Africa, parts of Asia, and South America, the failure mode is operational. Unstable connectivity, limited infrastructure, and inconsistent access make cloud-dependent AI unreliable for day-to-day business workflows. When connectivity fails, execution stops.</div>
+          </li>
+          <li class="prob-item">
+            <div class="prob-dot"></div>
+            <div class="prob-text"><strong>Regulated and mature markets</strong> In the US, EU, and UK, the failure mode is governance. Regulations such as GDPR, HIPAA, and internal compliance policies require strict control over where data is processed and how it is retained. Once data is processed in external systems, control shifts to provider infrastructure and policy.</div>
+          </li>
+          <li class="prob-item">
+            <div class="prob-dot"></div>
+            <div class="prob-text"><strong>The shared structural problem</strong> Across both environments, execution happens outside company control, data governance is delegated to external systems, and compliance plus audit requirements are harder to enforce end to end. The difference is not the problem itself, but how it is exposed.</div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-label">Investor Meaning</div>
+          <div class="card-title">Cloud AI is optimized for accessibility, not internal control.</div>
+          <div class="card-body">For sensitive, document-heavy, or regulated workflows, this creates a mismatch between how AI operates and how organizations are required to manage data. This is the gap that private, locally controlled AI infrastructure is designed to solve.</div>
         </div>
       </div>
     </div>
@@ -782,8 +953,8 @@ footer{
       <div>
         <p class="section-body">Trosyn AI runs on a company-controlled server and turns local models into usable business workflows. Users get a simple interface; the customer keeps control over data, deployment, and access.</p>
         <ul class="check-list" style="margin-top:24px;">
-          <li>Runs on quantized LLMs optimized for local deployment and lower-resource hardware</li>
-          <li>Starts with HR, Finance, and Legal workflows where document volume and compliance pressure are highest</li>
+          <li>Runs on local models optimized for lower-resource hardware, with a 4GB RAM minimum</li>
+          <li>Starts with HR, Finance, Legal, and Security workflows, with additional vertical packs planned (e.g., Healthcare, Procurement)</li>
           <li>Works during outages, shutdowns, and low-connectivity conditions</li>
           <li>Launches with support for regional compliance frameworks and extends by jurisdiction over time</li>
           <li>Multi-user collaboration and reusable workflow context for teams</li>
@@ -804,8 +975,8 @@ footer{
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div class="card">
           <div class="card-label">Initial Workflow Packs</div>
-          <div class="card-title">HR · Finance · Legal</div>
-          <div class="card-body">Pre-built workflow packs for the highest-volume administrative tasks in the initial ICP: document-heavy, compliance-aware, multi-user teams.</div>
+          <div class="card-title">HR · Finance · Legal · Security</div>
+          <div class="card-body">Pre-built workflow packs for document-heavy, compliance-aware teams, with additional vertical packs planned for Healthcare, Procurement, and custom workflows.</div>
         </div>
         <div class="card">
           <div class="card-label">Competitive Position</div>
@@ -816,6 +987,38 @@ footer{
           <div class="card-label">Why It Travels</div>
           <div class="card-title">Built for a repeatable category</div>
           <div class="card-body">The same architecture that works in the first launch markets can extend into any region where customers need local control, lower cloud exposure, and more resilient AI workflows.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DEPLOYMENT -->
+<section id="deployment">
+  <div class="container">
+    <p class="section-label">Deployment Modes</p>
+    <h2 class="section-title">Same system. Different operating scales.</h2>
+    <p class="section-body">All deployment modes run the same system, adapted to different organizational scales. Device and Team keep deployment overhead low and scalable. Enterprise is roadmap-only and carries more support because it is installed on client servers and maintained remotely.</p>
+    <div class="two-col-wide">
+      <div>
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-label">Device Deployment</div>
+          <div class="card-title">Self-serve app install for individual machines.</div>
+          <div class="card-body">Runs on laptops or desktops. This gives the company a low-friction entry point with limited deployment cost.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Team Deployment</div>
+          <div class="card-title">Self-serve shared internal system.</div>
+          <div class="card-body">Designed for departments and mid-market operators that need shared workflows, permissions, and local control without heavy implementation.</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-label">Enterprise Deployment · Roadmap</div>
+          <div class="card-title">Full internal server deployment.</div>
+          <div class="card-body">Software is delivered and installed by the Trosyn team on client servers, then maintained remotely. This adds support burden, but supports higher contract value for regulated customers.</div>
         </div>
       </div>
     </div>
@@ -865,9 +1068,9 @@ footer{
         <div class="card" style="margin-bottom:14px;">
           <div class="card-label">Tech Stack</div>
           <ul class="check-list">
-            <li>Quantized LLMs: Gemma 3, Mistral 7B, Llama 3</li>
-            <li>Offline inference engine — optimised for low-resource servers</li>
-            <li>Modular agent architecture — HR, Finance, Legal</li>
+            <li>Local models: Gemma 3, Mistral 7B, Llama 3</li>
+            <li>Offline inference engine optimized for low-resource servers</li>
+            <li>Modular workflow architecture: HR, Finance, Legal, Security</li>
             <li>Local server deployment — no cloud dependency</li>
           </ul>
         </div>
@@ -915,43 +1118,136 @@ footer{
   <div class="container">
     <p class="section-label">Business Model</p>
     <h2 class="section-title">Simple, recurring, scalable.</h2>
-    <p class="section-body">Subscription licensing with local deployment. Initial focus is mid-market teams with recurring document workflows, compliance pressure, and a clear reason to keep AI inside the organization.</p>
+    <p class="section-body">Trosyn AI operates on a subscription model for Device and Team deployments. Enterprise is a custom licensing path for larger organizations requiring full internal server deployment.</p>
 
     <div class="pricing-table">
       <div class="pricing-header">
-        <div>Tier</div><div>Monthly Price</div><div>Target</div>
+        <div>Tier</div><div>Monthly Range</div><div>Target</div>
       </div>
       <div class="pricing-row">
-        <div class="pricing-tier">Small Teams (1–10 users)</div>
-        <div class="pricing-price">$50–$150</div>
-        <div class="pricing-target">Smaller teams with repeatable document workflows</div>
+        <div class="pricing-tier">
+          <span class="pricing-tier-text">Tier One — Small Teams</span>
+          <span class="pricing-tier-sub">Deployment: Device or Team · Users: 1–10 base users</span>
+        </div>
+        <div class="pricing-price">$50–$150/month</div>
+        <div class="pricing-target">SMEs, professional service firms, and small teams using private AI on laptops or shared internal systems. Primary use: document processing, offline AI workflows, single-hub access.</div>
       </div>
       <div class="pricing-row highlight">
-        <div class="pricing-tier"><span class="pricing-tier-text">Mid-Market (20–100 users)</span><span class="pricing-tier-badge">Primary</span></div>
-        <div class="pricing-price">$150–$800</div>
-        <div class="pricing-target">Multi-team operators with the clearest deployment and ROI case</div>
+        <div class="pricing-tier">
+          <span class="pricing-tier-text">Tier Two — Mid-Market</span>
+          <span class="pricing-tier-sub">Deployment: Team · Users: 20–100 base users</span>
+          <span class="pricing-tier-badge">Primary</span>
+        </div>
+        <div class="pricing-price">$150–$800/month</div>
+        <div class="pricing-target">Multi-team operators with shared workflows, compliance requirements, and clear deployment and ROI case. Primary use: department-wide private AI, advanced model access, agent workflows.</div>
       </div>
       <div class="pricing-row">
-        <div class="pricing-tier">Enterprise</div>
-        <div class="pricing-price">$800–$2,500</div>
-        <div class="pricing-target">Larger regulated operators with stricter control requirements</div>
+        <div class="pricing-tier">
+          <span class="pricing-tier-text">Tier Three — Enterprise</span>
+          <span class="pricing-tier-sub">Deployment: Enterprise server · Users: 50+ unlimited</span>
+          <span class="pricing-tier-badge">Roadmap</span>
+        </div>
+        <div class="pricing-price">$800–$2,500/month</div>
+        <div class="pricing-target">Larger regulated operators requiring strict data control, audit capability, and organization-wide deployment. Primary use: full on-prem private AI, unlimited processing, custom workflows.</div>
       </div>
     </div>
 
-    <p style="margin-top:36px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Illustrative Revenue Ramp</p>
-    <div class="proj-table">
-      <div class="proj-header"><div>Period</div><div>Customers</div><div>Blended MRR</div></div>
-      <div class="proj-row"><div>Q2 2026</div><div>2–5</div><div>$1K–$3K</div></div>
-      <div class="proj-row"><div>Q3 2026</div><div>3–8</div><div>$2K–$5K</div></div>
-      <div class="proj-row"><div>Q4 2026</div><div>5–12</div><div>$4K–$10K</div></div>
-      <div class="proj-row"><div>Q1 2027</div><div>12–25</div><div>$10K–$22K</div></div>
-      <div class="proj-row"><div>Q2 2027</div><div>25–50</div><div>$20K–$45K</div></div>
-      <div class="proj-row"><div>Q3 2027</div><div>50–80</div><div>$40K–$75K</div></div>
-      <div class="proj-row"><div>Q4 2027</div><div>80–120</div><div>$70K–$120K</div></div>
-      <div class="proj-row milestone"><div class="proj-period">Q1 2028</div><div>120–180</div><div>$100K–$180K · operational maturity</div></div>
-      <div class="proj-row"><div>Q2 2028</div><div>180–260</div><div>$150K–$260K</div></div>
-      <div class="proj-row"><div>Q3 2028</div><div>260–350</div><div>$220K–$340K · expansion-ready</div></div>
-      <div class="proj-row"><div>Q4 2028</div><div>350–500</div><div>$300K–$480K</div></div>
+    <p class="model-subtitle">How tiers are structured</p>
+    <p class="model-note">Trosyn AI gates access by tier — not just by user count. Moving to a higher tier unlocks new parts of the product. Adding users within a tier does not unlock new capabilities.</p>
+    <div class="model-table">
+      <div class="model-table-head">
+        <div>Feature</div><div>Small Teams</div><div>Mid-Market</div><div>Enterprise</div>
+      </div>
+      <div class="model-table-row"><div><strong>Documents processed at once</strong></div><div>Up to 3</div><div>Up to 15</div><div>Unlimited</div></div>
+      <div class="model-table-row"><div><strong>AI model access</strong></div><div>Standard model</div><div>Advanced model</div><div>Advanced model + custom config</div></div>
+      <div class="model-table-row"><div><strong>Automations per day</strong></div><div>Up to 10/day</div><div>Up to 50/day</div><div>Unlimited</div></div>
+      <div class="model-table-row"><div><strong>AI Agents</strong></div><div>Locked — coming soon</div><div>Early access</div><div>Full access</div></div>
+      <div class="model-table-row"><div><strong>Connected devices per hub</strong></div><div>Up to 10 devices</div><div>Up to 50 devices</div><div>Unlimited</div></div>
+      <div class="model-table-row"><div><strong>Workflow packs</strong></div><div>HR, Finance, Legal</div><div>HR, Finance, Legal, Security</div><div>All packs + custom workflows</div></div>
+      <div class="model-table-row"><div><strong>Support</strong></div><div>Community</div><div>Email + priority updates</div><div>Dedicated Trosyn team</div></div>
+      <div class="model-table-row"><div><strong>Installation</strong></div><div>Self-serve app</div><div>Self-serve app</div><div>Installed by Trosyn</div></div>
+    </div>
+
+    <p class="model-subtitle">Seat expansion within tiers</p>
+    <p class="model-note">Customers can add a limited number of additional users within their current tier without upgrading. This allows natural team growth without forcing premature tier changes.</p>
+    <div class="model-table">
+      <div class="model-table-head">
+        <div>Tier</div><div>Base Users</div><div>Maximum with Seat Additions</div><div>Seat Rule</div>
+      </div>
+      <div class="model-table-row"><div><strong>Small Teams</strong></div><div>10 users</div><div>15 users</div><div>Up to 5 extra seats. Additional per-seat fee applies.</div></div>
+      <div class="model-table-row"><div><strong>Mid-Market</strong></div><div>50 users</div><div>55 users</div><div>Up to 5 extra seats. Additional per-seat fee applies.</div></div>
+      <div class="model-table-row"><div><strong>Enterprise</strong></div><div>Unlimited</div><div>Unlimited</div><div>No seat cap.</div></div>
+    </div>
+    <p class="model-note">Seat additions do not unlock features. A Small Teams customer with 15 users has the same feature access as a Small Teams customer with 10 users. The only way to unlock advanced features is to upgrade the tier. When the seat cap is reached — 15 for Small Teams, 55 for Mid-Market — the customer is prompted to upgrade to the next tier to continue adding users and access expanded capabilities.</p>
+
+    <p class="model-subtitle">The upgrade path</p>
+    <p class="model-note">The product is designed so customers naturally grow into higher tiers.</p>
+    <div class="upgrade-flow">
+      <div class="upgrade-flow-track">
+        <div class="upgrade-node">
+          <div class="upgrade-flow-step">Small Teams</div>
+          <div class="upgrade-trigger"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span><span>hits document limit or agent access needed</span></div>
+          <div class="upgrade-trigger"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span><span>seat cap reached at 15 users</span></div>
+        </div>
+        <div class="upgrade-flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">south</span></div>
+        <div class="upgrade-node">
+          <div class="upgrade-flow-step">Mid-Market</div>
+          <div class="upgrade-trigger"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span><span>needs unlimited processing</span></div>
+          <div class="upgrade-trigger"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span><span>full agent access required</span></div>
+          <div class="upgrade-trigger"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span><span>organization-wide deployment needed</span></div>
+        </div>
+        <div class="upgrade-flow-arrow"><span class="material-symbols-outlined" aria-hidden="true">south</span></div>
+        <div class="upgrade-node">
+          <div class="upgrade-flow-step">Enterprise</div>
+          <div class="upgrade-trigger"><span class="material-symbols-outlined" data-kind="success" aria-hidden="true">check_circle</span><span>unlimited processing and full agent access</span></div>
+          <div class="upgrade-trigger"><span class="material-symbols-outlined" data-kind="success" aria-hidden="true">check_circle</span><span>organization-wide private AI deployment</span></div>
+          <div class="upgrade-trigger"><span class="material-symbols-outlined" data-kind="success" aria-hidden="true">check_circle</span><span>custom workflows and dedicated Trosyn support</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="model-note">The seat expansion mechanic is intentional. It gives customers flexibility to grow their team without an immediate forced upgrade, while feature gating ensures the tier structure remains commercially intact. Revenue expands through both seat additions within tiers and tier upgrades over time.</p>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SYSTEM EVOLUTION -->
+<section id="evolution">
+  <div class="container">
+    <p class="section-label">System Evolution</p>
+    <h2 class="section-title">From local use to coordinated infrastructure.</h2>
+    <p class="section-body">The product is the same system at each stage. What changes is scale: more users, more documents, more coordination, and more compute inside the customer environment.</p>
+    <div class="two-col-wide">
+      <div>
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-label">Step 1 · Core System</div>
+          <div class="card-title">A local AI engine for document workflows.</div>
+          <div class="card-body">The system starts by processing sensitive documents inside the customer environment and turning common requests into repeatable workflow outputs.</div>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-label">Step 2 · Expansion Logic</div>
+          <div class="card-title">Usage expands as more work moves through the system.</div>
+          <div class="card-body">More users and more documents create more coordination needs. Local deployment lets that growth depend on available hardware instead of vendor quotas.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Step 3 · Deployment Mapping</div>
+          <div class="card-title">Device to Team to Enterprise.</div>
+          <div class="card-body">Device supports individual use. Team supports shared internal workflows. Enterprise is a later-stage expansion after validation, for full internal infrastructure with remote maintenance.</div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-label">Step 4 · Capability Evolution</div>
+          <div class="card-title">Value rises as work becomes more coordinated.</div>
+          <div class="card-body">The system can begin with basic document tasks, then support structured workflows, organization-wide usage, and deeper internal integration where customers have validated demand.</div>
+        </div>
+        <div class="card" style="margin-top:14px;">
+          <div class="card-label">Commercial Implication</div>
+          <div class="card-title">More usage supports higher contract value.</div>
+          <div class="card-body">As Trosyn moves from individual use to shared workflows and later internal infrastructure, the account can support higher usage, deeper integration, and stronger pricing without changing the core system.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1605,11 +1901,17 @@ setupRevealAnimations([
   { selector: '#vision .two-col-wide > :last-child', direction: 'right', delay: 70, distance: '24px' },
   { selector: '#problem .two-col > :first-child', direction: 'left', distance: '24px' },
   { selector: '#problem .two-col > :last-child', direction: 'right', delay: 70, distance: '24px' },
+  { selector: '#cloud .two-col-wide > :first-child', direction: 'left', distance: '24px' },
+  { selector: '#cloud .two-col-wide > :last-child', direction: 'right', delay: 70, distance: '24px' },
   { selector: '#solution .two-col-wide > :first-child', direction: 'left', distance: '24px' },
   { selector: '#solution .two-col-wide > :last-child', direction: 'right', delay: 70, distance: '24px' },
+  { selector: '#deployment .two-col-wide > :first-child', direction: 'left', distance: '24px' },
+  { selector: '#deployment .two-col-wide > :last-child', direction: 'right', delay: 70, distance: '24px' },
   { selector: '#market .market-grid', delay: 40 },
   { selector: '#traction .two-col', delay: 40 },
-  { selector: '#model .pricing-table, #model .proj-table', delay: 40, stagger: 80 },
+  { selector: '#model .pricing-table', delay: 40 },
+  { selector: '#evolution .two-col-wide > :first-child', direction: 'left', distance: '24px' },
+  { selector: '#evolution .two-col-wide > :last-child', direction: 'right', delay: 70, distance: '24px' },
   { selector: '#roadmap .roadmap', delay: 40 },
   { selector: '#risks .risk-table', delay: 40 },
   { selector: '#ask .funding-block', delay: 40 },
