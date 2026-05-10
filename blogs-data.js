@@ -1,4 +1,4 @@
-[
+window.TROSYN_BLOG_POSTS = [
   {
     "title": "Beyond Headcount: The Asymmetric Advantage of Lean Teams in the AI Era",
     "date": "2026-05-13",
@@ -71,4 +71,4 @@
     "category": "featured",
     "readTime": "4 min read"
   }
-]
+];

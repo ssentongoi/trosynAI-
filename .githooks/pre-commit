@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(git rev-parse --show-toplevel)"
+
+node "$ROOT_DIR/scripts/sync-blogs-json.mjs"
+git -C "$ROOT_DIR" add blogs.json blogs-data.js

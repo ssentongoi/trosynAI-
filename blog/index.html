@@ -83,6 +83,7 @@
     </div>
   </footer>
 
+  <script src="../blogs-data.js"></script>
   <script>
     const FALLBACK_POSTS = [
       {
@@ -268,11 +269,17 @@
         renderPosts();
     };
 
-    fetch('../blogs.json')
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to load blogs.json');
-        return res.json();
-      })
+    const loadPosts = async () => {
+      if (Array.isArray(window.TROSYN_BLOG_POSTS) && window.TROSYN_BLOG_POSTS.length) {
+        return window.TROSYN_BLOG_POSTS;
+      }
+
+      const res = await fetch('../blogs.json');
+      if (!res.ok) throw new Error('Failed to load blogs.json');
+      return res.json();
+    };
+
+    loadPosts()
       .then(async (posts) => {
         const enriched = await enrichPostsWithLeadImages(posts);
         renderBlog(enriched);
