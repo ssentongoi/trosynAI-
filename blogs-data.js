@@ -70,5 +70,14 @@ window.TROSYN_BLOG_POSTS = [
     "image": "./images/1IMoaEYiohYWzTcLmdV_SHg.webp",
     "category": "featured",
     "readTime": "4 min read"
+  },
+  {
+    "title": "googleba82008df7dcec09",
+    "date": "1970-01-01",
+    "excerpt": "",
+    "slug": "googleba82008df7dcec09",
+    "image": "./images/1IMoaEYiohYWzTcLmdV_SHg.webp",
+    "category": "featured",
+    "readTime": "8 min read"
   }
 ];
