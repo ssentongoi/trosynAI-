@@ -46,12 +46,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .nav-links a.active{opacity:1;color:var(--pure);}
 .nav-cta{background:#e05a3a!important;color:#ffffff!important;opacity:1!important;font-weight:700!important;border-radius:6px!important;padding:10px 22px!important;}
 .nav-cta:hover{background:#c44030!important;}
+.nav-toggle{display:none;border:1px solid rgba(220,240,240,0.35);background:transparent;color:var(--pure);width:42px;height:42px;border-radius:10px;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--pure);border-radius:2px;transition:transform .2s ease,opacity .2s ease;}
+.nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.is-open span:nth-child(2){opacity:0;}
+.nav-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 @media(max-width:860px){
   nav{padding:0 16px;}
-  .nav-inner{height:auto;min-height:68px;padding:10px 0;align-items:flex-start;flex-direction:column;gap:10px;}
-  .nav-links{width:100%;overflow-x:auto;white-space:nowrap;gap:6px;padding-bottom:2px;}
-  .nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;font-size:0.82rem;}
-  .nav-cta{padding:10px 18px!important;}
+  .nav-inner{height:68px;min-height:68px;align-items:center;flex-direction:row;gap:10px;}
+  .nav-toggle{display:inline-flex;margin-left:auto;}
+  .nav-links{position:absolute;left:16px;right:16px;top:calc(100% + 8px);display:flex;flex-direction:column;gap:8px;background:rgba(0,96,84,0.98);border:1px solid rgba(220,240,240,0.18);border-radius:12px;padding:10px;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-8px);transition:max-height .25s ease,opacity .2s ease,transform .2s ease;}
+  .nav-links.is-open{max-height:70vh;opacity:1;pointer-events:auto;transform:translateY(0);}
+  .nav-links a{display:flex;align-items:center;justify-content:flex-start;min-height:46px;width:100%;padding:11px 14px;font-size:0.92rem;border-radius:8px;}
+  .nav-cta{padding:11px 14px!important;}
 }
 
 /* HERO */
@@ -689,7 +696,10 @@ footer{
     <a class="nav-logo" href="index.html" aria-label="Trosyn AI home">
       <span class="nav-logo-wordmark"><span>trosyn</span><span class="nav-logo-ai">AI</span></span>
     </a>
-    <ul class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="site-nav-links">
       <li><a href="index.html" class="active">Product</a></li>
       <li><a href="investors.html">Investors</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -1531,5 +1541,26 @@ setupRevealAnimations([
 ]);
 </script>
 
+<script>
+(function(){
+  var toggle=document.querySelector(".nav-toggle");
+  var links=document.getElementById("site-nav-links");
+  if(!toggle||!links) return;
+  function closeMenu(){
+    toggle.classList.remove("is-open");
+    links.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded","false");
+    toggle.setAttribute("aria-label","Open navigation menu");
+  }
+  toggle.addEventListener("click",function(){
+    var open=toggle.classList.toggle("is-open");
+    links.classList.toggle("is-open",open);
+    toggle.setAttribute("aria-expanded",open?"true":"false");
+    toggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+  });
+  links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",closeMenu);});
+  window.addEventListener("resize",function(){if(window.innerWidth>860){closeMenu();}});
+})();
+</script>
 </body>
 </html>

@@ -33,12 +33,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .nav-links a.active{opacity:1;color:var(--pure);}
 .nav-cta{background:#e05a3a!important;color:#ffffff!important;opacity:1!important;font-weight:700!important;border-radius:6px!important;padding:10px 22px!important;}
 .nav-cta:hover{background:#c44030!important;}
+.nav-toggle{display:none;border:1px solid rgba(220,240,240,0.35);background:transparent;color:var(--pure);width:42px;height:42px;border-radius:10px;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--pure);border-radius:2px;transition:transform .2s ease,opacity .2s ease;}
+.nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.is-open span:nth-child(2){opacity:0;}
+.nav-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 @media(max-width:860px){
   nav{padding:0 16px;}
-  .nav-inner{height:auto;min-height:68px;padding:10px 0;align-items:flex-start;flex-direction:column;gap:10px;}
-  .nav-links{width:100%;overflow-x:auto;white-space:nowrap;gap:6px;padding-bottom:2px;}
-  .nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;font-size:0.82rem;}
-  .nav-cta{padding:10px 18px!important;}
+  .nav-inner{height:68px;min-height:68px;align-items:center;flex-direction:row;gap:10px;}
+  .nav-toggle{display:inline-flex;margin-left:auto;}
+  .nav-links{position:absolute;left:16px;right:16px;top:calc(100% + 8px);display:flex;flex-direction:column;gap:8px;background:rgba(0,96,84,0.98);border:1px solid rgba(220,240,240,0.18);border-radius:12px;padding:10px;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-8px);transition:max-height .25s ease,opacity .2s ease,transform .2s ease;}
+  .nav-links.is-open{max-height:70vh;opacity:1;pointer-events:auto;transform:translateY(0);}
+  .nav-links a{display:flex;align-items:center;justify-content:flex-start;min-height:46px;width:100%;padding:11px 14px;font-size:0.92rem;border-radius:8px;}
+  .nav-cta{padding:11px 14px!important;}
 }
 
 .page{padding:56px 0 0;background:var(--soft-white-alt);color:var(--navy);border-top:1px solid rgba(220,240,240,0.1);}
@@ -75,13 +82,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-fil
 .founder-note{background:#fff9ee;border:1px solid rgba(240,180,100,0.24);border-radius:14px;padding:22px;}
 .founder-note-title{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#c88f46;margin-bottom:10px;}
 .founder-note-copy{font-size:0.84rem;color:#586c7a;line-height:1.68;}
-.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-.vision-card,.stage-card{border-radius:16px;padding:28px 26px;}
-.vision-card{background:linear-gradient(145deg,#00584f 0%,#003f3a 70%,#003536 100%);border:1px solid rgba(220,240,240,0.12);color:var(--pure);box-shadow:0 14px 28px rgba(7,35,36,0.18);}
+.vision-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+.vision-card,.stage-card{border-radius:16px;padding:34px 32px;}
+.vision-card{background:linear-gradient(145deg,#00584f 0%,#003f3a 70%,#003536 100%);border:1px solid rgba(220,240,240,0.12);color:var(--pure);box-shadow:0 14px 28px rgba(7,35,36,0.18);position:relative;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;animation:visionCardIn .7s cubic-bezier(.22,.61,.36,1) both;}
+.vision-card::before{content:'';position:absolute;inset:-35% auto auto -40%;width:62%;height:180%;background:linear-gradient(120deg,rgba(255,255,255,0.12) 0%,rgba(255,255,255,0.02) 55%,rgba(255,255,255,0) 100%);transform:rotate(10deg);pointer-events:none;opacity:.75;transition:transform .5s ease,opacity .5s ease;}
+.vision-card:hover{transform:translateY(-6px);box-shadow:0 20px 38px rgba(7,35,36,0.28);border-color:rgba(220,240,240,0.24);}
+.vision-card:hover::before{transform:translateX(16px) rotate(10deg);opacity:1;}
 .vision-card .content-label{color:#c9eee7;}
-.vision-card .content-title{color:var(--pure);max-width:9ch;}
-.vision-card .content-copy{color:rgba(228,246,242,0.9);}
-.stage-card{background:#fbf8f1;border:1px solid rgba(240,180,100,0.22);}
+.vision-card .content-title{color:var(--pure);max-width:18ch;font-size:clamp(2.1rem,4vw,3rem);}
+.vision-card .content-copy{color:rgba(228,246,242,0.9);max-width:74ch;}
+.vision-points{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px;}
+.vision-points li{background:rgba(220,240,240,0.06);border:1px solid rgba(220,240,240,0.12);border-radius:12px;padding:14px 14px;font-size:0.9rem;line-height:1.64;color:rgba(233,248,245,0.94);}
+.vision-points strong{display:block;color:var(--pure);font-size:0.92rem;margin-bottom:4px;}
+.stage-card{background:#fbf8f1;border:1px solid rgba(240,180,100,0.22);max-width:760px;justify-self:center;width:100%;box-shadow:0 10px 20px rgba(20,40,60,0.08);}
 .stage-card .content-title{max-width:10ch;}
 .stage-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,96,84,0.08);border:1px solid rgba(0,96,84,0.14);border-radius:999px;padding:8px 12px;font-size:0.72rem;color:var(--green);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:18px;}
 
@@ -99,10 +112,19 @@ footer{background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);border-top:1px
 .footer-bottom-links a:hover{color:var(--gold);}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes visionCardIn{from{opacity:0;transform:translateY(16px) scale(.985);}to{opacity:1;transform:translateY(0) scale(1);}}
 .page-header,.panel,.vision-card,.stage-card,.constraint-card{animation:fadeUp 0.6s ease both;}
+
+@media (prefers-reduced-motion: reduce){
+  .vision-card{animation:none;transition:none;}
+  .vision-card::before{transition:none;}
+  .vision-card:hover{transform:none;}
+  .vision-card:hover::before{transform:rotate(10deg);}
+}
 
 @media(max-width:760px){
   .two-col,.two-col-wide,.vision-grid,.constraints-grid{grid-template-columns:1fr;}
+  .vision-points{grid-template-columns:1fr;}
   .panel,.vision-card,.stage-card,.founder-note{padding:24px 20px;}
   .page-title{max-width:none;}
   .footer-top{grid-template-columns:1fr;gap:24px;}
@@ -123,7 +145,10 @@ footer{background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);border-top:1px
     <a class="nav-logo" href="index.html" aria-label="Trosyn AI home">
       <span class="nav-logo-wordmark"><span>trosyn</span><span class="nav-logo-ai">AI</span></span>
     </a>
-    <ul class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="site-nav-links">
       <li><a href="index.html">Product</a></li>
       <li><a href="investors.html">Investors</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -202,7 +227,7 @@ footer{background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);border-top:1px
       <div class="two-col">
         <div class="panel">
           <p class="content-label">Founder</p>
-          <div class="founder-name">Ivan Santongo</div>
+          <div class="founder-name">Ivan Ssentongo</div>
           <div class="founder-role">Founder</div>
           <p class="founder-copy">Founder and product builder with a background in UX/UI design, focused on creating practical systems that solve real business problems. Trosyn AI is being developed from direct experience with infrastructure limitations, data sensitivity, and the need for tools that work in real operating environments.</p>
         </div>
@@ -221,8 +246,14 @@ footer{background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);border-top:1px
       <div class="vision-grid">
         <div class="vision-card">
           <p class="content-label">Vision</p>
-          <h2 class="content-title">AI should work where businesses actually operate.</h2>
-          <p class="content-copy">We are building AI systems that respect data ownership, operate locally, and remove dependence on external or unreliable infrastructure.</p>
+          <h2 class="content-title">AI should work inside the environments businesses already trust.</h2>
+          <p class="content-copy">Trosyn AI is building private AI infrastructure for organizations that need control over sensitive workflows, internal data, and how AI systems are deployed.</p>
+          <ul class="vision-points">
+            <li><strong>✓ Internal governance</strong>Keep document processing, search, summarization, and workflow execution inside company-controlled environments.</li>
+            <li><strong>✓ Flexible deployment</strong>Deploy across local devices, shared team systems, or internal infrastructure as operational needs grow.</li>
+            <li><strong>✓ Operational reliability</strong>Support organizations operating under governance, compliance, privacy, or infrastructure constraints.</li>
+            <li><strong>✓ Practical AI adoption</strong>Enable teams to use AI without building internal AI infrastructure or relying entirely on external cloud systems.</li>
+          </ul>
         </div>
         <div class="stage-card">
           <p class="content-label">Current Stage</p>
@@ -271,5 +302,26 @@ footer{background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);border-top:1px
     </div>
   </footer>
 </div>
+<script>
+(function(){
+  var toggle=document.querySelector(".nav-toggle");
+  var links=document.getElementById("site-nav-links");
+  if(!toggle||!links) return;
+  function closeMenu(){
+    toggle.classList.remove("is-open");
+    links.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded","false");
+    toggle.setAttribute("aria-label","Open navigation menu");
+  }
+  toggle.addEventListener("click",function(){
+    var open=toggle.classList.toggle("is-open");
+    links.classList.toggle("is-open",open);
+    toggle.setAttribute("aria-expanded",open?"true":"false");
+    toggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+  });
+  links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",closeMenu);});
+  window.addEventListener("resize",function(){if(window.innerWidth>860){closeMenu();}});
+})();
+</script>
 </body>
 </html>
