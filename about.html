@@ -22,7 +22,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .topo{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.05;background-image:repeating-radial-gradient(ellipse at 20% 50%,transparent 0,transparent 40px,#DCF0F0 41px,transparent 42px),repeating-radial-gradient(ellipse at 80% 20%,transparent 0,transparent 60px,#DCF0F0 61px,transparent 62px);}
 .container{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 28px;}
 
-nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,240,240,0.08);padding:0 28px;}
+nav{position:sticky;top:0;z-index:100;background:rgba(0,96,84,0.88);backdrop-filter:blur(14px) saturate(118%);-webkit-backdrop-filter:blur(14px) saturate(118%);border-bottom:1px solid rgba(220,240,240,0.2);box-shadow:0 4px 10px rgba(12,42,40,0.12),inset 0 1px 0 rgba(255,255,255,0.18);padding:0 28px;overflow:hidden;}
+nav::before{content:'';position:absolute;top:-45%;left:-32%;width:36%;height:190%;background:linear-gradient(115deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.16) 48%,rgba(255,255,255,0.05) 62%,rgba(255,255,255,0) 100%);pointer-events:none;transform:translateX(0) rotate(8deg);animation:navGlossSweep 7.6s ease-in-out infinite;}
+nav::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(255,255,255,0) 34%);}
 .nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
 .nav-logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--pure);white-space:nowrap;}
 .nav-logo-wordmark{display:inline-flex;align-items:baseline;gap:3px;font-family:'DM Sans',sans-serif;font-size:1.45rem;font-weight:600;letter-spacing:-0.055em;line-height:1;color:var(--pure);}
@@ -112,10 +114,17 @@ footer{background:linear-gradient(145deg,#0d3f34 0%,#0a3129 100%);border-top:1px
 .footer-bottom-links a:hover{color:var(--gold);}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes navGlossSweep{
+  0%{transform:translateX(0) rotate(8deg);opacity:.08;}
+  20%{opacity:.3;}
+  50%{transform:translateX(310%) rotate(8deg);opacity:.22;}
+  100%{transform:translateX(305%) rotate(8deg);opacity:0;}
+}
 @keyframes visionCardIn{from{opacity:0;transform:translateY(16px) scale(.985);}to{opacity:1;transform:translateY(0) scale(1);}}
 .page-header,.panel,.vision-card,.stage-card,.constraint-card{animation:fadeUp 0.6s ease both;}
 
 @media (prefers-reduced-motion: reduce){
+  nav::before{animation:none;opacity:.22;}
   .vision-card{animation:none;transition:none;}
   .vision-card::before{transition:none;}
   .vision-card:hover{transform:none;}
