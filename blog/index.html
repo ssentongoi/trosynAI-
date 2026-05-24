@@ -13,6 +13,7 @@
   <script defer src="../lib/consent/consentManager.js"></script>
   <script defer src="../lib/analytics/clarityLoader.js"></script>
   <script defer src="../components/ConsentBanner.js"></script>
+  <script src="../assets/js/skeletons.js"></script>
 </head>
 <body class="blog-page blog-index-page">
   <div class="topo"></div>
@@ -42,7 +43,7 @@
       <p class="blog-section-sub">Essays and operating notes on local AI deployment, workflow design, and what teams need before AI becomes production infrastructure.</p>
 
       <div id="blog-filters" class="blog-filters" role="tablist" aria-label="Blog categories"></div>
-      <div id="blog-list" class="blog-grid enhanced" aria-live="polite"></div>
+      <div id="blog-list" class="blog-grid enhanced" aria-live="polite" data-skeleton-blog-grid data-skeleton-cards="6"></div>
     </section>
   </main>
 
@@ -210,6 +211,9 @@
           .sort((a, b) => new Date(b.date) - new Date(a.date));
 
         const renderPosts = () => {
+          if (window.TrosynSkeletons) {
+            window.TrosynSkeletons.markBlogIndexLoaded(list);
+          }
           const visible = activeFilter === 'all'
             ? normalized
             : normalized.filter((post) => post.category === activeFilter);
@@ -268,6 +272,10 @@
         renderFilters();
         renderPosts();
     };
+
+    if (window.TrosynSkeletons) {
+      window.TrosynSkeletons.initBlogIndexSkeleton();
+    }
 
     const loadPosts = async () => {
       if (Array.isArray(window.TROSYN_BLOG_POSTS) && window.TROSYN_BLOG_POSTS.length) {

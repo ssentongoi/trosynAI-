@@ -9,6 +9,8 @@
   --pure: #ffffff;
   --coral: #dc503c;
   --gold: #f0b464;
+  --skeleton-base: rgba(207, 224, 226, 0.2);
+  --skeleton-highlight: rgba(240, 247, 248, 0.44);
 }
 
 * {
@@ -21,6 +23,118 @@ body {
   color: var(--brand-text);
   background: var(--brand-green);
   line-height: 1.65;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--skeleton-base);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent 10%, var(--skeleton-highlight) 50%, transparent 90%);
+  animation: skeletonShimmer 1.35s ease-in-out infinite;
+}
+
+.skeleton-title {
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.skeleton-title.short {
+  width: 72%;
+}
+
+.skeleton-text {
+  height: 12px;
+  margin-bottom: 8px;
+}
+
+.skeleton-text.short {
+  width: 64%;
+}
+
+.skeleton-meta {
+  width: 36%;
+  height: 10px;
+  margin-top: 14px;
+}
+
+.skeleton-badge {
+  width: 180px;
+  height: 24px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.skeleton-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 14px;
+}
+
+.skeleton-input {
+  height: 48px;
+  margin-bottom: 12px;
+}
+
+.skeleton-button {
+  height: 46px;
+  width: 180px;
+  border-radius: 6px;
+}
+
+.skeleton-panel {
+  margin-top: 18px;
+}
+
+.page-skeleton {
+  border: 1px solid rgba(220, 240, 240, 0.12);
+  border-radius: 14px;
+  background: rgba(20, 40, 60, 0.3);
+  padding: 18px;
+}
+
+.read-more-grid.is-skeleton-active {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.read-more-grid .skeleton-card {
+  border: 1px solid rgba(220, 240, 240, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(20, 40, 60, 0.32);
+}
+
+.blog-grid.is-skeleton-active {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.blog-grid .skeleton-card {
+  border: 1px solid rgba(220, 240, 240, 0.12);
+  border-radius: 12px;
+  padding: 14px;
+  background: rgba(20, 40, 60, 0.32);
 }
 
 .container {
@@ -824,7 +938,19 @@ footer {
   100% { transform: translateX(305%) rotate(8deg); opacity: 0; }
 }
 
+@keyframes skeletonShimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .skeleton::after {
+    animation: none;
+    transform: none;
+    opacity: 0.38;
+  }
+
   nav::before {
     animation: none;
     opacity: 0.22;

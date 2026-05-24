@@ -340,6 +340,7 @@ footer{
 <script defer src="lib/consent/consentManager.js"></script>
 <script defer src="lib/analytics/clarityLoader.js"></script>
 <script defer src="components/ConsentBanner.js"></script>
+<script src="assets/js/skeletons.js"></script>
 </head>
 <body>
 <div class="topo"></div>
@@ -519,7 +520,7 @@ footer{
         <div class="form-title">Waitlist application</div>
         <div class="form-sub">Tell us who you are and we will review your request for controlled early access.</div>
         <div class="review-note"><strong>Controlled access:</strong> submitting the form does not imply instant access, instant download, or automatic approval.</div>
-        <div class="tally-shell" data-tally-src="https://tally.so/embed/rj08rp?hideTitle=1&amp;dynamicHeight=1">
+        <div class="tally-shell" data-skeleton-waitlist data-tally-src="https://tally.so/embed/rj08rp?hideTitle=1&amp;dynamicHeight=1">
           <div class="tally-placeholder">
             <div class="tally-placeholder-card">
               <div class="tally-placeholder-icon">📝</div>
@@ -627,6 +628,9 @@ function setupRevealAnimations(configs) {
 function setupTallyEmbed() {
   const shell = document.querySelector('.tally-shell');
   if (!shell) return;
+  if (window.TrosynSkeletons) {
+    window.TrosynSkeletons.initWaitlistSkeleton();
+  }
 
   const src = (shell.dataset.tallySrc || '').trim();
   if (!src) return;
@@ -635,6 +639,11 @@ function setupTallyEmbed() {
   iframe.src = src;
   iframe.title = 'Trosyn AI waitlist form';
   iframe.loading = 'lazy';
+  iframe.addEventListener('load', () => {
+    shell.setAttribute('aria-busy', 'false');
+    const skeleton = shell.querySelector('.page-skeleton-waitlist');
+    if (skeleton) skeleton.remove();
+  });
   shell.innerHTML = '';
   const frameWrap = document.createElement('div');
   frameWrap.className = 'tally-frame-wrap';

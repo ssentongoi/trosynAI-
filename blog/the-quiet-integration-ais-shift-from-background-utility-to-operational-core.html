@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="../assets/js/skeletons.js"></script>
 </head>
 <body class="blog-page">
   <div class="topo"></div>
@@ -132,7 +133,7 @@
 
     <section class="panel read-more-panel" aria-label="Read more blogs">
       <h2 class="read-more-title">Read more blogs</h2>
-      <div id="read-more-list" class="read-more-grid"></div>
+      <div id="read-more-list" class="read-more-grid" data-skeleton-read-more data-skeleton-cards="2" aria-live="polite"></div>
     </section>
   </main>
 
@@ -142,6 +143,9 @@
       const content = document.querySelector('.post-content');
       const readNode = document.getElementById('post-read-time');
       const readMoreList = document.getElementById('read-more-list');
+      if (window.TrosynSkeletons) {
+        window.TrosynSkeletons.initBlogReadMoreSkeletons();
+      }
       if (content && readNode) {
         const words = (content.textContent || '').trim().split(/\s+/).filter(Boolean).length;
         const minutes = Math.max(1, Math.round(words / 220));
@@ -252,6 +256,9 @@
 
       const renderReadMore = (posts) => {
         if (!readMoreList) return;
+        if (window.TrosynSkeletons) {
+          window.TrosynSkeletons.markBlogReadMoreLoaded(readMoreList);
+        }
         const related = posts
           .filter((post) => post.slug && post.slug !== currentSlug)
           .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -286,4 +293,3 @@
   </script>
 </body>
 </html>
-
